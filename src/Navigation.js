@@ -1,22 +1,21 @@
 import React from "react";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 function Navigation() {
   return (
     <div className="Navigation">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">We ❤️ Vinyls</Navbar.Brand>
+        <NavLink to="/">We ❤️ Vinyls</NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">Records</Nav.Link>
-            <Nav.Link href="#pricing">Markets</Nav.Link>
+            <NavLink to="/markets">Markets</NavLink>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Profile</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Log in
-            </Nav.Link>
+            <NavLink to="/profile"> Profile</NavLink>
+            <NavLink to="/login">Log in</NavLink>
+            <NavLink to="/signup">Sign up</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
