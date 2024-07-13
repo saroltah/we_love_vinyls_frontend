@@ -1,6 +1,7 @@
-import Navigation from "./Navigation";
+import Navigation from "./elements/Navigation";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
+import "./api/AxiosDefaults";
 
 function App() {
   return (
