@@ -5,7 +5,14 @@ import { useCurrentUser } from "../context/CurrentUserContext";
 
 function Navigation() {
   const currentUser = useCurrentUser();
-  const loggedInMenu = <>{currentUser?.username}</>;
+  const loggedInMenu = (
+    <>
+      <NavLink to="/mymarkets"> My markets</NavLink>
+      <NavLink to="/myrecords"> My records </NavLink>
+      <NavLink to="/profile"> {currentUser?.username}</NavLink>
+      <NavLink to="/logout"> Log out</NavLink>
+    </>
+  );
   const loggedOutMenu = (
     <>
       <NavLink to="/login">Log in</NavLink>
@@ -19,12 +26,10 @@ function Navigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
+            <NavLink to="/">Records</NavLink>
             <NavLink to="/markets">Markets</NavLink>
           </Nav>
-          <Nav>
-            <NavLink to="/profile"> Profile</NavLink>
-            {currentUser ? loggedInMenu : loggedOutMenu}
-          </Nav>
+          <Nav>{currentUser ? loggedInMenu : loggedOutMenu}</Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>
