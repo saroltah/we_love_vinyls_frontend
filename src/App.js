@@ -1,4 +1,6 @@
 import Navigation from "./elements/Navigation";
+import SignUp from "./authentication/SignUp";
+import LogIn from "./authentication/LogIn";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import "./api/AxiosDefaults";
@@ -11,8 +13,8 @@ function App() {
         <Route exact path="/" render={() => <h1>Records</h1>} />
         <Route exact path="/markets" render={() => <h1>Markets</h1>} />
         <Route exact path="/profile" render={() => <h1>Profile</h1>} />
-        <Route exact path="/login" render={() => <h1>Log in</h1>} />
-        <Route exact path="/signup" render={() => <h1>Sign up</h1>} />
+        <Route exact path="/login" render={() => <LogIn />} />
+        <Route exact path="/signup" render={() => <SignUp />} />
         <Route render={() => <p>This page is not found!</p>} />
       </Switch>
     </div>
