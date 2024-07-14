@@ -1,8 +1,17 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useCurrentUser } from "../context/CurrentUserContext";
 
 function Navigation() {
+  const currentUser = useCurrentUser();
+  const loggedInMenu = <>{currentUser?.username}</>;
+  const loggedOutMenu = (
+    <>
+      <NavLink to="/login">Log in</NavLink>
+      <NavLink to="/signup"> Sign up</NavLink>
+    </>
+  );
   return (
     <div className="Navigation">
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -14,8 +23,7 @@ function Navigation() {
           </Nav>
           <Nav>
             <NavLink to="/profile"> Profile</NavLink>
-            <NavLink to="/login">Log in</NavLink>
-            <NavLink to="/signup">Sign up</NavLink>
+            {currentUser ? loggedInMenu : loggedOutMenu}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
