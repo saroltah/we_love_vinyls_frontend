@@ -1,16 +1,40 @@
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../context/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../context/CurrentUserContext";
+import axios from "axios";
+import ProfilePic from "./ProfilePic";
 
 function Navigation() {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleLogOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const loggedInMenu = (
     <>
       <NavLink to="/mymarkets"> My markets</NavLink>
       <NavLink to="/myrecords"> My records </NavLink>
-      <NavLink to="/profile"> {currentUser?.username}</NavLink>
-      <NavLink to="/logout"> Log out</NavLink>
+      <NavLink to={`/profile/${currentUser?.username}`}>
+        <ProfilePic
+          src={currentUser?.profile_image}
+          text={currentUser?.username}
+          height={40}
+        />
+      </NavLink>
+      <NavLink to="/" onClick={handleLogOut}>
+        Log out
+      </NavLink>
     </>
   );
   const loggedOutMenu = (
