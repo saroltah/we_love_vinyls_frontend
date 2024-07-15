@@ -7,10 +7,13 @@ import {
 } from "../context/CurrentUserContext";
 import axios from "axios";
 import ProfilePic from "./ProfilePic";
+import ClickOutsideToggle from "../hooks/ClickOutsideToggle";
 
 function Navigation() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+
+  const { fullMenu, setFullMenu, ref } = ClickOutsideToggle();
 
   const handleLogOut = async () => {
     try {
@@ -45,9 +48,18 @@ function Navigation() {
   );
   return (
     <div className="Navigation">
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expanded={fullMenu}
+        expand="lg"
+        bg="dark"
+        variant="dark">
         <NavLink to="/">We ❤️ Vinyls</NavLink>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          onClick={() => setFullMenu(!fullMenu)}
+          ref={ref}
+        />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <NavLink to="/">Records</NavLink>
