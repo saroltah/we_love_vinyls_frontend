@@ -1,6 +1,7 @@
 import Navigation from "./elements/Navigation";
 import SignUp from "./authentication/SignUp";
 import LogIn from "./authentication/LogIn";
+import Records from "./pages/Records";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import "./api/AxiosDefaults";
@@ -10,7 +11,7 @@ function App() {
     <div className="App">
       <Navigation />
       <Switch>
-        <Route exact path="/" render={() => <h1>Records</h1>} />
+        <Route exact path="/" render={() => <Records />} />
         <Route exact path="/markets" render={() => <h1>Markets</h1>} />
         <Route exact path="/profile" render={() => <h1>Profile</h1>} />
         <Route exact path="/login" render={() => <LogIn />} />
