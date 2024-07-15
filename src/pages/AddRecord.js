@@ -84,7 +84,7 @@ function AddRecord() {
           />
         </Form.Group>
 
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="ArtistID">
           <Form.Label>Artist</Form.Label>
           <Form.Control
             type="text"
@@ -94,7 +94,7 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="TitleID">
           <Form.Label>Title</Form.Label>
           <Form.Control
             type="text"
@@ -104,7 +104,7 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Group controlId="GenreID">
           <Form.Label>Genre</Form.Label>
           <Form.Control
             as="select"
@@ -148,18 +148,18 @@ function AddRecord() {
             <option value="heavy-metal">Heavy Metal</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlTextarea1">
+        <Form.Group controlId="TrackListID">
           <Form.Label>Track List</Form.Label>
           <Form.Control
             as="textarea"
-            rows={6}
+            rows={3}
             name="tracklist"
             value={tracklist}
             onChange={changeRecordDetails}
             placeholder="e.g. 1. Song1 2. Song2"
           />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Group controlId="ConditionID">
           <Form.Label>Condition</Form.Label>
           <Form.Control
             as="select"
@@ -171,7 +171,7 @@ function AddRecord() {
             <option value="used">Used</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="ReleasedID">
           <Form.Label>Released</Form.Label>
           <Form.Control
             type="number"
@@ -183,7 +183,7 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="LocationID">
           <Form.Label>Location</Form.Label>
           <Form.Control
             type="text"
@@ -193,7 +193,7 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="PriceID">
           <Form.Label>Price</Form.Label>
           <Form.Control
             type="text"
@@ -203,7 +203,7 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
-        <Form.Group controlId="exampleForm.ControlInput1">
+        <Form.Group controlId="ContactID">
           <Form.Label>Contact</Form.Label>
           <Form.Control
             type="text"
