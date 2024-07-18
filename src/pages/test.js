@@ -1,7 +1,7 @@
-import { createContext, useEffect, useState, useContext, useMemo } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { axiosRes, axiosReq } from "../api/AxiosDefaults";
+import { axiosReq, axiosRes } from "../api/axiosDefaults";
+import { useHistory } from "react-router";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -34,7 +34,7 @@ export const CurrentUserProvider = ({ children }) => {
         } catch (err) {
           setCurrentUser((prevCurrentUser) => {
             if (prevCurrentUser) {
-              history.push("/login");
+              history.push("/signin");
             }
             return null;
           });
@@ -56,7 +56,7 @@ export const CurrentUserProvider = ({ children }) => {
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
-                history.push("/login");
+                history.push("/signin");
               }
               return null;
             });

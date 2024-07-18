@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Form, Button, Image, Alert } from "react-bootstrap";
 
-import Loading from "../elements/Loading";
-import { Image } from "react-bootstrap";
-import Upload from "../assets/upload.png";
+import upload from "../assets/upload.png";
+import { useHistory } from "react-router-dom";
+import { axiosReq } from "../api/AxiosDefaults";
+
+import styles from "../styles/UploadPic.module.css";
 
 function AddRecord() {
   const [errors, setErrors] = useState({});
@@ -37,6 +37,9 @@ function AddRecord() {
     contact,
   } = recordDetails;
 
+  const imageInput = useRef(null);
+  const history = useHistory();
+
   function changeRecordDetails(event) {
     setRecordDetails({
       ...recordDetails,
@@ -54,9 +57,37 @@ function AddRecord() {
     }
   }
 
+  const handleAddingRecord = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    if (imageInput.current.files.length > 0) {
+      formData.append("image", imageInput.current.files[0]);
+    }
+    formData.append("artist", artist);
+    formData.append("title", title);
+    formData.append("genre", genre);
+    formData.append("tracklist", tracklist);
+    formData.append("condition", condition);
+    formData.append("released", released);
+    formData.append("location", location);
+    formData.append("price", price);
+    formData.append("contact", contact);
+
+    try {
+      const { data } = await axiosReq.post("/records/", formData);
+      history.push(`/records/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
   return (
     <div>
-      <Form>
+      <Form onSubmit={handleAddingRecord}>
         <Form.Group>
           {image ? (
             <>
@@ -73,7 +104,11 @@ function AddRecord() {
             <Form.Label
               className="d-flex justify-content-center"
               htmlFor="image-upload">
-              <Loading message="Upload an image" />
+              <img
+                src={upload}
+                alt="Upload image"
+                className={styles.UploadPic}
+              />
             </Form.Label>
           )}
 
@@ -81,8 +116,15 @@ function AddRecord() {
             id="image-upload"
             accept="image/*"
             onChange={changeRecordImage}
+            ref={imageInput}
           />
         </Form.Group>
+
+        {errors?.image?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
         <Form.Group controlId="ArtistID">
           <Form.Label>Artist</Form.Label>
@@ -94,6 +136,12 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
+        {errors?.artist?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="TitleID">
           <Form.Label>Title</Form.Label>
           <Form.Control
@@ -104,6 +152,12 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
+        {errors?.title?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="GenreID">
           <Form.Label>Genre</Form.Label>
           <Form.Control
@@ -148,6 +202,12 @@ function AddRecord() {
             <option value="heavy-metal">Heavy Metal</option>
           </Form.Control>
         </Form.Group>
+        {errors?.genre?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="TrackListID">
           <Form.Label>Track List</Form.Label>
           <Form.Control
@@ -159,6 +219,12 @@ function AddRecord() {
             placeholder="e.g. 1. Song1 2. Song2"
           />
         </Form.Group>
+        {errors?.tracklist?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="ConditionID">
           <Form.Label>Condition</Form.Label>
           <Form.Control
@@ -171,6 +237,12 @@ function AddRecord() {
             <option value="used">Used</option>
           </Form.Control>
         </Form.Group>
+        {errors?.condition?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="ReleasedID">
           <Form.Label>Released</Form.Label>
           <Form.Control
@@ -183,6 +255,12 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
+        {errors?.released?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="LocationID">
           <Form.Label>Location</Form.Label>
           <Form.Control
@@ -193,6 +271,12 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
+        {errors?.location?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="PriceID">
           <Form.Label>Price</Form.Label>
           <Form.Control
@@ -203,6 +287,12 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
+        {errors?.price?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="ContactID">
           <Form.Label>Contact</Form.Label>
           <Form.Control
@@ -213,7 +303,13 @@ function AddRecord() {
             onChange={changeRecordDetails}
           />
         </Form.Group>
-        <Button onClick={() => {}}>Back</Button>
+        {errors?.cobtact?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
+        <Button onClick={() => history.goBack()}> Back </Button>
         <Button type="submit">Add Record</Button>
       </Form>
     </div>
