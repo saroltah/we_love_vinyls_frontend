@@ -57,7 +57,7 @@ function AddRecord() {
     }
   }
 
-  const handleAddingRecord = async (event) => {
+  const SubmitRecord = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
@@ -87,7 +87,7 @@ function AddRecord() {
 
   return (
     <div>
-      <Form onSubmit={handleAddingRecord}>
+      <Form onSubmit={SubmitRecord}>
         <Form.Group>
           {image ? (
             <>

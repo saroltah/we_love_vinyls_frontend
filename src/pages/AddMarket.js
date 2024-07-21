@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Form, Button, Alert } from "react-bootstrap";
+
+import { useHistory } from "react-router-dom";
+import { axiosReq } from "../api/AxiosDefaults";
 
 function AddMarket() {
   const [errors, setErrors] = useState({});
@@ -20,6 +21,8 @@ function AddMarket() {
   const { country, city, address, date, start, end, description } =
     marketDetails;
 
+  const history = useHistory();
+
   function changeMarketDetails(event) {
     setMarketDetails({
       ...marketDetails,
@@ -27,10 +30,37 @@ function AddMarket() {
     });
   }
 
+  // innen:
+
+  const SubmitMarket = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("country", country);
+    formData.append("city", city);
+    formData.append("address", address);
+    formData.append("date", date);
+    formData.append("start", start);
+    formData.append("end", end);
+    formData.append("description", description);
+
+    try {
+      const { data } = await axiosReq.post("/markets/", formData);
+      history.push(`/markets/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
+  //idáig
+
   return (
     <div>
-      <Form>
-        <Form.Group controlId="ArtistID">
+      <Form onSubmit={SubmitMarket}>
+        <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>
           <Form.Control
             type="text"
@@ -40,6 +70,12 @@ function AddMarket() {
             onChange={changeMarketDetails}
           />
         </Form.Group>
+        {errors?.country?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="CityID">
           <Form.Label>City</Form.Label>
           <Form.Control
@@ -50,6 +86,11 @@ function AddMarket() {
             onChange={changeMarketDetails}
           />
         </Form.Group>
+        {errors?.city?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
 
         <Form.Group controlId="AddressID">
           <Form.Label>Address</Form.Label>
@@ -60,6 +101,12 @@ function AddMarket() {
             onChange={changeMarketDetails}
           />
         </Form.Group>
+        {errors?.address?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="DateID">
           <Form.Label>Date</Form.Label>
           <Form.Control
@@ -69,6 +116,12 @@ function AddMarket() {
             onChange={changeMarketDetails}
           />
         </Form.Group>
+        {errors?.date?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="StartID">
           <Form.Label>Start</Form.Label>
           <Form.Control
@@ -78,6 +131,12 @@ function AddMarket() {
             onChange={changeMarketDetails}
           />
         </Form.Group>
+        {errors?.start?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="EndID">
           <Form.Label>End</Form.Label>
           <Form.Control
@@ -87,6 +146,12 @@ function AddMarket() {
             onChange={changeMarketDetails}
           />
         </Form.Group>
+        {errors?.end?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
         <Form.Group controlId="DescriptionID">
           <Form.Label>Description</Form.Label>
           <Form.Control
@@ -97,7 +162,13 @@ function AddMarket() {
             onChange={changeMarketDetails}
           />
         </Form.Group>
-        <Button onClick={() => {}}>Back</Button>
+        {errors?.description?.map((message, idx) => (
+          <Alert variant="danger" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
+        <Button onClick={() => history.goBack()}>Back</Button>
         <Button type="submit">Add Market</Button>
       </Form>
     </div>
