@@ -52,37 +52,10 @@ function AddMarket() {
     }
   };
 
-  // innen:
-
-  const SubmitMarket = async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-
-    formData.append("country", country);
-    formData.append("city", city);
-    formData.append("address", address);
-    formData.append("date", date);
-    formData.append("start", start);
-    formData.append("end", end);
-    formData.append("description", description);
-
-    try {
-      const { data } = await axiosReq.post("/markets/", formData);
-      history.push(`/markets/${data.id}`);
-    } catch (err) {
-      console.log(err);
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
-      }
-    }
-  };
-
-  //idáig
-
   return (
     <div>
       <Form onSubmit={submitMarket}>
-        <Form.Group controlId="ArtistID">
+        <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>
           <Form.Control
             type="text"
@@ -190,7 +163,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
-        <Button onClick={() => {}}>Back</Button>
+        <Button onClick={() => history.goBack()}>Back</Button>
         <Button type="submit">Add Market</Button>
       </Form>
     </div>
