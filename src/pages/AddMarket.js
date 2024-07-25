@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Form, Button, Alert} from "react-bootstrap";
+
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
 
@@ -51,10 +52,42 @@ function AddMarket() {
     }
   };
 
+  // innen:
+
+  const SubmitMarket = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("country", country);
+    formData.append("city", city);
+    formData.append("address", address);
+    formData.append("date", date);
+    formData.append("start", start);
+    formData.append("end", end);
+    formData.append("description", description);
+
+    try {
+      const { data } = await axiosReq.post("/markets/", formData);
+      history.push(`/markets/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
+
+  //idáig
+
   return (
     <div>
+<<<<<<< test-on-gitpod
       <Form onSubmit={submitMarket}>
         <Form.Group controlId="ArtistID">
+=======
+      <Form onSubmit={SubmitMarket}>
+        <Form.Group controlId="CountryID">
+>>>>>>> main
           <Form.Label>Country</Form.Label>
           <Form.Control
             type="text"
@@ -69,6 +102,8 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+
+
         <Form.Group controlId="CityID">
           <Form.Label>City</Form.Label>
           <Form.Control
@@ -84,6 +119,10 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+<<<<<<< test-on-gitpod
+=======
+
+>>>>>>> main
         <Form.Group controlId="AddressID">
           <Form.Label>Address</Form.Label>
           <Form.Control
@@ -98,6 +137,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+
         <Form.Group controlId="DateID">
           <Form.Label>Date</Form.Label>
           <Form.Control
@@ -112,6 +152,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+
         <Form.Group controlId="StartID">
           <Form.Label>Start</Form.Label>
           <Form.Control
@@ -126,6 +167,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+
         <Form.Group controlId="EndID">
           <Form.Label>End</Form.Label>
           <Form.Control
@@ -140,6 +182,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+
         <Form.Group controlId="DescriptionID">
           <Form.Label>Description</Form.Label>
           <Form.Control
@@ -155,7 +198,12 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+<<<<<<< test-on-gitpod
         <Button onClick={() => {}}>Back</Button>
+=======
+
+        <Button onClick={() => history.goBack()}>Back</Button>
+>>>>>>> main
         <Button type="submit">Add Market</Button>
       </Form>
     </div>
