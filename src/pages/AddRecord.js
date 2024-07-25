@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import { Form, Button, Image, Alert } from "react-bootstrap";
 
@@ -9,7 +9,14 @@ import { axiosReq } from "../api/AxiosDefaults";
 import styles from "../styles/UploadPic.module.css";
 
 function AddRecord() {
+
   const [errors, setErrors] = useState({});
+
+  const nodeRef = useRef(null);
+
+  useEffect(() => {
+    // Access the DOM node directly through the ref
+    const node = nodeRef.current;})
 
   const [recordDetails, setRecordDetails] = useState({
     image: "",
@@ -86,7 +93,7 @@ function AddRecord() {
   };
 
   return (
-    <div>
+    <div ref={nodeRef}>
       <Form onSubmit={submitRecord}>
         <Form.Group>
           {image ? (
