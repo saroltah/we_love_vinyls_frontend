@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert} from "react-bootstrap";
 
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
@@ -29,6 +29,28 @@ function AddMarket() {
       [event.target.name]: event.target.value,
     });
   }
+  const submitMarket = async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("country", country);
+    formData.append("city", city);
+    formData.append("address", address);
+    formData.append("date", date);
+    formData.append("start", start);
+    formData.append("end", end);
+    formData.append("description", description);
+
+    try {
+      const { data } = await axiosReq.post("/markets/", formData);
+      history.push(`/markets/${data.id}`);
+    } catch (err) {
+      console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
+    }
+  };
 
   // innen:
 
@@ -59,8 +81,8 @@ function AddMarket() {
 
   return (
     <div>
-      <Form onSubmit={SubmitMarket}>
-        <Form.Group controlId="CountryID">
+      <Form onSubmit={submitMarket}>
+        <Form.Group controlId="ArtistID">
           <Form.Label>Country</Form.Label>
           <Form.Control
             type="text"
@@ -75,6 +97,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
+
 
         <Form.Group controlId="CityID">
           <Form.Label>City</Form.Label>
@@ -91,7 +114,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
-
+  
         <Form.Group controlId="AddressID">
           <Form.Label>Address</Form.Label>
           <Form.Control
@@ -167,8 +190,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
-
-        <Button onClick={() => history.goBack()}>Back</Button>
+        <Button onClick={() => {}}>Back</Button>
         <Button type="submit">Add Market</Button>
       </Form>
     </div>
