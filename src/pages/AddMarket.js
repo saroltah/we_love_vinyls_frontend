@@ -81,13 +81,8 @@ function AddMarket() {
 
   return (
     <div>
-<<<<<<< test-on-gitpod
       <Form onSubmit={submitMarket}>
         <Form.Group controlId="ArtistID">
-=======
-      <Form onSubmit={SubmitMarket}>
-        <Form.Group controlId="CountryID">
->>>>>>> main
           <Form.Label>Country</Form.Label>
           <Form.Control
             type="text"
@@ -119,10 +114,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
-<<<<<<< test-on-gitpod
-=======
-
->>>>>>> main
+  
         <Form.Group controlId="AddressID">
           <Form.Label>Address</Form.Label>
           <Form.Control
@@ -198,12 +190,7 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
-<<<<<<< test-on-gitpod
         <Button onClick={() => {}}>Back</Button>
-=======
-
-        <Button onClick={() => history.goBack()}>Back</Button>
->>>>>>> main
         <Button type="submit">Add Market</Button>
       </Form>
     </div>
