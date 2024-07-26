@@ -8,6 +8,7 @@ import {
 import axios from "axios";
 import ProfilePic from "./ProfilePic";
 import ClickOutsideToggle from "../hooks/ClickOutsideToggle";
+import { removeTokenTimestamp } from "../utils/utils";
 
 function Navigation() {
   const currentUser = useCurrentUser();
@@ -19,6 +20,7 @@ function Navigation() {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      removeTokenTimestamp();
     } catch (err) {
       console.log(err);
     }

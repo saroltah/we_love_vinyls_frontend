@@ -65,7 +65,6 @@ function AddRecord() {
   }
 
   const submitRecord = async (event) => {
-
     event.preventDefault();
     const formData = new FormData();
 
@@ -94,7 +93,6 @@ function AddRecord() {
   };
 
   return (
-
     <div ref={nodeRef}>
       <Form onSubmit={submitRecord}>
         <Form.Group>
