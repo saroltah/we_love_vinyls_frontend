@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
+import ShowMarket from "./ShowMarket";
 
 function OneMarket() {
   const { id } = useParams();
@@ -24,8 +25,7 @@ function OneMarket() {
 
   return (
     <div>
-        <p>Market details</p>
-        <p>Attendance</p>
+        <ShowMarket {...market.results[0]} setMarkets={setMarket} oneMarket/>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
+import ShowRecord from "./ShowRecord";
 
 function OneRecord() {
   const { id } = useParams();
@@ -24,8 +25,7 @@ function OneRecord() {
 
   return (
     <div>
-        <p>Record details</p>
-        <p><span>Likes</span>and <span>comments </span></p>
+        <ShowRecord {...record.results[0]} setRecords={setRecord} oneRecord/>
     </div>
   );
 }
