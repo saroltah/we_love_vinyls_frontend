@@ -1,39 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Loading from "../elements/Loading";
-import { useLocation } from "react-router-dom";
-import { axiosReq } from "../api/AxiosDefaults";
+import GetRecordList from "../hooks/GetRecordList";
 import ShowRecord from "./ShowRecord";
 
 function AllRecords({ message }) {
-  const [records, setRecords] = useState({ results: [] });
-  const [loaded, setLoaded] = useState(false);
-  const { pathname } = useLocation();
 
-  useEffect(() => {
-    const fetchRecords = async () => {
-      try {
-        const response = await axiosReq.get("/records/");
-        const { data } = response;
-        console.log("Api response:", data);
-        if (Array.isArray(data)) {
-          setRecords({ results: data });
-        } else if (Array.isArray(data.results)) {
-          setRecords({ results: data.results });
-        } else {
-          console.error("no result problem:", data);
-        }
-        setLoaded(true);
-      } catch (err) {
-        console.log("Error problem:", err);
-        setRecords({ results: [] });
-        setLoaded(true);
-      }
-    };
-  
-    setLoaded(false);
-    fetchRecords();
-  }, [pathname]);
-
+  const {records, setRecords, loaded} = GetRecordList()
   return (
     <div>
       <div>

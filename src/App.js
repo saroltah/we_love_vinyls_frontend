@@ -9,7 +9,7 @@ import OneMarket from "./pages/OneMarket";
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import "./api/AxiosDefaults";
-import AllRecords from "./pages/AllRecords";
+import Records from "./pages/Records";
 import { useCurrentUser } from "./context/CurrentUserContext"
 
 function App() {
@@ -20,28 +20,7 @@ function App() {
     <div className="App">
       <Navigation />
       <Switch>
-     
-
-       <Route
-            exact
-            path="/"
-            render={() => (
-              <AllRecords />
-            )}
-          />
-
-          <Route
-            exact
-            path="/MyRecords"
-            render={() => (
-              <AllRecords
-                message="You haven't uploaded any records."
-                filter={`advertiser__profile=${profile_id}&ordering=-record__created_&`}
-              />
-            )}
-          />
-         
-      
+        <Route exact path="/" render={() => <Records />} />
         <Route exact path="/markets" render={() => <Markets />} />
         <Route exact path="/markets/add" render={() => <AddMarket />} />
         <Route exact path="/records/add" render={() => <AddRecord />} />
