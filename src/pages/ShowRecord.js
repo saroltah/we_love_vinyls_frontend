@@ -11,7 +11,7 @@ const ShowRecord = (props) => {
     id, advertiser, artist, title, track_list,
     created, condition, image, released, genre,
     members_liking_count, comment_count,
-    price, location, contact, profile_id, profile_image, like_id, setRecords
+    price, location, contact, profile_id, profile_image, like_id, setRecords, liked_record
   } = props;
 
   const currentUser = useCurrentUser();
@@ -21,7 +21,7 @@ const ShowRecord = (props) => {
 
   const submitLike = async () => {
     try {
-      const { data } = await axiosRes.post("/likes/", { record: id });
+      const { data } = await axiosRes.post("/likes/", { liked_record: id });
       setRecords((prevRecords) => ({
         ...prevRecords,
         results: prevRecords.results.map((record) => {
@@ -94,11 +94,11 @@ const ShowRecord = (props) => {
           <i>❤️</i>
         </OverlayTrigger>
       ) : like_id ? (
-        <span onClick={submitUnlike}>
+        <span onClick={submitUnlike} style={{ cursor: 'pointer' }}>
           <i>❤️</i>
         </span>
       ) : currentUser ? (
-        <span onClick={submitLike}>
+        <span onClick={submitLike} style={{ cursor: 'pointer' }}>
           <i>🤍</i>
         </span>
       ) : (

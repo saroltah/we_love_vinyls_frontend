@@ -9,7 +9,7 @@ const ShowMarket = (props) => {
   const {
     id, organizer, country, city, address, date,
             start, end, description,
-            members_attending_count, oneMarket, created, profile_id, profile_image, attendance_id, setMarkets
+            members_attending_count, oneMarket, created, profile_id, profile_image, attendance_id, setMarkets, attended_market
   } = props;
 
   const currentUser = useCurrentUser();
@@ -17,7 +17,7 @@ const ShowMarket = (props) => {
 
   const submitAttendance = async () => {
     try {
-      const { data } = await axiosRes.post("/attendance/", { market: id });
+      const { data } = await axiosRes.post("/attendance/", { attended_market: id });
       setMarkets((prevMarkets) => ({
         ...prevMarkets,
         results: prevMarkets.results.map((market) => {
@@ -78,11 +78,11 @@ const ShowMarket = (props) => {
           <i>❤️</i>
         </OverlayTrigger>
       ) : attendance_id ? (
-        <span onClick={submitNotAttending}>
+        <span onClick={submitNotAttending} style={{ cursor: 'pointer' }}>
           <i>❤️</i>
         </span>
       ) : currentUser ? (
-        <span onClick={submitAttendance}>
+        <span onClick={submitAttendance} style={{ cursor: 'pointer' }}>
           <i>🤍</i>
         </span>
       ) : (
