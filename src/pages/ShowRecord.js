@@ -2,7 +2,7 @@ import React from "react";
 import { useCurrentUser } from "../context/CurrentUserContext";
 import { Link } from "react-router-dom";
 import ProfilePic from "../elements/ProfilePic";
-import {OverlayTrigger, Tooltip, Card } from "react-bootstrap";
+import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import OneRecord from "./OneRecord";
 import { axiosRes } from "../api/AxiosDefaults";
 
@@ -11,7 +11,7 @@ const ShowRecord = (props) => {
     id, advertiser, artist, title, track_list,
     created, condition, image, released, genre,
     members_liking_count, comment_count,
-    price, location, contact, profile_id, profile_image, like_id, setRecords, liked_record
+    price, location, contact, profile_id, profile_image, like_id, setRecords, liked_record,
   } = props;
 
   const currentUser = useCurrentUser();

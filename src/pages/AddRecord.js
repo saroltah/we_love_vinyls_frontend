@@ -15,7 +15,6 @@ function AddRecord() {
   const nodeRef = useRef(null);
 
   useEffect(() => {
-    // Access the DOM node directly through the ref
     const node = nodeRef.current;})
 
   const [recordDetails, setRecordDetails] = useState({
@@ -113,7 +112,7 @@ function AddRecord() {
               htmlFor="image-upload">
               <img
                 src={upload}
-                alt="Upload image"
+                alt="Upload"
                 className={styles.UploadPic}
               />
             </Form.Label>
