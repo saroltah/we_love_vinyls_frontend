@@ -1,5 +1,6 @@
 import React from "react";
 import AllMarkets from "./AllMarkets";
+import AttendedMarkets from "./AttendedMarkets";
 import { useCurrentUser } from "../context/CurrentUserContext"
 
 function MyMarkets() {
@@ -16,6 +17,7 @@ function MyMarkets() {
   />
 
 <h1>Attended markets:</h1>
+<AttendedMarkets/>
 </div>
   )}
 export default MyMarkets;
