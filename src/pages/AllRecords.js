@@ -3,19 +3,18 @@ import Loading from "../elements/Loading";
 import GetRecordList from "../hooks/GetRecordList";
 import ShowRecord from "./ShowRecord";
 
-function AllRecords({ message }) {
+function AllRecords({ message, filter }) {
 
-  const {records, setRecords, loaded} = GetRecordList()
+  const {records, setRecords, loaded,} = GetRecordList(filter)
   return (
     <div>
       <div>
-        <p>All records</p>
+        <p>Records</p>
         {loaded ? (
           <>
             {records.results.length > 0 ? (
               records.results.map((record) => (
                 <div key={record.id}>
-                  console.log("Fetched Records:", records.results);
                   <ShowRecord {...record} setRecords={setRecords} />
                 </div>
               ))

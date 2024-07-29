@@ -10,27 +10,40 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import "./api/AxiosDefaults";
 import Records from "./pages/Records";
-import { useCurrentUser } from "./context/CurrentUserContext"
+import MyRecords from "./pages/MyRecords";
+import MyMarkets from "./pages/MyMarkets";
 
 function App() {
-  const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
-
-  return (
+   return (
     <div className="App">
       <Navigation />
-      <Switch>
-        <Route exact path="/" render={() => <Records />} />
-        <Route exact path="/markets" render={() => <Markets />} />
-        <Route exact path="/markets/add" render={() => <AddMarket />} />
-        <Route exact path="/records/add" render={() => <AddRecord />} />
+      <Switch>    
         <Route exact path="/profile" render={() => <h1>Profile</h1>} />
         <Route exact path="/login" render={() => <LogIn />} />
         <Route exact path="/signup" render={() => <SignUp />} />
-        <Route exact path="/mymarkets" render={() => <h1>My markets</h1>} />
-        <Route exact path="/myrecords" render={() => <h1>My records</h1>} />
+        <Route
+            exact
+            path="/"
+            render={() => (
+              <Records message="No results found. Adjust the search keyword." />
+            )}
+          />
         <Route exact path="/records/:id" render={() => <OneRecord />} />
+        <Route exact path="/records/add" render={() => <AddRecord />} />
+        <Route exact path="/myrecords" render={() => <MyRecords/>} />
+        <Route
+            exact
+            path="/markets"
+            render={() => (
+              <Markets message="No results found. Adjust the search keyword." />
+            )}
+          />
         <Route exact path="/markets/:id" render={() => <OneMarket />} />
+        <Route exact path="/markets/add" render={() => <AddMarket />} />
+        <Route exact path="/mymarkets" render={() => <MyMarkets/>} />
+   
+        
+        
         <Route render={() => <p>This page is not found!</p>} />
       </Switch>
     </div>
