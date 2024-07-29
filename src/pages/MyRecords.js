@@ -1,5 +1,6 @@
 import React from "react";
 import AllRecords from "./AllRecords";
+import LikedRecords from "./LikedRecords";
 import { useCurrentUser } from "../context/CurrentUserContext"
 
 function MyRecords() {
@@ -16,6 +17,7 @@ function MyRecords() {
   />
 
 <h1>Liked records:</h1>
+<LikedRecords/>
 </div>
   )}
 export default MyRecords;
