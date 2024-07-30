@@ -1,9 +1,10 @@
 import React from "react";
 import { useCurrentUser } from "../context/CurrentUserContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ProfilePic from "../elements/ProfilePic";
 import {OverlayTrigger, Tooltip } from "react-bootstrap";
 import { axiosRes } from "../api/AxiosDefaults";
+import { PostDropdown } from "../elements/PostDropdown";
 
 const ShowMarket = (props) => {
   const {
@@ -14,6 +15,21 @@ const ShowMarket = (props) => {
 
   const currentUser = useCurrentUser();
   const is_organizer = currentUser?.username === organizer;
+
+  const history = useHistory();
+
+  const editPost = () => {
+    history.push(`/markets/${id}/edit`);
+  };
+
+  const deletePost = async () => {
+    try {
+      await axiosRes.delete(`/markets/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const submitAttendance = async () => {
     try {
@@ -58,7 +74,12 @@ const ShowMarket = (props) => {
         </Link>
           <div>
             <span>{created}</span>
-            {is_organizer && oneMarket && "..."}
+            {is_organizer && ShowMarket && (
+              <PostDropdown
+                editPost={editPost}
+                deletePost={deletePost}
+              />
+            )}
           </div>
 
       <Link to={`/markets/${id}`}>

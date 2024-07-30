@@ -1,10 +1,11 @@
 import React from "react";
 import { useCurrentUser } from "../context/CurrentUserContext";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ProfilePic from "../elements/ProfilePic";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import OneRecord from "./OneRecord";
 import { axiosRes } from "../api/AxiosDefaults";
+import { PostDropdown } from "../elements/PostDropdown";
 
 const ShowRecord = (props) => {
   const {
@@ -16,6 +17,21 @@ const ShowRecord = (props) => {
 
   const currentUser = useCurrentUser();
   const is_advertiser = currentUser?.username === advertiser;
+
+  const history = useHistory();
+
+  const editPost = () => {
+    history.push(`/records/${id}/edit`);
+  };
+
+  const deletePost = async () => {
+    try {
+      await axiosRes.delete(`/records/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   //innen 
 
@@ -54,7 +70,6 @@ const ShowRecord = (props) => {
   //idáig
 
   return (
-  <div>
     <div>
       <Link to={`/users/${profile_id}`}>
       <ProfilePic
@@ -65,8 +80,12 @@ const ShowRecord = (props) => {
         </Link>
         <div>
         <span>{created}</span>
-        {is_advertiser && OneRecord && "..."}
-      </div>
+        {is_advertiser && ShowRecord && (
+              <PostDropdown
+                editPost={editPost}
+                deletePost={deletePost}
+              />
+            )}
     </div>
 
     <Link to={`/records/${id}`}>
@@ -95,12 +114,13 @@ const ShowRecord = (props) => {
         </OverlayTrigger>
       ) : like_id ? (
         <span onClick={submitUnlike} style={{ cursor: 'pointer' }}>
-          <i>❤️</i>
+          
         </span>
       ) : currentUser ? (
+        <>
         <span onClick={submitLike} style={{ cursor: 'pointer' }}>
           <i>🤍</i>
-        </span>
+        </span><i>❤️</i></>
       ) : (
         <OverlayTrigger
         placement="top"
@@ -117,7 +137,7 @@ const ShowRecord = (props) => {
         </div>
         </div>
         </div>
-  );
+ );
 };
 
 export default ShowRecord;
