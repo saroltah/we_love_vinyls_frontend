@@ -2,7 +2,7 @@ import React from "react";
 import Loading from "../elements/Loading";
 import GetRecordList from "../hooks/GetRecordList";
 import ShowRecord from "./ShowRecord";
-import SearchField from "../elements/SearchField";
+import RecordSearchField from "../elements/RecordSearchField";
 
 function AllRecords({ message, filter }) {
 
@@ -14,7 +14,7 @@ const hasFilter = filter && filter.trim() !== "";
       <div>
         <p>Records</p>
         {!hasFilter && (
-        <SearchField query = {query} setQuery={setQuery}/>
+        <RecordSearchField query = {query} setQuery={setQuery}/>
         )}
         {loaded ? (
           <>

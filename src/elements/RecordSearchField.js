@@ -1,7 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 
-function SearchField({ query, setQuery })  {
+function RecordSearchField({ query, setQuery })  {
 
 return (
     <Form
@@ -11,9 +11,9 @@ return (
       value={query}
       onChange={(event) => setQuery(event.target.value)}
       type="text"
-      placeholder="Search records"
+      placeholder="Search for records"
     />
   </Form> );}
 
   
-export default SearchField;
+export default RecordSearchField;

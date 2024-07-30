@@ -7,10 +7,21 @@ function GetMarketList(filter="") {
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const fetchMarkets = async () => {
       try {
-        const response = await axiosReq.get(`/markets/${filter}`);
+        const conditionalUrl = (filter, query) => {
+          let url = '/markets/';
+          if (filter) {
+            url += `?${filter}`;
+          } else if (query) {
+            url += `?search=${query}`;
+          }
+          return url;
+        }
+        const response = await axiosReq.get(conditionalUrl(filter, query));
         const { data } = response;
         console.log("Api response:", data);
         if (Array.isArray(data)) {
@@ -30,10 +41,10 @@ function GetMarketList(filter="") {
   
     setLoaded(false);
     fetchMarkets();
-  }, [filter,pathname]);
+  }, [filter, query, pathname]);
 
   return {
-    filter, markets, loaded, setMarkets, setLoaded
+    filter, markets, loaded, setMarkets, setLoaded, query, setQuery
   };}
 
   
