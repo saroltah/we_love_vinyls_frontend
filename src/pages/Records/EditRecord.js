@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 
 import {Form, Button, Alert} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import upload from "../assets/upload.png";
+import upload from "../../assets/upload.png";
 
 import { useHistory, useParams } from "react-router-dom";
-import { axiosReq } from "../api/AxiosDefaults"
+import { axiosReq } from "../../api/AxiosDefaults"
 
 function EditRecord() {
   const [errors, setErrors] = useState({});
@@ -343,7 +343,7 @@ function EditRecord() {
     ))}
 
     <Button onClick={() => history.goBack()}> Back </Button>
-    <Button type="submit">Add Record</Button>
+    <Button type="submit">Edit Record</Button>
   </Form>
   );
 }

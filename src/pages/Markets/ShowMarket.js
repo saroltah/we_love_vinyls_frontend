@@ -1,10 +1,10 @@
 import React from "react";
-import { useCurrentUser } from "../context/CurrentUserContext";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
-import ProfilePic from "../elements/ProfilePic";
+import ProfilePic from "../../elements/ProfilePic";
 import {OverlayTrigger, Tooltip } from "react-bootstrap";
-import { axiosRes } from "../api/AxiosDefaults";
-import { PostDropdown } from "../elements/PostDropdown";
+import { axiosRes } from "../../api/AxiosDefaults";
+import { PostDropdown } from "../../elements/PostDropdown";
 
 const ShowMarket = (props) => {
   const {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { axiosReq } from "../api/AxiosDefaults";
+import { axiosReq } from "../../api/AxiosDefaults";
 import ShowRecord from "./ShowRecord";
 
 function OneRecord() {

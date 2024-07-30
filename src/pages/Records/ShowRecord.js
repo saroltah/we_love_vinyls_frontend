@@ -1,11 +1,10 @@
 import React from "react";
-import { useCurrentUser } from "../context/CurrentUserContext";
+import { useCurrentUser } from "../../context/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
-import ProfilePic from "../elements/ProfilePic";
+import ProfilePic from "../../elements/ProfilePic";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
-import OneRecord from "./OneRecord";
-import { axiosRes } from "../api/AxiosDefaults";
-import { PostDropdown } from "../elements/PostDropdown";
+import { axiosRes } from "../../api/AxiosDefaults";
+import { PostDropdown } from "../../elements/PostDropdown";
 
 const ShowRecord = (props) => {
   const {

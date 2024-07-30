@@ -2,11 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 
 import { Form, Button, Image, Alert } from "react-bootstrap";
 
-import upload from "../assets/upload.png";
 import { useHistory } from "react-router-dom";
-import { axiosReq } from "../api/AxiosDefaults";
+import { axiosReq } from "../../api/AxiosDefaults";
 
-import styles from "../styles/UploadPic.module.css";
+import styles from "../../styles/UploadPic.module.css";
+import upload from "../../assets/upload.png";
 
 function AddRecord() {
 
@@ -316,7 +316,7 @@ function AddRecord() {
         ))}
 
         <Button onClick={() => history.goBack()}> Back </Button>
-        <Button type="submit">Add Record</Button>
+        <Button type="submit">Edit Record</Button>
       </Form>
     </div>
   );

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import { Form, Button, Alert} from "react-bootstrap";
+import {Form, Button, Alert} from "react-bootstrap";
 
-import { useHistory } from "react-router-dom";
-import { axiosReq } from "../api/AxiosDefaults";
+import { useHistory, useParams } from "react-router-dom";
+import { axiosReq } from "../../api/AxiosDefaults"
 
-function AddMarket() {
+function EditMarket() {
   const [errors, setErrors] = useState({});
 
   const [marketDetails, setMarketDetails] = useState({
@@ -17,18 +17,35 @@ function AddMarket() {
     end: "",
     description: "",
   });
-
-  const { country, city, address, date, start, end, description } =
-    marketDetails;
+  const {
+    country, city, address, date, start, end, description 
+  } = marketDetails;
 
   const history = useHistory();
+  const { id } = useParams();
 
-  function changeMarketDetails(event) {
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/markets/${id}/`);
+        const { country, city, address, date, start, end, description, is_organizer } = data;
+
+        is_organizer ? setMarketDetails({ country, city, address, date, start, end, description  }) : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [history, id]);
+
+  const changeMarketDetails = (event) => {
     setMarketDetails({
       ...marketDetails,
       [event.target.name]: event.target.value,
     });
-  }
+  };
+
   const submitMarket = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -42,8 +59,8 @@ function AddMarket() {
     formData.append("description", description);
 
     try {
-      const { data } = await axiosReq.post("/markets/", formData);
-      history.push(`/markets/${data.id}`);
+      await axiosReq.put(`/markets/${id}/`, formData);
+      history.push(`/markets/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -52,9 +69,10 @@ function AddMarket() {
     }
   };
 
+  
+
   return (
-    <div>
-      <Form onSubmit={submitMarket}>
+    <Form onSubmit={submitMarket}>
         <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>
           <Form.Control
@@ -164,10 +182,9 @@ function AddMarket() {
           </Alert>
         ))}
         <Button onClick={() => history.goBack()}>Back</Button>
-        <Button type="submit">Add Market</Button>
+        <Button type="submit">Edit Market</Button>
       </Form>
-    </div>
   );
 }
 
-export default AddMarket;
+export default EditMarket

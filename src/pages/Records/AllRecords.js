@@ -1,8 +1,8 @@
 import React from "react";
-import Loading from "../elements/Loading";
-import GetRecordList from "../hooks/GetRecordList";
+import Loading from "../../elements/Loading";
+import GetRecordList from "../../hooks/GetRecordList";
 import ShowRecord from "./ShowRecord";
-import RecordSearchField from "../elements/RecordSearchField";
+import RecordSearchField from "../../elements/RecordSearchField";
 
 function AllRecords({ message, filter }) {
 
