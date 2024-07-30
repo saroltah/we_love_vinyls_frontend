@@ -7,11 +7,15 @@ import SearchField from "../elements/SearchField";
 function AllRecords({ message, filter }) {
 
 const {records, setRecords, loaded, query, setQuery} = GetRecordList(filter)
+const hasFilter = filter && filter.trim() !== "";
+
   return (
     <div>
       <div>
         <p>Records</p>
+        {!hasFilter && (
         <SearchField query = {query} setQuery={setQuery}/>
+        )}
         {loaded ? (
           <>
             {records.results.length > 0 ? (

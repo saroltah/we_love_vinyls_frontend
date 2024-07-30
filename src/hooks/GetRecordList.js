@@ -21,7 +21,7 @@ function GetRecordList(filter="") {
           }
           return url;
         }
-        
+      
         const response = await axiosReq.get(conditionalUrl(filter, query));
         const { data } = response;
         console.log("Api response:", data);
