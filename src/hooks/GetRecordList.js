@@ -7,10 +7,22 @@ function GetRecordList(filter="") {
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const fetchRecords = async () => {
       try {
-        const response = await axiosReq.get(`/records/${filter}`);
+        const conditionalUrl = (filter, query) => {
+          let url = '/records/';
+          if (filter) {
+            url += `?${filter}`;
+          } else if (query) {
+            url += `?search=${query}`;
+          }
+          return url;
+        }
+        
+        const response = await axiosReq.get(conditionalUrl(filter, query));
         const { data } = response;
         console.log("Api response:", data);
         if (Array.isArray(data)) {
@@ -30,10 +42,10 @@ function GetRecordList(filter="") {
   
     setLoaded(false);
     fetchRecords();
-  }, [filter,pathname]);
+  }, [filter, query, pathname]);
 
   return {
-    filter, records, loaded, setRecords, setLoaded
+    filter, records, loaded, setRecords, setLoaded, query, setQuery
   };}
 
   

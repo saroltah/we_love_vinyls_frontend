@@ -6,7 +6,7 @@ function MyRecords() {
 
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-  const filter_data = `?member=${profile_id}`
+  const filter_data = `member=${profile_id}`
 
   return (
     <div>
