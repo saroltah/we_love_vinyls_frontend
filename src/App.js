@@ -12,6 +12,7 @@ import "./api/AxiosDefaults";
 import Records from "./pages/Records";
 import MyRecords from "./pages/MyRecords";
 import MyMarkets from "./pages/MyMarkets";
+import EditRecord from "./pages/EditRecord";
 
 function App() {
    return (
@@ -29,8 +30,10 @@ function App() {
             )}
           />
         <Route exact path="/records/:id" render={() => <OneRecord />} />
+        <Route exact path="/records/:id/edit" render={() => <EditRecord />} />
         <Route exact path="/records/add" render={() => <AddRecord />} />
         <Route exact path="/myrecords" render={() => <MyRecords/>} />
+        
         <Route
             exact
             path="/markets"
