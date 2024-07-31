@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { useSetCurrentUser } from "../context/CurrentUserContext";
-import { setTokenTimestamp } from "../utils/utils";
+import { useSetCurrentUser } from "../../context/CurrentUserContext";
+import { setTokenTimestamp } from "../../utils/utils";
 
 function LogIn() {
   const setCurrentUser = useSetCurrentUser();
