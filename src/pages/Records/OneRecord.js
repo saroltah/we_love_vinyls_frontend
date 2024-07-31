@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import ShowRecord from "./ShowRecord";
-import AddComment from "./AddComment";
-import ShowComment from "./ShowComment";
+import AddComment from "../comments/AddComment";
+import ShowComment from "../comments/ShowComment";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 
 function OneRecord() {

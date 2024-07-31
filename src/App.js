@@ -14,13 +14,14 @@ import MyRecords from "./pages/Records/MyRecords";
 import MyMarkets from "./pages/Markets/MyMarkets";
 import EditRecord from "./pages/Records/EditRecord";
 import EditMarket from "./pages/Markets/EditMarket";
+import OneProfile from "./pages/Users/OneProfile";
 
 function App() {
    return (
     <div className="App">
       <Navigation />
       <Switch>    
-        <Route exact path="/profile" render={() => <h1>Profile</h1>} />
+        <Route exact path="/users/:id" render={() => <OneProfile/>} />
         <Route exact path="/login" render={() => <LogIn />} />
         <Route exact path="/signup" render={() => <SignUp />} />
         <Route

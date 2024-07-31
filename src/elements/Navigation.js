@@ -30,7 +30,7 @@ function Navigation() {
     <>
       <NavLink to="/mymarkets"> My markets</NavLink>
       <NavLink to="/myrecords"> My records </NavLink>
-      <NavLink to={`/profile/${currentUser?.username}`}>
+      <NavLink to={`/users/${currentUser?.id}`}>
         <ProfilePic
           src={currentUser?.profile_image}
           text={currentUser?.username}
