@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import AdvertisedRecords from "../Records/AdvertisedRecords"
+import OrganizedMarkets from "../Markets/OrganizedMarkets";
 
 function OneProfile() {
   const { id } = useParams();
@@ -63,6 +64,8 @@ function OneProfile() {
       <p>Attended markets: {attended_market_count}</p>
       <h1>Advertised records:</h1> 
       <p> <AdvertisedRecords profile_id = {id}/> </p>
+      <h1>OrganizedMarkets:</h1> 
+      <p> <OrganizedMarkets profile_id = {id}/> </p>
         </div> 
        
     </div>
