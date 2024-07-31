@@ -7,11 +7,12 @@ import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 
 const ShowRecord = (props) => {
+  
   const {
     id, advertiser, artist, title, track_list,
     created, condition, image, released, genre,
     members_liking_count, comment_count,
-    price, location, contact, profile_id, profile_image, like_id, setRecords, liked_record,
+    price, location, contact, profile_image, like_id, setRecords, liked_record, advertiser_id
   } = props;
 
   const currentUser = useCurrentUser();
@@ -70,7 +71,7 @@ const ShowRecord = (props) => {
 
   return (
     <div>
-      <Link to={`/users/${profile_id}`}>
+      <Link to={`/users/${advertiser_id}`}>
       <ProfilePic
           src={profile_image}
           height={50}

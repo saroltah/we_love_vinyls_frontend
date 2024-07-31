@@ -7,7 +7,7 @@ import { axiosRes } from "../../api/AxiosDefaults"
 import EditComment from "./EditComment";
 
 const ShowComment = (props) => {
-  const { profile_id, profile_image, member, created, content, id,
+  const { member_id, member_image, member, created, content, id,
     setRecord,
     setComments, } = props;
 
@@ -38,8 +38,8 @@ const ShowComment = (props) => {
     <div>
       <hr />
       <div>
-        <Link to={`/profiles/${profile_id}`}>
-          <ProfilePic src={profile_image} />
+        <Link to={`/users/${member_id}`}>
+          <ProfilePic src={member_image} />
         </Link>
         <div>
           <span>{member}</span>
@@ -48,9 +48,9 @@ const ShowComment = (props) => {
           {editCommentForm ? (
             <EditComment
               id={id}
-              profile_id={profile_id}
+              profile_id={member_id}
               content={content}
-              profileImage={profile_image}
+              profileImage={member_image}
               setComments={setComments}
               setEditCommentForm={setEditCommentForm}
             />
@@ -59,8 +59,8 @@ const ShowComment = (props) => {
           )}
         {is_member && !editCommentForm && (
           <PostDropdown
-          SubmitEditForm={() => setEditCommentForm(true)}
-          deleteComment={deleteComment}
+          editPost={() => setEditCommentForm(true)}
+          deletePost={deleteComment}
           />
         )}
         </div>

@@ -30,7 +30,7 @@ function Navigation() {
     <>
       <NavLink to="/mymarkets"> My markets</NavLink>
       <NavLink to="/myrecords"> My records </NavLink>
-      <NavLink to={`/users/${currentUser?.id}`}>
+      <NavLink to={`/users/${currentUser?.profile_id}`}>
         <ProfilePic
           src={currentUser?.profile_image}
           text={currentUser?.username}
@@ -48,6 +48,7 @@ function Navigation() {
       <NavLink to="/signup"> Sign up</NavLink>
     </>
   );
+
   return (
     <div className="Navigation">
       <Navbar

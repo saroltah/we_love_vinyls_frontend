@@ -12,7 +12,6 @@ const hasFilter = filter && filter.trim() !== "";
   return (
     <div>
       <div>
-        <p>Records</p>
         {!hasFilter && (
         <RecordSearchField query = {query} setQuery={setQuery}/>
         )}
@@ -21,7 +20,7 @@ const hasFilter = filter && filter.trim() !== "";
             {records.results.length > 0 ? (
               records.results.map((record) => (
                 <div key={record.id}>
-                  <ShowRecord {...record} setRecords={setRecords} />
+                  <ShowRecord {...record} setRecords={setRecords} advertiser_id={record.advertiser_id}/>
                 </div>
               ))
             ) : (

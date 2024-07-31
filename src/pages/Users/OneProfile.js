@@ -3,6 +3,7 @@ import reactRouterDom, { useParams, useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import { useCurrentUser } from "../../context/CurrentUserContext";
+import AdvertisedRecords from "../Records/AdvertisedRecords"
 
 function OneProfile() {
   const { id } = useParams();
@@ -39,7 +40,7 @@ function OneProfile() {
     username,
             preferred_music, about_me,
             image, liked_record_count,
-            attended_market_count, member,
+            attended_market_count, 
   } = profile;
 
 
@@ -50,7 +51,7 @@ function OneProfile() {
         <div>
         {is_member && (
               <PostDropdown
-                editProfile={editProfile}
+                editPost={editProfile}
               />
             )}
     </div>
@@ -60,8 +61,10 @@ function OneProfile() {
       <p>preferred_music: {preferred_music}</p>
       <p>Liked records: {liked_record_count}</p>
       <p>Attended markets: {attended_market_count}</p>
-          
+      <h1>Advertised records:</h1> 
+      <p> <AdvertisedRecords profile_id = {id}/> </p>
         </div> 
+       
     </div>
   );}
 

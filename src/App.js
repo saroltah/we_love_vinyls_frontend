@@ -15,6 +15,7 @@ import MyMarkets from "./pages/Markets/MyMarkets";
 import EditRecord from "./pages/Records/EditRecord";
 import EditMarket from "./pages/Markets/EditMarket";
 import OneProfile from "./pages/Users/OneProfile";
+import EditProfile from "./pages/Users/EditProfile";
 
 function App() {
    return (
@@ -22,6 +23,7 @@ function App() {
       <Navigation />
       <Switch>    
         <Route exact path="/users/:id" render={() => <OneProfile/>} />
+        <Route exact path="/users/:id/edit" render={() => <EditProfile/>} />
         <Route exact path="/login" render={() => <LogIn />} />
         <Route exact path="/signup" render={() => <SignUp />} />
         <Route
