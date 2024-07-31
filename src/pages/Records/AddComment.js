@@ -8,23 +8,26 @@ import ProfilePic from "../../elements/ProfilePic";
 import { axiosRes } from "../../api/AxiosDefaults"
 
 function AddComment(props) {
-  const { record, setRecord, setComments, profileImage, profile_id } = props;
+  const { record, setRecord, profileImage, profile_id, } = props;
   const [content, setContent] = useState("");
+  const [comments, setComments] = useState({ results: [] })
 
   const changeCommentText = (event) => {
-    setCommentText(event.target.value);
+    setContent(event.target.value);
   };
 
   const submitComment = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
-        content,
-        record,
+        content: content,
+        commented_record: record,
+        member: profile_id
       });
+      
       setComments((prevComments) => ({
         ...prevComments,
-        results: [data, ...prevComments.results],
+        results: [data, ...(prevComments?.results || [])],
       }));
       setRecord((prevRecord) => ({
         results: [
@@ -34,7 +37,7 @@ function AddComment(props) {
           },
         ],
       }));
-      setCommentText("");
+      setContent("");
     } catch (err) {
       console.log(err);
     }

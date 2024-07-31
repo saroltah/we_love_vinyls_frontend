@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import ShowRecord from "./ShowRecord";
 import AddComment from "./AddComment";
+import ShowComment from "./ShowComment";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 
 function OneRecord() {
@@ -16,8 +17,9 @@ function OneRecord() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: record }] = await Promise.all([
+        const [{ data: record }, { data: comments }] = await Promise.all([
           axiosReq.get(`/records/${id}`),
+          axiosReq.get(`/comments/?commented_record__id=1`),
         ]);
         setRecord({ results: [record] });
         console.log(record);
@@ -43,7 +45,20 @@ function OneRecord() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
-        
+        {comments.results.length ? (
+            comments.results.map((comment) => (
+              <ShowComment
+                key={comment.id}
+                {...comment}
+                setRecord={setRecord}
+                setComments={setComments}
+              />
+            ))
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment!</span>
+          ) : (
+            <span>No comments... yet</span>
+          )}
     </div>
   );
 }
