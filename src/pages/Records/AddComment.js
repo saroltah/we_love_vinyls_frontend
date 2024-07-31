@@ -9,7 +9,7 @@ import { axiosRes } from "../../api/AxiosDefaults"
 
 function AddComment(props) {
   const { record, setRecord, setComments, profileImage, profile_id } = props;
-  const [commentText, setCommentText] = useState("");
+  const [content, setContent] = useState("");
 
   const changeCommentText = (event) => {
     setCommentText(event.target.value);
@@ -19,7 +19,7 @@ function AddComment(props) {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
-        commentText,
+        content,
         record,
       });
       setComments((prevComments) => ({
@@ -50,14 +50,14 @@ function AddComment(props) {
           <Form.Control
             placeholder="comment here..."
             as="textarea"
-            value={commentText}
+            value={content}
             onChange={changeCommentText}
             rows={2}
           />
         </InputGroup>
       </Form.Group>
       <button
-        disabled={!commentText.trim()}
+        disabled={!content.trim()}
         type="submit"
       >
         Send comment
