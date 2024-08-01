@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import reactRouterDom, { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import { useCurrentUser } from "../../context/CurrentUserContext";

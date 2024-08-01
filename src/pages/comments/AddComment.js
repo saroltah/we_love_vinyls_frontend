@@ -8,11 +8,10 @@ import ProfilePic from "../../elements/ProfilePic";
 import { axiosRes } from "../../api/AxiosDefaults"
 
 function AddComment(props) {
-  const { record, setRecord, profileImage, profile_id, } = props;
+  const { commented_record, setCommented_record, setComments, profile_image, profile_id } = props;
   const [content, setContent] = useState("");
-  const [comments, setComments] = useState({ results: [] })
 
-  const changeCommentText = (event) => {
+  const changeContent = (event) => {
     setContent(event.target.value);
   };
 
@@ -20,16 +19,14 @@ function AddComment(props) {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
-        content: content,
-        commented_record: record,
-        member: profile_id
+        content,
+        commented_record,
       });
-      
       setComments((prevComments) => ({
         ...prevComments,
-        results: [data, ...(prevComments?.results || [])],
+        results: [data, ...prevComments.results],
       }));
-      setRecord((prevRecord) => ({
+      setCommented_record((prevRecord) => ({
         results: [
           {
             ...prevRecord.results[0],
@@ -44,18 +41,18 @@ function AddComment(props) {
   };
 
   return (
-    <Form onSubmit={submitComment}>
+    <Form className="mt-2" onSubmit={submitComment}>
       <Form.Group>
         <InputGroup>
-          <Link to={`/profiles/${profile_id}`}>
-            <ProfilePic src={profileImage} />
+          <Link to={`/users/${profile_id}`}>
+            <ProfilePic src={profile_image} />
           </Link>
           <Form.Control
-            placeholder="comment here..."
+            placeholder="Write your comment here."
             as="textarea"
             value={content}
-            onChange={changeCommentText}
-            rows={2}
+            onChange={changeContent}
+            rows={3}
           />
         </InputGroup>
       </Form.Group>

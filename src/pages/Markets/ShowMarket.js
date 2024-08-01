@@ -10,7 +10,7 @@ const ShowMarket = (props) => {
   const {
     id, organizer, country, city, address, date,
             start, end, description,
-            members_attending_count, oneMarket, created, organizer_id, profile_image, attendance_id, setMarkets, attended_market
+            members_attending_count, created, organizer_id, organizer_image, attendance_id, setMarkets, attended_market
   } = props;
 
   const currentUser = useCurrentUser();
@@ -67,7 +67,7 @@ const ShowMarket = (props) => {
     <div>
            <Link to={`/users/${organizer_id}`}>
       <ProfilePic
-          src={profile_image}
+          src={organizer_image}
           height={50}
         />
         {organizer}

@@ -9,17 +9,19 @@ import { useCurrentUser } from "../../context/CurrentUserContext";
 function OneRecord() {
   const { id } = useParams();
   const [record, setRecord] = useState({ results: [] });
+  const {commented_record, setCommented_record} = ({ results: [] });
 
   const currentUser = useCurrentUser();
-  const profileImage = currentUser?.profile_image;
+  const profile_image = currentUser?.profile_image;
+  const profile_id = currentUser?.profile_id;
+
   const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: record }, { data: comments }] = await Promise.all([
+        const [{ data: record }] = await Promise.all([
           axiosReq.get(`/records/${id}`),
-          axiosReq.get(`/comments/?commented_record__id=1`),
         ]);
         setRecord({ results: [record] });
         console.log(record);
@@ -33,33 +35,26 @@ function OneRecord() {
 
   return (
     <div>
-        <ShowRecord {...record.results[0]} setRecords={setRecord} oneRecord/>
-          {currentUser ? (
+        <ShowRecord {...record.results[0]} setRecords={setRecord}/>
+        <div><h3>Comments</h3>
             <AddComment
-              profile_id={currentUser.profile_id}
-              profileImage={profileImage}
-              record={id}
-              setRecord={setRecord}
-              setComments={setComments}
+            profile_id={profile_id}
+            profile_image={profile_image}
+            commented_record={id}
+            setComments={setComments}
+            setRecord={setRecord}
             />
-          ) : comments.results.length ? (
-            "Comments"
-          ) : null}
-        {comments.results.length ? (
-            comments.results.map((comment) => (
-              <ShowComment
-                key={comment.id}
-                {...comment}
-                setRecord={setRecord}
-                setComments={setComments}
-              />
-            ))
-          ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
-          ) : (
-            <span>No comments... yet</span>
-          )}
-    </div>
+
+          </div>
+          {comments.results.length ? (
+  comments.results.map((comment) => (
+    
+    <ShowComment key={comment.id} {...comment} />
+  ))
+) : (
+  <span>No comments yet</span>
+)}
+           </div>
   );
 }
 

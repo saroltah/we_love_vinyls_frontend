@@ -12,7 +12,7 @@ const ShowRecord = (props) => {
     id, advertiser, artist, title, track_list,
     created, condition, image, released, genre,
     members_liking_count, comment_count,
-    price, location, contact, profile_image, like_id, setRecords, liked_record, advertiser_id
+    price, location, contact, advertiser_image, like_id, setRecords, liked_record, advertiser_id
   } = props;
 
   const currentUser = useCurrentUser();
@@ -73,7 +73,7 @@ const ShowRecord = (props) => {
     <div>
       <Link to={`/users/${advertiser_id}`}>
       <ProfilePic
-          src={profile_image}
+          src={advertiser_image}
           height={50}
         />
         {advertiser}
@@ -114,13 +114,13 @@ const ShowRecord = (props) => {
         </OverlayTrigger>
       ) : like_id ? (
         <span onClick={submitUnlike} style={{ cursor: 'pointer' }}>
-          
+          <i>❤️</i>
         </span>
       ) : currentUser ? (
         <>
         <span onClick={submitLike} style={{ cursor: 'pointer' }}>
           <i>🤍</i>
-        </span><i>❤️</i></>
+        </span></>
       ) : (
         <OverlayTrigger
         placement="top"
