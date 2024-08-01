@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
 
-function GetMarketList(filter="") {
-  const [markets, setMarkets] = useState({ results: [] });
+function GetCommentList(filter="") {
+  const [comments, setComments] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axiosReq.get('/markets/?${filter}');
+        const response = await axiosReq.get(`/comments/?${filter}`);
         const { data } = response;
         console.log("Api response:", data);
         if (Array.isArray(data)) {
@@ -33,7 +33,7 @@ function GetMarketList(filter="") {
   }, [filter, pathname]);
 
   return {
-    filter, comments, loaded, setComments, setLoaded, commented_record_id
+    filter, comments, loaded, setComments, setLoaded,
   };}
 
   
