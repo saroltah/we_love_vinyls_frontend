@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import styles from "../styles/SearchField.module.css"
 
 function RecordSearchField({ query, setQuery })  {
 

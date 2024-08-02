@@ -3,7 +3,7 @@ import styles from "../styles/ProfilePic.module.css";
 
 function ProfilePic({ src, height = 45, text }) {
   return (
-    <span>
+    <>
       <img
         className={styles.ProfilePic}
         src={src}
@@ -12,7 +12,7 @@ function ProfilePic({ src, height = 45, text }) {
         alt="profilepic"
       />
       {text}
-    </span>
+      </>
   );
 }
 

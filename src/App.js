@@ -20,7 +20,8 @@ import EditProfile from "./pages/Users/EditProfile";
 function App() {
    return (
     <div className="App">
-      <Navigation />
+      <Navigation/>
+      <div className="Content">
       <Switch>    
         <Route exact path="/users/:id" render={() => <OneProfile/>} />
         <Route exact path="/users/:id/edit" render={() => <EditProfile/>} />
@@ -54,6 +55,7 @@ function App() {
         
         <Route render={() => <p>This page is not found!</p>} />
       </Switch>
+      </div>
     </div>
   );
 }

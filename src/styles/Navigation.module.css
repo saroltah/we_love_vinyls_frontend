@@ -1,0 +1,27 @@
+.Navigation {
+    background-color: #8ca9d3;
+    color:white;
+    font-style:bold;
+    border:1px solid black;
+    
+}
+.NavBar {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Nav {
+    display: flex;
+    align-items: center;
+}
+.NavLink {
+    color:black;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.NavLink:hover {
+    color: white;
+    text-decoration: none;
+}
