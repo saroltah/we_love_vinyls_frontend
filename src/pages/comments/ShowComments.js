@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import ProfilePic from "../../elements/ProfilePic";
 
 const ShowComment = (props) => {
-  const { profile_id, profile_image, member, created, content } = props;
+  const { member_id, member_image, member, created, content } = props;
 
   return (
     <div>
       <hr />
       <Media>
-        <Link to={`/profiles/${profile_id}`}>
-          <ProfilePic src={profile_image} />
+        <Link to={`/profiles/${member_id}`}>
+          <ProfilePic src={member_image} />
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span>{member}</span>

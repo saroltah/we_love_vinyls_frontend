@@ -7,10 +7,11 @@ import InputGroup from "react-bootstrap/InputGroup";
 import ProfilePic from "../../elements/ProfilePic";
 import { axiosRes } from "../../api/AxiosDefaults"
 
-function AddComment(props) {
-  const { record, setRecord, setComments, profile_image, profile_id } = props;
-  const [content, setContent] = useState("");
 
+function AddComment(props) {
+  const { commented_record, setCommented_record, setComments, member_image, member_id, setRecord } = props;
+  const [content, setContent] = useState("");
+  
   const changeContent = (event) => {
     setContent(event.target.value);
   };
@@ -20,17 +21,20 @@ function AddComment(props) {
     try {
       const { data } = await axiosRes.post("/comments/", {
         content,
-        record,
+        commented_record,
       });
+      console.log('Received data:', data);
+
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
+
       setRecord((prevRecord) => ({
         results: [
           {
             ...prevRecord.results[0],
-            comment_count: prevRecord.results[0].comment_count + 1,
+          comment_count: prevRecord.results[0].comment_count + 1,
           },
         ],
       }));
@@ -44,8 +48,8 @@ function AddComment(props) {
         <Form className="mt-2" onSubmit={submitComment}>
           <Form.Group>
             <InputGroup>
-              <Link to={`/users/${profile_id}`}>
-                <ProfilePic src={profile_image} />
+              <Link to={`/users/${member_id}`}>
+                <ProfilePic src={member_image} />
               </Link>
               <Form.Control
                 placeholder="Write your comment here."

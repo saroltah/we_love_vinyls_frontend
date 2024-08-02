@@ -92,7 +92,7 @@ const ShowRecord = (props) => {
     <img src={image} alt={title} height={100}/>
   </Link>
       <div>
-      <h3>{artist}: {title} </h3>
+      <div>{artist}: {title} </div>
       <p>Artist: {artist}</p>
       <p>Title: {title}</p>
       <p>Track list: {track_list}</p>
