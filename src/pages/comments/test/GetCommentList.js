@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { axiosReq } from "../api/AxiosDefaults";
+import { axiosReq } from "../../../api/AxiosDefaults";
 
 function GetCommentList(filter="") {
   const [comments, setComments] = useState({ results: [] });

@@ -1,32 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { axiosReq } from "../../api/AxiosDefaults";
-import ShowRecord from "./ShowRecord";
+import { axiosReq } from "../../api/AxiosDefaults"
+import ShowRecord from "../Records/ShowRecord";
 import AddComment from "../comments/AddComment";
-import ShowComment from "../comments/ShowComment";
 import { useCurrentUser } from "../../context/CurrentUserContext";
-import GetCommentList from "../../hooks/GetCommentList";
+import ShowComment from "../comments/ShowComments";
 
 function OneRecord() {
+
   const { id } = useParams();
   const [record, setRecord] = useState({ results: [] });
-  const commented_record__id = {id}
-  const { comments, setComments } = GetCommentList(`commented_record__id=${commented_record__id || ''}`)
-
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
-  const profile_id = currentUser?.profile_id;
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: record }] = await Promise.all([
+        const [{ data: record }, { data: comments }] = await Promise.all([
           axiosReq.get(`/records/${id}`),
-          axiosReq.get(`/comments/?commented_record=${id}`)
+          axiosReq.get(`/comments/?commented_record__id=${id}`),
         ]);
         setRecord({ results: [record] });
-        console.log(record);
+        setComments(comments)
+
+ 
       } catch (err) {
         console.log(err);
       }
@@ -38,24 +37,29 @@ function OneRecord() {
   return (
     <div>
         <ShowRecord {...record.results[0]} setRecords={setRecord}/>
-        <div><h3>Comments</h3>
+        <div>
+          {currentUser ? (
             <AddComment
-            profile_id={profile_id}
-            profile_image={profile_image}
-            commented_record={id}
-            setComments={setComments}
+              profile_id={currentUser.profile_id}
+              profile_image={profile_image}
+              record={id}
+              setRecord={setRecord}
+              setComments={setComments}
             />
-
-          </div>
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
           {comments.results.length ? (
-  comments.results.map((comment) => (
-    
-    <ShowComment key={comment.id} {...comment} setComments={setComments}/>
-  ))
-) : (
-  <span>No comments yet</span>
-)}
-           </div>
+            comments.results.map((comment) => (
+              <ShowComment key={comment.id} {...comment} />
+            ))
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment!</span>
+          ) : (
+            <span>No comments... yet</span>
+          )}
+        </div>  
+        </div>
   );
 }
 

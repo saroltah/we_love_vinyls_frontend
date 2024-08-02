@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
-import ProfilePic from "../../elements/ProfilePic";
-import { axiosRes } from "../../api/AxiosDefaults"
+import ProfilePic from "../../../elements/ProfilePic";
+import { axiosRes } from "../../../api/AxiosDefaults"
 
 function AddComment(props) {
-  const { record, setRecord, setComments, profile_image, profile_id } = props;
+  const { commented_record, setCommented_record, setComments, profile_image, profile_id } = props;
   const [content, setContent] = useState("");
 
   const changeContent = (event) => {
@@ -20,13 +20,13 @@ function AddComment(props) {
     try {
       const { data } = await axiosRes.post("/comments/", {
         content,
-        record,
+        commented_record,
       });
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
-      setRecord((prevRecord) => ({
+      setCommented_record((prevRecord) => ({
         results: [
           {
             ...prevRecord.results[0],
@@ -41,28 +41,28 @@ function AddComment(props) {
   };
 
   return (
-        <Form className="mt-2" onSubmit={submitComment}>
-          <Form.Group>
-            <InputGroup>
-              <Link to={`/users/${profile_id}`}>
-                <ProfilePic src={profile_image} />
-              </Link>
-              <Form.Control
-                placeholder="Write your comment here."
-                as="textarea"
-                value={content}
-                onChange={changeContent}
-                rows={3}
-              />
-            </InputGroup>
-          </Form.Group>
-          <button
-            disabled={!content.trim()}
-            type="submit"
-          >
-            Send comment
-          </button>
-        </Form>
+    <Form className="mt-2" onSubmit={submitComment}>
+      <Form.Group>
+        <InputGroup>
+          <Link to={`/users/${profile_id}`}>
+            <ProfilePic src={profile_image} />
+          </Link>
+          <Form.Control
+            placeholder="Write your comment here."
+            as="textarea"
+            value={content}
+            onChange={changeContent}
+            rows={3}
+          />
+        </InputGroup>
+      </Form.Group>
+      <button
+        disabled={!content.trim()}
+        type="submit"
+      >
+        Send comment
+      </button>
+    </Form>
   );
 }
 

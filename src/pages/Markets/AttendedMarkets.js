@@ -2,7 +2,7 @@ import React from "react";
 import AllMarkets from "./AllMarkets";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 
-function MyMarkets() {
+function AttendedMarkets() {
 
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
@@ -16,4 +16,4 @@ function MyMarkets() {
   />
 </div>
   )}
-export default MyMarkets;
+export default AttendedMarkets;

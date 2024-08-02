@@ -1,0 +1,37 @@
+import React from "react";
+import Loading from "../../../elements/Loading";
+import GetCommentList from "./GetCommentList";
+import ShowComment from "./ShowComment";
+
+function AllComments({ message, filter }) {
+
+  const {comments, setComments, loaded} = GetCommentList(filter)
+  return (
+    <div>
+      <div>
+        <p>Comments</p>
+        {loaded ? (
+          <>
+            {comments.results.length > 0 ? (
+              comments.results.map((comment) => (
+                <div>
+                  <ShowComment {...comment} setComments={setComments} key={comment.id}/>
+                </div>
+              ))
+            ) : (
+              <div>
+                <p>{message || "No comments"}</p>
+              </div>
+            )}
+          </>
+        ) : (
+          <div>
+            <Loading />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default AllComments;
