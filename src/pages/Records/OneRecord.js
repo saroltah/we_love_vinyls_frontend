@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults"
 import ShowRecord from "../Records/ShowRecord";
 import AddComment from "../comments/AddComment";
@@ -41,6 +41,9 @@ function OneRecord() {
 
   return (
     <div>
+      <Link to={`/`}>
+          Back to Homepage
+        </Link>
         <ShowRecord {...record.results[0]} setRecords={setRecord}/>
         <div>
   {currentUser ? (

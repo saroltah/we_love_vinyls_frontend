@@ -98,7 +98,7 @@ function AddRecord() {
           {image ? (
             <>
               <figure>
-                <Image src={image} rounded />
+                <Image src={image} rounded width={200}/>
               </figure>
               <div>
                 <Form.Label className="btn" htmlFor="image-upload">
@@ -316,7 +316,7 @@ function AddRecord() {
         ))}
 
         <Button onClick={() => history.goBack()}> Back </Button>
-        <Button type="submit">Edit Record</Button>
+        <Button type="submit">Add Record</Button>
       </Form>
     </div>
   );

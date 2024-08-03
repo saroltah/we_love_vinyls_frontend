@@ -3,14 +3,19 @@ import Loading from "../../elements/Loading";
 import GetRecordList from "../../hooks/GetRecordList";
 import ShowRecord from "./ShowRecord";
 import RecordSearchField from "../../elements/RecordSearchField";
+import AddRecordDropdown from "../../elements/AddRecordDropdown";
+import { useCurrentUser } from "../../context/CurrentUserContext"
 
 function AllRecords({ message, filter }) {
 
 const {records, setRecords, loaded, query, setQuery} = GetRecordList(filter)
 const hasFilter = filter && filter.trim() !== "";
+const currentUser = useCurrentUser();
 
   return (
     <div>
+      {currentUser ? (
+      <AddRecordDropdown/>): null}
       <div>
         {!hasFilter && (
         <RecordSearchField query = {query} setQuery={setQuery}/>

@@ -5,6 +5,7 @@ import ProfilePic from "../../elements/ProfilePic";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
+import EditRecord from "./EditRecord";
 
 const ShowRecord = (props) => {
   
@@ -20,11 +21,11 @@ const ShowRecord = (props) => {
 
   const history = useHistory();
 
-  const editPost = () => {
+  const editRecord = () => {
     history.push(`/records/${id}/edit`);
   };
 
-  const deletePost = async () => {
+  const deleteRecord = async () => {
     try {
       await axiosRes.delete(`/records/${id}/`);
       history.goBack();
@@ -82,8 +83,8 @@ const ShowRecord = (props) => {
         <span>{created}</span>
         {is_advertiser && ShowRecord && (
               <PostDropdown
-                editPost={editPost}
-                deletePost={deletePost}
+                editPost={editRecord}
+                deletePost={deleteRecord}
               />
             )}
     </div>
@@ -92,7 +93,8 @@ const ShowRecord = (props) => {
     <img src={image} alt={title} height={100}/>
   </Link>
       <div>
-      <div>{artist}: {title} </div>
+      <Link to={`/records/${id}`}>
+      <div>{artist}: {title} </div> </Link>
       <p>Artist: {artist}</p>
       <p>Title: {title}</p>
       <p>Track list: {track_list}</p>

@@ -1,5 +1,5 @@
 .Navigation {
-    background-color: #8ca9d3;
+    background-color: rgb(35,41,39);
     color:white;
     font-style:bold;
     border:1px solid black;
@@ -15,7 +15,7 @@
     align-items: center;
 }
 .NavLink {
-    color:black;
+    color:white;
     text-decoration: none;
     padding: 10px;
     display: flex;
