@@ -5,7 +5,8 @@ import { Form, Button, Image, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 
-import styles from "../../styles/UploadPic.module.css";
+import PicStyles from "../../styles/UploadPic.module.css";
+import PostStyles from "../../styles/AddPost.module.css"
 import upload from "../../assets/upload.png";
 
 function AddRecord() {
@@ -13,7 +14,7 @@ function AddRecord() {
   const [errors, setErrors] = useState({});
 
   const nodeRef = useRef(null);
-
+ 
   useEffect(() => {
     const node = nodeRef.current;})
 
@@ -93,7 +94,7 @@ function AddRecord() {
 
   return (
     <div ref={nodeRef}>
-      <Form onSubmit={submitRecord}>
+      <Form onSubmit={submitRecord} className={PostStyles.AddPost}> 
         <Form.Group>
           {image ? (
             <>
@@ -113,7 +114,7 @@ function AddRecord() {
               <img
                 src={upload}
                 alt="Upload"
-                className={styles.UploadPic}
+                className={PicStyles.UploadPic}
               />
             </Form.Label>
           )}

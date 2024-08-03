@@ -1,5 +1,4 @@
 import React from "react";
-import AddMarket from "./AddMarket";
 import AllMarkets from "./AllMarkets";
 
 function Markets() {

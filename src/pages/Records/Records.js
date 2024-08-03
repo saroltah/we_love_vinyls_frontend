@@ -1,12 +1,11 @@
 import React from "react";
-import AddRecordDropdown from "../../elements/AddRecordDropdown";
 import AllRecords from "./AllRecords";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import General from "../../styles/General.module.css"
 
 function Records() {
   return (
     <div>
-      <h2> Welome to the vinyl heaven </h2>
+      <h1 className={General.h1}> Welome to the vinyl heaven </h1>
       <AllRecords/>
     </div>
   );

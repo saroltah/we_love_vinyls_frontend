@@ -5,7 +5,6 @@ import ProfilePic from "../../elements/ProfilePic";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
-import EditRecord from "./EditRecord";
 
 const ShowRecord = (props) => {
   

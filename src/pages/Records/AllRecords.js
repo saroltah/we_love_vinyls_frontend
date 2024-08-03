@@ -3,8 +3,8 @@ import Loading from "../../elements/Loading";
 import GetRecordList from "../../hooks/GetRecordList";
 import ShowRecord from "./ShowRecord";
 import RecordSearchField from "../../elements/RecordSearchField";
-import AddRecordDropdown from "../../elements/AddRecordDropdown";
 import { useCurrentUser } from "../../context/CurrentUserContext"
+import RecordDropdown from "../../elements/RecordDropdown";
 
 function AllRecords({ message, filter }) {
 
@@ -14,10 +14,9 @@ const currentUser = useCurrentUser();
 
   return (
     <div>
-      {currentUser ? (
-      <AddRecordDropdown/>): null}
-      <div>
-        {!hasFilter && (
+       {currentUser ? (
+      <RecordDropdown/>):null }
+      {!hasFilter && (
         <RecordSearchField query = {query} setQuery={setQuery}/>
         )}
         {loaded ? (
@@ -39,7 +38,7 @@ const currentUser = useCurrentUser();
             <Loading />
           </div>
         )}
-      </div>
+      
     </div>
   );
 }

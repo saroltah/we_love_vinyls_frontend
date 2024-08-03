@@ -13,6 +13,7 @@ return (
       onChange={(event) => setQuery(event.target.value)}
       type="text"
       placeholder="Search for records"
+      className={styles.SearchInput}
     />
   </Form> );}
 

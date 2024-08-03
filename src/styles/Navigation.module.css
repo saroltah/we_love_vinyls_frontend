@@ -1,6 +1,4 @@
 .Navigation {
-    background-color: rgb(35,41,39);
-    color:white;
     font-style:bold;
     border:1px solid black;
     
@@ -15,13 +13,11 @@
     align-items: center;
 }
 .NavLink {
-    color:white;
     text-decoration: none;
     padding: 10px;
     display: flex;
     align-items: center;
 }
 .NavLink:hover {
-    color: white;
     text-decoration: none;
 }

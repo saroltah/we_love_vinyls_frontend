@@ -9,7 +9,7 @@ import { axiosRes } from "../../api/AxiosDefaults"
 
 
 function AddComment(props) {
-  const { commented_record, setCommented_record, setComments, member_image, member_id, setRecord } = props;
+  const { commented_record, setComments, member_image, member_id, setRecord } = props;
   const [content, setContent] = useState("");
   
   const changeContent = (event) => {

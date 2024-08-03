@@ -3,19 +3,23 @@ import Loading from "../../elements/Loading";
 import GetMarketList from "../../hooks/GetMarketList";
 import ShowMarket from "./ShowMarket";
 import MarketSearchField from "../../elements/MarketSearchField";
-import AddMarketDropdown from "../../elements/AddMarketDropdown";
+import { useCurrentUser } from "../../context/CurrentUserContext"
+import MarketDropdown from "../../elements/MarketDropdown";
+import General from "../../styles/General.module.css"
 
 
 function AllMarkets({ message, filter }) {
 
   const {markets, setMarkets, loaded, query, setQuery} = GetMarketList(filter)
   const hasFilter = filter && filter.trim() !== "";
+  const currentUser = useCurrentUser();
+  
   return (
     <div>
-      <div>
-        <p>Markets</p>
+      
+        <h1 className={General.h1}>Vinyl markets</h1>
         {currentUser ? (
-      <AddMarketDropdown/>): null}
+        <MarketDropdown/>): null}
         {!hasFilter && (
         <MarketSearchField query = {query} setQuery={setQuery}/>
         )}
@@ -39,7 +43,7 @@ function AllMarkets({ message, filter }) {
           </div>
         )}
       </div>
-    </div>
+    
   );
 }
 

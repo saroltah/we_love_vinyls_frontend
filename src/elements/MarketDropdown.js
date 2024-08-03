@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
-import AddMarket from '../pages/Market/AddMarket';
+import AddMarket from '../pages/Markets/AddMarket';
+import styles from "../styles/AddPostDropdown.module.css"
 
-function AddMarketDropdown() {
+function MarketDropdown() {
     const [open, setOpen] = useState(false);
   
     return (
@@ -11,8 +12,9 @@ function AddMarketDropdown() {
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
           aria-expanded={open}
+          className={styles.AddButton}
         >
-          Add Market!
+          + Add Market!
         </Button>
         <Collapse in={open}>
           <div>
@@ -23,5 +25,4 @@ function AddMarketDropdown() {
     );
   }
   
-  export default AddMarketDropdown;
- 
+  export default MarketDropdown;

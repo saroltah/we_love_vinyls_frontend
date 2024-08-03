@@ -1,8 +1,17 @@
 .SearchField {
-    margin: 20px 10px
+    margin: 20px 10px;
+    border: 1px solid black
+}
+.SearchInput {
+    text-align: center;
 }
 @media screen and (min-width: 768px) {
 .SearchField{
-    width:60%
+    display: block;
+    margin: 0 auto;
+    margin-top:30px
+}
+.SearchInput {
+    font-size:25px
 }
 }
