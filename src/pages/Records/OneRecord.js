@@ -61,7 +61,8 @@ function OneRecord() {
   {comments.results.length ? (
     <div>
       {comments.results.map((comment) => (
-        <ShowComments key={comment.id} {...comment} />
+        <ShowComments key={comment.id} {...comment} setRecord={setRecord}
+        setComments={setComments}/>
       ))}
     </div>
   ) : currentUser ? (
