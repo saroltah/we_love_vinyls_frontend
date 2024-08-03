@@ -6,13 +6,15 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 import ProfilePic from "../../elements/ProfilePic";
 import { axiosRes } from "../../api/AxiosDefaults"
+import styles from "../../styles/Comment.module.css"
+
 
 
 function AddComment(props) {
   const { commented_record, setComments, member_image, member_id, setRecord } = props;
   const [content, setContent] = useState("");
-  
-  const changeContent = (event) => {
+
+ const changeContent = (event) => {
     setContent(event.target.value);
   };
 
@@ -45,7 +47,7 @@ function AddComment(props) {
   };
 
   return (
-        <Form className="mt-2" onSubmit={submitComment}>
+        <Form onSubmit={submitComment} className={styles.AddComment}>
           <Form.Group>
             <InputGroup>
               <Link to={`/users/${member_id}`}>
@@ -57,12 +59,14 @@ function AddComment(props) {
                 value={content}
                 onChange={changeContent}
                 rows={3}
+              className={styles.Textarea}
               />
             </InputGroup>
           </Form.Group>
           <button
-            disabled={!content.trim()}
             type="submit"
+            className={styles.Button}
+            disabled={!content.trim()}
           >
             Send comment
           </button>

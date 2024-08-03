@@ -1,29 +1,21 @@
-.OnePost {
-    border:1px solid black;
-    margin:20px;
-    padding:10px
+.Profile {
+    padding: 10px;
 }
-
 .Container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.LeftSide {
+.Middle {
     display:flex;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .RightSide {
     display:flex;
     align-items: center;
-}
-
-.Title {
-    font-size:20px;
-    margin: 30px 20px;
-    color: black;
-    text-decoration: none;
-    
+    margin-left: auto;
 }
 
 .Details {
@@ -32,4 +24,9 @@
 
 .DetailsTitle{
     font-style: italic;
+}
+
+.h3{
+    margin-top:50px;
+    font-size:25px
 }

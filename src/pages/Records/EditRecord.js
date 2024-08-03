@@ -7,6 +7,8 @@ import upload from "../../assets/upload.png";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults"
 
+import styles from "../../styles/AddEditPost.module.css"
+
 function EditRecord() {
   const [errors, setErrors] = useState({});
 
@@ -121,7 +123,8 @@ function EditRecord() {
   
 
   return (
-    <Form onSubmit={submitRecord}>
+    <div>
+    <Form onSubmit={submitRecord} className={styles.AddEditPost}>
     <Form.Group>
       {image ? (
         <>
@@ -342,9 +345,10 @@ function EditRecord() {
       </Alert>
     ))}
 
-    <Button onClick={() => history.goBack()}> Back </Button>
-    <Button type="submit">Edit Record</Button>
+    <Button onClick={() => history.goBack()} className={styles.Button}> Back </Button>
+    <Button type="submit" className={styles.Button}>Edit Record</Button>
   </Form>
+  </div>
   );
 }
 

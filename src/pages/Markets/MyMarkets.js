@@ -2,6 +2,7 @@ import React from "react";
 import AllMarkets from "./AllMarkets";
 import AttendedMarkets from "./AttendedMarkets";
 import { useCurrentUser } from "../../context/CurrentUserContext"
+import styles from "../../styles/Lists.module.css"
 
 function MyMarkets() {
 
@@ -16,7 +17,7 @@ function MyMarkets() {
     filter={filter_data}
   />
 
-<h1>Attended markets:</h1>
+<h3 className={styles.h3}>I attend:</h3>
 <AttendedMarkets/>
 </div>
   )}

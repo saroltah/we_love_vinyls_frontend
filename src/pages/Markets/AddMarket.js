@@ -5,7 +5,7 @@ import { Form, Button, Alert} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 
-import styles from "../../styles/AddPost.module.css"
+import styles from "../../styles/AddEditPost.module.css"
 
 function AddMarket() {
   const [errors, setErrors] = useState({});
@@ -56,7 +56,7 @@ function AddMarket() {
 
   return (
     <div>
-      <Form onSubmit={submitMarket} className={styles.AddPost}>
+      <Form onSubmit={submitMarket} className={styles.AddEditPost}>
         <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>
           <Form.Control
@@ -165,8 +165,8 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
-        <Button onClick={() => history.goBack()}>Back</Button>
-        <Button type="submit">Add Market</Button>
+        <Button onClick={() => history.goBack()} className={styles.Button}>Back</Button>
+        <Button type="submit" className={styles.Button}>Add Market</Button>
       </Form>
     </div>
   );

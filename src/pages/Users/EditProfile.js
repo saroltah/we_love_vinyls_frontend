@@ -8,6 +8,8 @@ import { axiosReq } from "../../api/AxiosDefaults"
 import Image from "react-bootstrap/Image";
 import upload from "../../assets/upload.png";
 
+import styles from "../../styles/AddEditPost.module.css"
+
 function EditProfile() {
   const [errors, setErrors] = useState({});
 
@@ -89,7 +91,8 @@ function EditProfile() {
   }
 
   return (
-    <Form onSubmit={submitProfile}>
+  <div>
+    <Form onSubmit={submitProfile} className={styles.AddEditPost}>
         <Form.Group>
       {image ? (
         <>
@@ -154,9 +157,10 @@ function EditProfile() {
           </Alert>
         ))}
   
-        <Button onClick={() => history.goBack()}>Back</Button>
-        <Button type="submit">Edit Profile</Button>
+        <Button onClick={() => history.goBack()} className={styles.Button}>Back</Button>
+        <Button type="submit" className={styles.Button}>Edit Profile</Button>
       </Form>
+      </div>
   );
 }
 

@@ -5,6 +5,7 @@ import { PostDropdown } from "../../elements/PostDropdown";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import AdvertisedRecords from "../Records/AdvertisedRecords"
 import OrganizedMarkets from "../Markets/OrganizedMarkets";
+import styles from "../../styles/Profile.module.css"
 
 function OneProfile() {
   const { id } = useParams();
@@ -46,25 +47,31 @@ function OneProfile() {
 
 
   return (
-        <div>
-          <h1>{username}</h1>
-        <img src={image} alt="user-profile" height={100}/>
-        <div>
+        <div className={styles.Profile}>
+          <div className={styles.Container}>
+          <h1 className={styles.Middle}>{username}</h1>
+          <span cassName={styles.RightSide}>
+          <div>
         {is_member && (
               <PostDropdown
                 editPost={editProfile}
               />
             )}
     </div>
-
-      <div>
-      <p>About_me: {about_me}</p>
-      <p>preferred_music: {preferred_music}</p>
-      <p>Liked records: {liked_record_count}</p>
-      <p>Attended markets: {attended_market_count}</p>
-      <h1>Advertised records:</h1> 
+    </span>
+</div>
+        <img src={image} alt="user-profile" height={100}/>
+       
+        <div className={styles.Details}>
+      {about_me ? (
+      <p><span className={styles.DetailsTitle}>About me:</span> {about_me}</p>): null}
+      {preferred_music ? (
+      <p><span className={styles.DetailsTitle}>Music I prefer:</span> {preferred_music}</p>): null}
+      <p><span className={styles.DetailsTitle}>Records I like:</span> {liked_record_count}</p>
+      <p><span className={styles.DetailsTitle}>Markets I attend:</span> {attended_market_count}</p>
+      <h3 className={styles.h3}>Advertised records:</h3> 
       <p> <AdvertisedRecords profile_id = {id}/> </p>
-      <h1>OrganizedMarkets:</h1> 
+      <h3 className={styles.h3}>Organized markets:</h3> 
       <p> <OrganizedMarkets profile_id = {id}/> </p>
         </div> 
        

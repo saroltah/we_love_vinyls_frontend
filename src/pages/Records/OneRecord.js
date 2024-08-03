@@ -46,6 +46,7 @@ function OneRecord() {
         </Link>
         <ShowRecord {...record.results[0]} setRecords={setRecord}/>
         <div>
+        <h3>Comments</h3>
   {currentUser ? (
     <AddComment
       member_id={profile_id}
@@ -59,7 +60,6 @@ function OneRecord() {
 
   {comments.results.length ? (
     <div>
-      <p>Comments</p>
       {comments.results.map((comment) => (
         <ShowComments key={comment.id} {...comment} />
       ))}

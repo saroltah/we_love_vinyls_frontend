@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import styles from "../../styles/AddEditPost.module.css"
 
 function SignUp() {
   const [signUpDetails, setSignUpDetails] = useState({
@@ -37,7 +38,7 @@ function SignUp() {
 
   return (
     <div>
-      <Form onSubmit={handleSignUp}>
+      <Form onSubmit={handleSignUp} className={styles.AddEditPost}>
         <Form.Group controlId="Username">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -88,7 +89,7 @@ function SignUp() {
             {message}
           </Alert>
         ))}
-        <Button variant="primary" type="submit">
+        <Button type="submit" className={styles.Button}>
           Sign up!
         </Button>
       </Form>

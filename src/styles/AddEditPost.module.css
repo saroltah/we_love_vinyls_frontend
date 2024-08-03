@@ -1,0 +1,25 @@
+.AddEditPost {
+    border: 1px solid black;
+    margin:10px;
+    padding:10px
+
+}
+.Button {
+    border:1px solid black;
+    margin:15px;
+    padding:10px;
+    background-color:transparent;
+    color:black
+}
+.Button:toggle {
+    font-style: bold;
+    border:2px solid black
+}
+
+
+@media screen and (min-width: 768px) {
+    .AddPost{
+        width:60%;
+        margin: 0px auto;
+    }
+}

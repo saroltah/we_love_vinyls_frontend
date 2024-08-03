@@ -5,6 +5,8 @@ import {Form, Button, Alert} from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults"
 
+import styles from "../../styles/AddEditPost.module.css"
+
 function EditMarket() {
   const [errors, setErrors] = useState({});
 
@@ -72,7 +74,8 @@ function EditMarket() {
   
 
   return (
-    <Form onSubmit={submitMarket}>
+    <div>
+    <Form onSubmit={submitMarket} className={styles.AddEditPost}>
         <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>
           <Form.Control
@@ -181,9 +184,10 @@ function EditMarket() {
             {message}
           </Alert>
         ))}
-        <Button onClick={() => history.goBack()}>Back</Button>
-        <Button type="submit">Edit Market</Button>
+        <Button onClick={() => history.goBack()} className={styles.Button}>Back</Button>
+        <Button type="submit" className={styles.Button}>Edit Market</Button>
       </Form>
+      </div>
   );
 }
 

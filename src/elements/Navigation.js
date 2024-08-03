@@ -67,7 +67,7 @@ function Navigation() {
         />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className={`${styles.Nav} mr-auto`}>
-            <NavLink className={styles.NavLink} to="/">Records</NavLink>
+            <NavLink className={styles.NavLink} to="/records">Records</NavLink>
             <NavLink className={styles.NavLink} to="/markets">Markets</NavLink>
           </Nav>
           <Nav className={styles.Nav}>{currentUser ? loggedInMenu : loggedOutMenu}</Nav>

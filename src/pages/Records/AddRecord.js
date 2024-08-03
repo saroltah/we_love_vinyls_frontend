@@ -6,8 +6,9 @@ import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 
 import PicStyles from "../../styles/UploadPic.module.css";
-import PostStyles from "../../styles/AddPost.module.css"
 import upload from "../../assets/upload.png";
+
+import styles from "../../styles/AddEditPost.module.css"
 
 function AddRecord() {
 
@@ -94,7 +95,7 @@ function AddRecord() {
 
   return (
     <div ref={nodeRef}>
-      <Form onSubmit={submitRecord} className={PostStyles.AddPost}> 
+      <Form onSubmit={submitRecord} className={styles.AddEditPost}> 
         <Form.Group>
           {image ? (
             <>
@@ -316,8 +317,8 @@ function AddRecord() {
           </Alert>
         ))}
 
-        <Button onClick={() => history.goBack()}> Back </Button>
-        <Button type="submit">Add Record</Button>
+        <Button onClick={() => history.goBack()} className={styles.Button}> Back </Button>
+        <Button type="submit" className={styles.Button}>Add Record</Button>
       </Form>
     </div>
   );

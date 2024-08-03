@@ -2,9 +2,10 @@ import React from "react";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
 import ProfilePic from "../../elements/ProfilePic";
-import {OverlayTrigger, Tooltip} from "react-bootstrap";
+import {OverlayTrigger, Tooltip, Card} from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
+import styles from "../../styles/OnePost.module.css"
 
 const ShowRecord = (props) => {
   
@@ -71,38 +72,42 @@ const ShowRecord = (props) => {
 
   return (
     <div>
-      <Link to={`/users/${advertiser_id}`}>
+      <div className={styles.OnePost}>
+      <div className={styles.Container}>
+      <Link to={`/users/${advertiser_id}`} className={styles.LeftSide}>
       <ProfilePic
           src={advertiser_image}
           height={50}
         />
         {advertiser}
         </Link>
-        <div>
-        <span>{created}</span>
-        {is_advertiser && ShowRecord && (
+        <span className={styles.RightSide}>
+          <span>{created}</span>
+        
+        <span>{is_advertiser && ShowRecord && (
               <PostDropdown
                 editPost={editRecord}
                 deletePost={deleteRecord}
               />
-            )}
+            )}</span>
+    </span>
     </div>
+    <Link to={`/records/${id}`}>
+      <div className={styles.Title}>{artist}: {title} </div> </Link>
 
     <Link to={`/records/${id}`}>
-    <img src={image} alt={title} height={100}/>
+    <img src={image} alt={title} width={140}/>
   </Link>
-      <div>
-      <Link to={`/records/${id}`}>
-      <div>{artist}: {title} </div> </Link>
-      <p>Artist: {artist}</p>
-      <p>Title: {title}</p>
-      <p>Track list: {track_list}</p>
-      <p>Year: {released}</p>
-      <p>Genre: {genre}</p>
-      <p>Condition: {condition}</p>
-      <p>Location: {location}</p>
-      <p>Price: {price}</p>
-      <p>Contact: {contact}</p>
+      <div className={styles.Details}>
+      <p><span className={styles.DetailsTitle}>Artist:</span> {artist}</p>
+      <p><span className={styles.DetailsTitle}>Title:</span> {title}</p>
+      <p><span className={styles.DetailsTitle}>Track list:</span> {track_list}</p>
+      <p><span className={styles.DetailsTitle}>Year:</span> {released}</p>
+      <p><span className={styles.DetailsTitle}>Genre:</span> {genre}</p>
+      <p><span className={styles.DetailsTitle}>Condition:</span> {condition}</p>
+      <p><span className={styles.DetailsTitle}>Location:</span> {location}</p>
+      <p><span className={styles.DetailsTitle}>Price:</span> {price}</p>
+      <p><span className={styles.DetailsTitle}>Contact:</span> {contact}</p>
 
     
         <div>
@@ -131,10 +136,11 @@ const ShowRecord = (props) => {
         </OverlayTrigger>
       )}
       {members_liking_count}
-      <Link to={`/records/${id}`}>
+      <Link to={`/records/${id}`} ms-3>
         <i>💬</i>
       </Link>
       {comment_count}
+        </div>
         </div>
         </div>
         </div>

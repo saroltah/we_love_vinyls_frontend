@@ -5,6 +5,7 @@ import ProfilePic from "../../elements/ProfilePic";
 import {OverlayTrigger, Tooltip } from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
+import styles from "../../styles/OnePost.module.css"
 
 const ShowMarket = (props) => {
   const {
@@ -64,31 +65,33 @@ const ShowMarket = (props) => {
   };
 
   return (
-    <div>
-           <Link to={`/users/${organizer_id}`}>
+    <div><div className={styles.OnePost}>
+      <div className={styles.Container}>
+           <Link to={`/users/${organizer_id}`} className={styles.LeftSide}>
       <ProfilePic
           src={organizer_image}
           height={50}
         />
         {organizer}
         </Link>
-          <div>
+        <span className={styles.RightSide}>
             <span>{created}</span>
-            {is_organizer && ShowMarket && (
+           <span>{is_organizer && ShowMarket && (
               <PostDropdown
                 editPost={editPost}
                 deletePost={deletePost}
               />
             )}
-          </div>
-
+          </span>
+          </span>
+</div>
       <Link to={`/markets/${id}`}>
-        <p>Vinyl market in {city}, {country}</p>
+        <div className={styles.Title}>Vinyl market in {city}, {country}</div>
       </Link>
-
+<div className={styles.Details}>
 <p>{description}</p>
-<p>Where? <span> {address}, {city}, {country}</span></p>
-<p>When? <span> {date}, {start} - {end}</span></p>
+<p><span className={styles.DetailsTitle}>Where?</span> <span> {address}, {city}, {country}</span></p>
+<p><span className={styles.DetailsTitle}>When?</span> <span> {date}, {start} - {end}</span></p>
 
 <div>
       {is_organizer ? (
@@ -115,6 +118,8 @@ const ShowMarket = (props) => {
         </OverlayTrigger>
       )}
       {members_attending_count}
+        </div>
+        </div>
         </div>
         </div>
   );

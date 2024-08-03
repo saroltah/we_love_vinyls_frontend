@@ -5,7 +5,7 @@ import ShowMarket from "./ShowMarket";
 import MarketSearchField from "../../elements/MarketSearchField";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 import MarketDropdown from "../../elements/MarketDropdown";
-import General from "../../styles/General.module.css"
+import styles from "../../styles/Lists.module.css"
 
 
 function AllMarkets({ message, filter }) {
@@ -15,9 +15,7 @@ function AllMarkets({ message, filter }) {
   const currentUser = useCurrentUser();
   
   return (
-    <div>
-      
-        <h1 className={General.h1}>Vinyl markets</h1>
+    <div> 
         {currentUser ? (
         <MarketDropdown/>): null}
         {!hasFilter && (

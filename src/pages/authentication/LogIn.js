@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
+import styles from "../../styles/AddEditPost.module.css"
 
 function LogIn() {
   const setCurrentUser = useSetCurrentUser();
@@ -38,7 +39,7 @@ function LogIn() {
 
   return (
     <div>
-      <Form onSubmit={handleLogIn}>
+      <Form onSubmit={handleLogIn} className={styles.AddEditPost}>
         <Form.Group controlId="Username">
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -69,7 +70,7 @@ function LogIn() {
             {message}
           </Alert>
         ))}
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className={styles.Button}>
           Log in!
         </Button>
         {errors.non_field_errors?.map((message, i) => (

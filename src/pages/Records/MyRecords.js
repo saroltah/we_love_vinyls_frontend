@@ -2,6 +2,7 @@ import React from "react";
 import AllRecords from "./AllRecords";
 import LikedRecords from "./LikedRecords";
 import { useCurrentUser } from "../../context/CurrentUserContext"
+import styles from "../../styles/Lists.module.css"
 
 function MyRecords() {
 
@@ -16,7 +17,7 @@ function MyRecords() {
     filter={filter_data}
   />
 
-<h1>Liked records:</h1>
+<h3 className={styles.h3}>I like:</h3>
 <LikedRecords/>
 </div>
   )}
