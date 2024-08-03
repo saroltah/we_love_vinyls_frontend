@@ -3,6 +3,7 @@ import Loading from "../../elements/Loading";
 import GetMarketList from "../../hooks/GetMarketList";
 import ShowMarket from "./ShowMarket";
 import MarketSearchField from "../../elements/MarketSearchField";
+import AddMarketDropdown from "../../elements/AddMarketDropdown";
 
 
 function AllMarkets({ message, filter }) {
@@ -13,6 +14,8 @@ function AllMarkets({ message, filter }) {
     <div>
       <div>
         <p>Markets</p>
+        {currentUser ? (
+      <AddMarketDropdown/>): null}
         {!hasFilter && (
         <MarketSearchField query = {query} setQuery={setQuery}/>
         )}

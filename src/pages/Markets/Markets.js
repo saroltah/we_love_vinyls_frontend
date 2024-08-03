@@ -6,7 +6,6 @@ function Markets() {
   return (
     <div>
       <AllMarkets/>
-      <AddMarket />
     </div>
   );
 }

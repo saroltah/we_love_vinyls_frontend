@@ -1,0 +1,27 @@
+import React, { useState } from 'react';
+import { Button, Collapse } from 'react-bootstrap';
+import AddMarket from '../pages/Market/AddMarket';
+
+function AddMarketDropdown() {
+    const [open, setOpen] = useState(false);
+  
+    return (
+      <>
+        <Button
+          onClick={() => setOpen(!open)}
+          aria-controls="example-collapse-text"
+          aria-expanded={open}
+        >
+          Add Market!
+        </Button>
+        <Collapse in={open}>
+          <div>
+            <AddMarket/>
+          </div>
+        </Collapse>
+      </>
+    );
+  }
+  
+  export default AddMarketDropdown;
+ 
