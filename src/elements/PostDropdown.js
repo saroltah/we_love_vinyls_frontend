@@ -1,5 +1,6 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import emoji from "../styles/Emoji.module.css"
 
 const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   <span
@@ -8,7 +9,7 @@ const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
       e.preventDefault();
       onClick(e);
     }}
-  ><i>✨</i> </span>
+  ><i className={`fa-solid fa-gear ${emoji.Emoji}`}></i> </span>
 ));
 
 export const PostDropdown = ({ editPost, deletePost }) => {
@@ -23,13 +24,13 @@ export const PostDropdown = ({ editPost, deletePost }) => {
           onClick={editPost}
           aria-label="edit"
         >
-          <i>💻</i>
+          <i className={`fa-solid fa-pen-to-square ${emoji.Emoji}`}></i>
         </Dropdown.Item>
         <Dropdown.Item
           onClick={deletePost}
           aria-label="delete"
         >
-          <i>🌿</i>
+          <i className={`fa-solid fa-trash-can ${emoji.Emoji}`}></i>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

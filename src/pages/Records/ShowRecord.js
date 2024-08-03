@@ -6,6 +6,7 @@ import {OverlayTrigger, Tooltip, Card} from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import styles from "../../styles/OnePost.module.css"
+import emoji from "../../styles/Emoji.module.css"
 
 const ShowRecord = (props) => {
   
@@ -116,28 +117,28 @@ const ShowRecord = (props) => {
         placement="top"
         overlay={<Tooltip>You can not like your own posts!</Tooltip>}
       >
-          <i>❤️</i>
+          <i className={`fa-solid fa-heart ${emoji.Emoji}`}></i>
         </OverlayTrigger>
       ) : like_id ? (
         <span onClick={submitUnlike} style={{ cursor: 'pointer' }}>
-          <i>❤️</i>
+          <i className={`fa-solid fa-heart ${emoji.Emoji}`}></i>
         </span>
       ) : currentUser ? (
         <>
         <span onClick={submitLike} style={{ cursor: 'pointer' }}>
-          <i>🤍</i>
+        <i className={`fa-regular fa-heart ${emoji.Emoji}`}></i>
         </span></>
       ) : (
         <OverlayTrigger
         placement="top"
         overlay={<Tooltip>You have to log in to like posts!</Tooltip>}
       >
-          <i>🤍</i>
+          <i className={`fa-regular fa-heart ${emoji.Emoji}`}></i>
         </OverlayTrigger>
       )}
       {members_liking_count}
       <Link to={`/records/${id}`} ms-3>
-        <i>💬</i>
+      <i className={`fa-regular fa-comment ${emoji.Emoji}`}></i>
       </Link>
       {comment_count}
         </div>

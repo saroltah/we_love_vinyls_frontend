@@ -6,6 +6,7 @@ import {OverlayTrigger, Tooltip } from "react-bootstrap";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import styles from "../../styles/OnePost.module.css"
+import emoji from "../../styles/Emoji.module.css"
 
 const ShowMarket = (props) => {
   const {
@@ -99,22 +100,22 @@ const ShowMarket = (props) => {
         placement="top"
         overlay={<Tooltip>You can not change attendance at your own market!</Tooltip>}
       >
-          <i>❤️</i>
+         <i className={`fa-solid fa-child-reaching$ {emoji.Emoji}`}></i>
         </OverlayTrigger>
       ) : attendance_id ? (
         <span onClick={submitNotAttending} style={{ cursor: 'pointer' }}>
-          <i>❤️</i>
+          <i className={`fa-solid fa-child-reaching$ {emoji.Emoji}`}></i>
         </span>
       ) : currentUser ? (
         <span onClick={submitAttendance} style={{ cursor: 'pointer' }}>
-          <i>🤍</i>
+          <i className={`fa-solid fa-child$ {emoji.Emoji}`}></i>
         </span>
       ) : (
         <OverlayTrigger
         placement="top"
         overlay={<Tooltip>You have to log in to show attendance!</Tooltip>}
       >
-          <i>🤍</i>
+          <i className={`fa-solid fa-child ${emoji.Emoji}`}></i>
         </OverlayTrigger>
       )}
       {members_attending_count}
