@@ -9,7 +9,7 @@ function AdvertisedRecords(props) {
   return (
     <div>
     <AllRecords
-    message="The user hasn't uploaded any record yet."
+    message="No records to show..."
     filter={filter_data}
     showDropdown={false}
   />

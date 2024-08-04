@@ -8,7 +8,7 @@ function OrganizedMarkets(props) {
   return (
     <div>
     <AllMarkets
-    message="The user haven't organized any market yet."
+    message="No markets to show..."
     filter={filter_data}
     showDropdown={false}
   />

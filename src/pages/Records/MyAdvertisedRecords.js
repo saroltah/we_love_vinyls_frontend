@@ -11,7 +11,7 @@ function MyAdvertisedRecords() {
   return (
     <div>
     <AllRecords
-    message="You haven't uploaded any records."
+    message="No records to show..."
     filter={filter_data}
   />
 

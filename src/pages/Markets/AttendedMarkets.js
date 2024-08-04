@@ -11,7 +11,7 @@ function AttendedMarkets() {
   return (
     <div>
     <AllMarkets
-    message="You haven't organized any market."
+    message="No markets to show..."
     filter={filter_data}
     showDropdown={false}
   />
