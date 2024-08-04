@@ -1,24 +1,25 @@
-import React from "react";
-import AllRecords from "./AllRecords";
-import LikedRecords from "./LikedRecords";
-import { useCurrentUser } from "../../context/CurrentUserContext"
-import styles from "../../styles/Lists.module.css"
+import React, { useState } from "react";
+import { Nav } from "react-bootstrap";
+import styles from "../../styles/MyPosts.module.css"
+import LikedRecords from "../Records/LikedRecords"
+import MyAdvertisedRecords from "./MyAdvertisedRecords";
 
 function MyRecords() {
 
-  const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
-  const filter_data = `advertiser=${profile_id}`
+const [activePage, setActivePage] = useState("showMyRecords")
+const showMyRecords = () => {setActivePage("showMyRecords")}
+const showLiking = () => {setActivePage ("showLiking")}
 
   return (
-    <div>
-    <AllRecords
-    message="You haven't uploaded any records."
-    filter={filter_data}
-  />
-
-<h3 className={styles.h3}>I like:</h3>
-<LikedRecords/>
+    <div className={styles.MyPost}>
+    <Nav className = {styles.Container}>
+      <button onClick={showMyRecords} className= {styles.Button}>My records</button>
+      <button onClick={showLiking} className ={styles.Button}>Liked</button>
+    </Nav>
+   <div>
+{activePage === "showMyRecords" && (<MyAdvertisedRecords/>)}
+{activePage === "showLiking" && (<LikedRecords/>)}
+</div>
 </div>
   )}
 export default MyRecords;

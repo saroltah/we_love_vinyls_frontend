@@ -1,25 +1,25 @@
-import React from "react";
-import AllMarkets from "./AllMarkets";
+import React, { useState } from "react";
 import AttendedMarkets from "./AttendedMarkets";
-import { useCurrentUser } from "../../context/CurrentUserContext"
-import styles from "../../styles/Lists.module.css"
+import MyOrganizedMarkets from "./MyOrganizedMarkets";
+import { Nav } from "react-bootstrap";
+import styles from "../../styles/MyPosts.module.css"
 
 function MyMarkets() {
 
-  const currentUser = useCurrentUser();
-  const profile_id = currentUser?.profile_id || "";
-  const filter_data = `organizer=${profile_id}`
+const [activePage, setActivePage] = useState("showMyMarkets")
+const showMyMarkets = () => {setActivePage("showMyMarkets")}
+const showGoing = () => {setActivePage ("showGoing")}
 
   return (
-    <div>
-    <h5> My Markets </h5> 
-    <AllMarkets
-    message="You haven't organized any market."
-    filter={filter_data}
-  />
-
-<h3 className={styles.h3}>I attend:</h3>
-<AttendedMarkets/>
+    <div className={styles.MyPost}>
+    <Nav className = {styles.Container}>
+      <button onClick={showMyMarkets} className= {styles.Button}>My markets</button>
+      <button onClick={showGoing} className ={styles.Button}>Going</button>
+    </Nav>
+   <div>
+{activePage === "showMyMarkets" && (<MyOrganizedMarkets/>)}
+{activePage === "showGoing" && (<AttendedMarkets/>)}
+</div>
 </div>
   )}
 export default MyMarkets;

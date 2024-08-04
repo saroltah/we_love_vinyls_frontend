@@ -1,0 +1,16 @@
+.MyPost {
+    margin:10px;
+}
+.Container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px
+}
+.Button {
+        border:none;
+        margin:15px;
+        padding:10px;
+        background-color:transparent;
+        color:black;
+        font-size: 20px
+}

@@ -4,9 +4,9 @@ import { ThreeCircles } from "react-loader-spinner";
 function Loading() {
   return (
     <ThreeCircles
-      height="100"
-      width="100"
-      color="#4fa94d"
+      height="70"
+      width="70"
+      color=" #FFFFFF"
       ariaLabel="three-circles-loading"
       wrapperStyle={{}}
       wrapperClass=""

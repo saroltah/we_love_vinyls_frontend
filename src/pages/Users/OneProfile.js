@@ -6,13 +6,16 @@ import AdvertisedRecords from "../Records/AdvertisedRecords"
 import OrganizedMarkets from "../Markets/OrganizedMarkets";
 import styles from "../../styles/Profile.module.css"
 import { EditProfileDropdown } from "../../elements/EditProfileDropdown";
-
-
-
+import myPostStyles from "../../styles/MyPosts.module.css"
+import { Nav } from "react-bootstrap";
 
 function OneProfile() {
   const { id } = useParams();
   const [profile, setProfile] = useState(null);
+
+const [activePage, setActivePage] = useState("showMyRecords")
+const showMyRecords = () => {setActivePage("showMyRecords")}
+const showMyMarkets = () => {setActivePage ("showMyMarkets")}
 
 
   useEffect(() => {
@@ -67,13 +70,20 @@ function OneProfile() {
       {preferred_music ? (
       <p><span className={styles.DetailsTitle}>Music I prefer:</span> {preferred_music}</p>): null}
       <p><span className={styles.DetailsTitle}>Records I like:</span> {liked_record_count}</p>
-      <p><span className={styles.DetailsTitle}>Markets I attend:</span> {attended_market_count}</p>
-      <h3 className={styles.h3}>Advertised records:</h3> 
-      <p> <AdvertisedRecords profile_id = {id}/> </p>
-      <h3 className={styles.h3}>Organized markets:</h3> 
-      <p> <OrganizedMarkets profile_id = {id}/> </p>
+      <p><span className={styles.DetailsTitle}>Markets I go to:</span> {attended_market_count}</p>
+
         </div> 
-       
+
+        <div className={myPostStyles.MyPost}>
+    <Nav className = {myPostStyles.Container}>
+      <button onClick={showMyRecords} className= {myPostStyles.Button}>My records</button>
+      <button onClick={showMyMarkets} className ={myPostStyles.Button}>My markets</button>
+    </Nav>
+   <div>
+{activePage === "showMyRecords" && (<AdvertisedRecords profile_id={id} />)}
+{activePage === "showMyMarkets" && (<OrganizedMarkets profile_id={id}/>)}
+</div>
+</div>
     </div>
   );}
 

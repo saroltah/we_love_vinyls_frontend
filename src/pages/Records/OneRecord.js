@@ -5,12 +5,16 @@ import ShowRecord from "../Records/ShowRecord";
 import AddComment from "../comments/AddComment";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import ShowComments from "../comments/ShowComments";
+import { useHistory } from "react-router-dom";
+import styles from "../../styles/OnePost.module.css"
+import { Button } from "react-bootstrap";
 
 function OneRecord() {
 
   const { id } = useParams();
   const [record, setRecord] = useState({ results: [] });
   const [commented_record, setCommented_record] = useState({ results: [] });
+  const history = useHistory();
  
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id;
@@ -41,9 +45,7 @@ function OneRecord() {
 
   return (
     <div>
-      <Link to={`/`}>
-          Back to Homepage
-        </Link>
+        <Button onClick={() => history.goBack()} className={styles.BackButton}>Back to records</Button>
         <ShowRecord {...record.results[0]} setRecords={setRecord}/>
         <div>
         <h3>Comments</h3>
