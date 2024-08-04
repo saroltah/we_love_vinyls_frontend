@@ -10,6 +10,11 @@ import upload from "../../assets/upload.png";
 
 import styles from "../../styles/AddEditPost.module.css"
 
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../../context/CurrentUserContext"
+
 function EditProfile() {
   const [errors, setErrors] = useState({});
 
@@ -23,28 +28,35 @@ function EditProfile() {
             image, 
   } = profileDetails;
 
-  const imageInput = useRef(null);
+  const imageInput = useRef();
   const history = useHistory();
   const { id } = useParams();
+  const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
   useEffect(() => {
     const handleMount = async () => {
+      if (currentUser?.profile_id?.toString() === id) {
       try {
         const { data } = await axiosReq.get(`/users/${id}/`);
         const { preferred_music, about_me,
             image, liked_record_count,
             attended_market_count, is_member } = data;
 
-        is_member ? setProfileDetails({ preferred_music, about_me,
+     setProfileDetails({ preferred_music, about_me,
             image, liked_record_count,
-            attended_market_count,   }) : history.push("/");
+            attended_market_count,   });
       } catch (err) {
         console.log(err);
+        history.push("/");
+      }
+    }else {
+        history.push("/");
       }
     };
 
     handleMount();
-  }, [history, id]);
+  }, [currentUser, history, id]);
 
   const changeProfileDetails = (event) => {
     setProfileDetails({
@@ -56,71 +68,69 @@ function EditProfile() {
   const submitProfile = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    if (imageInput.current.files.length > 0) {
-        formData.append("image", imageInput.current.files[0]);
-      } else if (profileDetails.image) {
-        formData.append("image", profileDetails.image);
-      }
     if (profileDetails.preferred_music) {
-        formData.append("preferred_music", profileDetails.preferred_music);
-      }
-  
-      if (profileDetails.about_me) {
-        formData.append("about_me", profileDetails.about_me);
-      }
+      formData.append("preferred_music", profileDetails.preferred_music);
+    }
+
+    if (profileDetails.about_me) {
+      formData.append("about_me", profileDetails.about_me);
+    }
+
+    if (imageInput?.current?.files[0]) {
+      formData.append("image", imageInput?.current?.files[0]);
+    }    
     
     try {
-      await axiosReq.put(`/users/${id}/`, formData);
-      history.push(`/users/${id}`);
+      const { data } = await axiosReq.put(`/users/${id}/`, formData);
+      setCurrentUser((currentUser) => ({
+        ...currentUser,
+        profile_image: data.image,
+      }));
+      history.goBack();
     } catch (err) {
       console.log(err);
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
+      setErrors(err.response?.data);
       }
-    }
   };
 
-  function changeProfileImage(event) {
-    if (event.target.files.length) {
-      URL.revokeObjectURL(image);
-      setProfileDetails({
-        ...profileDetails,
-        image: URL.createObjectURL(event.target.files[0]),
-      });
-    }
-  }
-
+  
   return (
   <div>
     <Form onSubmit={submitProfile} className={styles.AddEditPost}>
         <Form.Group>
-      {image ? (
-        <>
+      {image && (
           <figure>
             <Image src={image} rounded height={100}/>
-          </figure>
-          <div>
-            <Form.Label className="btn" htmlFor="image-upload">
-              Change the image
-            </Form.Label>
+          </figure> )}
+          {errors?.image?.map((message, idx) => (
+                <Alert variant="danger" key={idx}>
+                  {message}
+                </Alert>
+              ))}
+              <div>
           </div>
-        </>
-      ) : (
         <Form.Label
           className="d-flex justify-content-center"
           htmlFor="image-upload">
           <img
             src={upload}
             alt="Upload"
+            width={100}
           />
         </Form.Label>
-      )}
 
       <Form.File
         id="image-upload"
         accept="image/*"
-        onChange={changeProfileImage}
         ref={imageInput}
+        onChange={(e) => {
+          if (e.target.files.length) {
+            setProfileDetails({
+              ...profileDetails,
+              image: URL.createObjectURL(e.target.files[0]),
+            });
+          }
+        }}
       />
     </Form.Group>
 

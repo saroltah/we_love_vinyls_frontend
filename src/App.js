@@ -21,6 +21,7 @@ import "./api/AxiosDefaults";
 
 import OneProfile from "./pages/Users/OneProfile";
 import EditProfile from "./pages/Users/EditProfile";
+import EditPassword from "./pages/Users/EditPassword";
 
 function App() {
    return (
@@ -30,6 +31,7 @@ function App() {
       <Switch>    
         <Route exact path="/users/:id" render={() => <OneProfile/>} />
         <Route exact path="/users/:id/edit" render={() => <EditProfile/>} />
+        <Route exact path="/users/:id/edit/password" render={() => <EditPassword/>} />
         <Route exact path="/login" render={() => <LogIn />} />
         <Route exact path="/signup" render={() => <SignUp />} />
         <Route

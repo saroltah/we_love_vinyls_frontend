@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
-import { PostDropdown } from "../../elements/PostDropdown";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import AdvertisedRecords from "../Records/AdvertisedRecords"
 import OrganizedMarkets from "../Markets/OrganizedMarkets";
 import styles from "../../styles/Profile.module.css"
+import { EditProfileDropdown } from "../../elements/EditProfileDropdown";
+
+
+
 
 function OneProfile() {
   const { id } = useParams();
@@ -30,10 +33,7 @@ function OneProfile() {
 
   const currentUser = useCurrentUser();
   const is_member = currentUser?.username === profile?.member;
-  const history = useHistory();
-  const editProfile = () => {
-    history.push(`/users/${id}/edit`);
-  };
+ 
 
   if (!profile) {
     return <div>Loading</div>
@@ -52,9 +52,8 @@ function OneProfile() {
           <h1 className={styles.Middle}>{username}</h1>
           <span cassName={styles.RightSide}>
           <div>
-        {is_member && (
-              <PostDropdown
-                editPost={editProfile}
+        {profile?.is_member && (
+              <EditProfileDropdown id={profile?.id}
               />
             )}
     </div>

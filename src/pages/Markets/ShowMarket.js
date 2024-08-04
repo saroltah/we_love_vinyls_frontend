@@ -100,15 +100,15 @@ const ShowMarket = (props) => {
         placement="top"
         overlay={<Tooltip>You can not change attendance at your own market!</Tooltip>}
       >
-         <i className={`fa-solid fa-child-reaching$ {emoji.Emoji}`}></i>
+         <i className={`fa-solid fa-child-reaching ${emoji.Emoji}`}></i>
         </OverlayTrigger>
       ) : attendance_id ? (
         <span onClick={submitNotAttending} style={{ cursor: 'pointer' }}>
-          <i className={`fa-solid fa-child-reaching$ {emoji.Emoji}`}></i>
+          <i className={`fa-solid fa-child-reaching ${emoji.Emoji}`}></i>
         </span>
       ) : currentUser ? (
         <span onClick={submitAttendance} style={{ cursor: 'pointer' }}>
-          <i className={`fa-solid fa-child$ {emoji.Emoji}`}></i>
+          <i className={`fa-solid fa-child ${emoji.Emoji}`}></i>
         </span>
       ) : (
         <OverlayTrigger
