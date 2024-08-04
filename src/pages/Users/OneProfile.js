@@ -59,7 +59,7 @@ function OneProfile() {
     </div>
     </span>
 </div>
-        <img src={image} alt="user-profile" height={100}/>
+        <img src={image} alt="user-profile" height={100} className={styles.Image}/>
        
         <div className={styles.Details}>
       {about_me ? (

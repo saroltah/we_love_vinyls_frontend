@@ -3,21 +3,24 @@
 }
 .Container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    position: relative;
+    padding-top: 20px;
 }
 .Middle {
-    display:flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .RightSide {
     display:flex;
     align-items: center;
     margin-left: auto;
 }
-
+.Image {
+    margin-top:20px
+}
 .Details {
     margin: 30px 20px;
 }
