@@ -13,6 +13,7 @@ function AttendedMarkets() {
     <AllMarkets
     message="You haven't organized any market."
     filter={filter_data}
+    showDropdown={false}
   />
 </div>
   )}

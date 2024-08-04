@@ -8,7 +8,7 @@ import MarketDropdown from "../../elements/MarketDropdown";
 import styles from "../../styles/Lists.module.css"
 
 
-function AllMarkets({ message, filter }) {
+function AllMarkets({ message, filter, showDropdown = true }) {
 
   const {markets, setMarkets, loaded, query, setQuery} = GetMarketList(filter)
   const hasFilter = filter && filter.trim() !== "";
@@ -16,8 +16,7 @@ function AllMarkets({ message, filter }) {
   
   return (
     <div> 
-        {currentUser ? (
-        <MarketDropdown/>): null}
+        {currentUser && showDropdown && <MarketDropdown/>}
         {!hasFilter && (
         <MarketSearchField query = {query} setQuery={setQuery}/>
         )}

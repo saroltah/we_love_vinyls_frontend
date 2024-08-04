@@ -6,7 +6,7 @@ import RecordSearchField from "../../elements/RecordSearchField";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 import RecordDropdown from "../../elements/RecordDropdown";
 
-function AllRecords({ message, filter }) {
+function AllRecords({ message, filter, showDropdown=true }) {
 
 const {records, setRecords, loaded, query, setQuery} = GetRecordList(filter)
 const hasFilter = filter && filter.trim() !== "";
@@ -14,8 +14,7 @@ const currentUser = useCurrentUser();
 
   return (
     <div>
-       {currentUser ? (
-      <RecordDropdown/>):null }
+       {currentUser && showDropdown && <RecordDropdown/>}
       {!hasFilter && (
         <RecordSearchField query = {query} setQuery={setQuery}/>
         )}

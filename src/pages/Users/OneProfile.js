@@ -50,7 +50,7 @@ function OneProfile() {
         <div className={styles.Profile}>
           <div className={styles.Container}>
           <h1 className={styles.Middle}>{username}</h1>
-          <span cassName={styles.RightSide}>
+          <span className={styles.RightSide}>
           <div>
         {profile?.is_member && (
               <EditProfileDropdown id={profile?.id}
