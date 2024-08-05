@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styles from "../../styles/AddEditPost.module.css"
@@ -89,9 +89,9 @@ function SignUp() {
             {message}
           </Alert>
         ))}
-        <Button type="submit" className={styles.Button}>
+        <button type="submit" className={styles.Button}>
           Sign up!
-        </Button>
+        </button>
       </Form>
     </div>
   );

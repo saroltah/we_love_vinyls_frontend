@@ -5,7 +5,6 @@ import ShowMarket from "./ShowMarket";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import styles from "../../styles/OnePost.module.css"
-import { Button } from "react-bootstrap";
 
 function OneMarket() {
   const { id } = useParams();
@@ -31,7 +30,7 @@ function OneMarket() {
   return (
    
     <div>
-        <Button onClick={() => history.goBack()} className={styles.BackButton}>Back to markets</Button>
+        <button onClick={() => history.goBack()} className={styles.BackButton}>Back to markets</button>
         <ShowMarket {...market.results[0]} setMarkets={setMarket} oneMarket/>
     </div>
   );

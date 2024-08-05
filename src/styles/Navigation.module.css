@@ -1,6 +1,7 @@
 .Navigation {
     font-style:bold;
-    border:1px solid black;
+    border:2px solid black;
+    font-family: 'Edu Australia VIC WA NT Hand', cursive;
     
 }
 .NavBar {
@@ -17,7 +18,10 @@
     padding: 10px;
     display: flex;
     align-items: center;
+    color: black;
 }
 .NavLink:hover {
+    box-shadow: 0px 0px 20px 25px rgba(227,206, 46, 0.8);
     text-decoration: none;
+
 }

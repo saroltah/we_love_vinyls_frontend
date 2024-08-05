@@ -1,19 +1,21 @@
 .AddEditPost {
-    border: 1px solid black;
+    border: 2px solid black;
     margin:10px;
     padding:10px
 
 }
 .Button {
-    border:1px solid black;
+    border:2px solid black;
     margin:15px;
     padding:10px;
     background-color:transparent;
-    color:black
+    color:black;
+    font-family: 'Edu Australia VIC WA NT Hand', cursive;
+    
 }
-.Button:toggle {
-    font-style: bold;
-    border:2px solid black
+.Button:hover{
+    text-shadow: 0px 0px 13px rgba(227, 206, 46, 1);
+    color: #e3ce2e;
 }
 
 

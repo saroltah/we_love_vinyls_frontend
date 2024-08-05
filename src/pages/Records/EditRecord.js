@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import {Form, Button, Alert} from "react-bootstrap";
+import {Form, Alert} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import upload from "../../assets/upload.png";
 
@@ -345,8 +345,8 @@ function EditRecord() {
       </Alert>
     ))}
 
-    <Button onClick={() => history.goBack()} className={styles.Button}> Back </Button>
-    <Button type="submit" className={styles.Button}>Edit Record</Button>
+    <button onClick={() => history.goBack()} className={styles.Button}> Back </button>
+    <button type="submit" className={styles.Button}>Edit Record</button>
   </Form>
   </div>
   );

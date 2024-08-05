@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import { Form, Button, Image, Alert } from "react-bootstrap";
+import { Form, Image, Alert } from "react-bootstrap";
 
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
@@ -317,8 +317,8 @@ function AddRecord() {
           </Alert>
         ))}
 
-        <Button onClick={() => history.goBack()} className={styles.Button}> Back </Button>
-        <Button type="submit" className={styles.Button}>Add Record</Button>
+        <button onClick={() => history.goBack()} className={styles.Button}> Back </button>
+        <button type="submit" className={styles.Button}>Add Record</button>
       </Form>
     </div>
   );

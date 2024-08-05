@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Form, Button, Alert} from "react-bootstrap";
+import { Form, Alert} from "react-bootstrap";
 
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
@@ -165,8 +165,8 @@ function AddMarket() {
             {message}
           </Alert>
         ))}
-        <Button onClick={() => history.goBack()} className={styles.Button}>Back</Button>
-        <Button type="submit" className={styles.Button}>Add Market</Button>
+        <button onClick={() => history.goBack()} className={styles.Button}>Back</button>
+        <button type="submit" className={styles.Button}>Add Market</button>
       </Form>
     </div>
   );

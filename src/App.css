@@ -1,11 +1,30 @@
+div#root{
+  width: 100%;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  min-height: 100vh;
+  background-image: url("/src/assets/one-record.jpg");
+  background-repeat: repeat;
+  background-size: 150px auto;
+  background-position: top left; 
+  
+}
+.container{
+  min-height: 100%;
+  padding-right: 15px;
+padding-left: 15px;
+}
 .App{
   width: 100%;
-  margin-bottom: 10px
+  height: 100%;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.95); 
+  font-family: 'Roboto', sans-serif;
+  font-size:18px
 }
 .Content{
   text-align: center;
-  width:95%;
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 0px auto;
   padding: 10px 0px;
 } 
@@ -15,8 +34,5 @@
   width:70%;
   text-align: center;
   margin: 0px auto;
-}
-.Content {
-  width:100%
 }
 }

@@ -3,14 +3,15 @@ import { ThreeCircles } from "react-loader-spinner";
 
 function Loading() {
   return (
-    <ThreeCircles
-      height="70"
-      width="70"
-      color=" #FFFFFF"
+    (<ThreeCircles
+      visible={true}
+      height="100"
+      width="100"
+      color="#FFFFFF"
       ariaLabel="three-circles-loading"
       wrapperStyle={{}}
       wrapperClass=""
-    />
+      />)
   );
 }
 

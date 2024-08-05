@@ -27,9 +27,11 @@
 
 .DetailsTitle{
     font-style: italic;
+    font-family: 'Edu Australia VIC WA NT Hand', cursive;
 }
 
 .h3{
     margin-top:50px;
-    font-size:25px
+    font-size:25px;
+    font-family: 'Edu Australia VIC WA NT Hand', cursive;
 }

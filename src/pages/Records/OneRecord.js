@@ -7,7 +7,6 @@ import { useCurrentUser } from "../../context/CurrentUserContext";
 import ShowComments from "../comments/ShowComments";
 import { useHistory } from "react-router-dom";
 import styles from "../../styles/OnePost.module.css"
-import { Button } from "react-bootstrap";
 
 function OneRecord() {
 
@@ -45,7 +44,7 @@ function OneRecord() {
 
   return (
     <div>
-        <Button onClick={() => history.goBack()} className={styles.BackButton}>Back to records</Button>
+        <button onClick={() => history.goBack()} className={styles.BackButton}>Back to records</button>
         <ShowRecord {...record.results[0]} setRecords={setRecord}/>
         <div>
         <h3>Comments</h3>

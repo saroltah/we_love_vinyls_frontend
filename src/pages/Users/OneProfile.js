@@ -62,7 +62,7 @@ const showMyMarkets = () => {setActivePage ("showMyMarkets")}
     </div>
     </span>
 </div>
-        <img src={image} alt="user-profile" height={100} className={styles.Image}/>
+        <img src={image} alt="user-profile" height={200} className={styles.Image}/>
        
         <div className={styles.Details}>
       {about_me ? (

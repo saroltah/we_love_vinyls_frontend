@@ -3,14 +3,14 @@
     border: none;
     color: black;
     font-size: 20px;
-    
+    font-family: 'Edu Australia VIC WA NT Hand', cursive;   
 }  
-.btn-primary:hover{
-    background-color: transparent;
-    border: none;
-    color: black;
-    font-size: 20px;
+
+.AddButton:hover{
+    border: 4px solid rgba(227, 206, 46, 1);
+    border-radius:30px;
 }
+ 
 @media screen and (min-width: 768px) {
     .AddButton {
         font-size: 30px;

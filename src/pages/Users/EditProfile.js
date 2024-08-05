@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import {Form, Button, Alert} from "react-bootstrap";
+import {Form, Alert} from "react-bootstrap";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults"
@@ -167,8 +167,8 @@ function EditProfile() {
           </Alert>
         ))}
   
-        <Button onClick={() => history.goBack()} className={styles.Button}>Back</Button>
-        <Button type="submit" className={styles.Button}>Edit Profile</Button>
+        <button onClick={() => history.goBack()} className={styles.Button}>Back</button>
+        <button type="submit" className={styles.Button}>Edit Profile</button>
       </Form>
       </div>
   );

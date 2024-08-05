@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
@@ -70,9 +70,9 @@ function LogIn() {
             {message}
           </Alert>
         ))}
-        <Button variant="primary" type="submit" className={styles.Button}>
+        <button variant="primary" type="submit" className={styles.Button}>
           Log in!
-        </Button>
+        </button>
         {errors.non_field_errors?.map((message, i) => (
           <Alert key={i} variant="danger">
             {message}

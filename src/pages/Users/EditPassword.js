@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 
@@ -82,18 +81,18 @@ const EditPassword = () => {
                 {message}
               </Alert>
             ))}
-            <Button
+            <button
               className={styles.Button}
               onClick={() => history.goBack()}
             >
               Back
-            </Button>
-            <Button
+            </button>
+            <button
               type="submit"
               className={styles.Button}
             >
               Save
-            </Button>
+            </button>
           </Form>
         </Container>
   );

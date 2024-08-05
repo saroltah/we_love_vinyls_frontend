@@ -25,6 +25,7 @@ import EditPassword from "./pages/Users/EditPassword";
 
 function App() {
    return (
+    <div className="container">
     <div className="App">
       <Navigation/>
       <div className="Content">
@@ -64,6 +65,7 @@ function App() {
         <Route render={() => <p>This page is not found!</p>} />
       </Switch>
       </div>
+    </div>
     </div>
   );
 }
