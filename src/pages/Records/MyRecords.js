@@ -13,8 +13,8 @@ const showLiking = () => {setActivePage ("showLiking")}
   return (
     <div className={styles.MyPost}>
     <Nav className = {styles.Container}>
-      <button onClick={showMyRecords} className= {styles.Button}>My records</button>
-      <button onClick={showLiking} className ={styles.Button}>Liked</button>
+      <button onClick={showMyRecords} className= {activePage === "showLiking" ? styles.Button : styles.SecondButton}>My records</button>
+      <button onClick={showLiking} className ={activePage === "showMyRecords" ? styles.Button : styles.SecondButton}>Liked</button>
     </Nav>
    <div>
 {activePage === "showMyRecords" && (<MyAdvertisedRecords/>)}

@@ -76,8 +76,8 @@ const showMyMarkets = () => {setActivePage ("showMyMarkets")}
 
         <div className={myPostStyles.MyPost}>
     <Nav className = {myPostStyles.Container}>
-      <button onClick={showMyRecords} className= {myPostStyles.Button}>My records</button>
-      <button onClick={showMyMarkets} className ={myPostStyles.Button}>My markets</button>
+      <button onClick={showMyRecords} className= {activePage === "showMyMarkets" ? myPostStyles.Button : myPostStyles.SecondButton}>My records</button>
+      <button onClick={showMyMarkets} className ={activePage === "showMyRecords" ? myPostStyles.Button : myPostStyles.SecondButton}>My markets</button>
     </Nav>
    <div>
 {activePage === "showMyRecords" && (<AdvertisedRecords profile_id={id} />)}

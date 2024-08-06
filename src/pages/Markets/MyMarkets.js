@@ -13,8 +13,8 @@ const showGoing = () => {setActivePage ("showGoing")}
   return (
     <div className={styles.MyPost}>
     <Nav className = {styles.Container}>
-      <button onClick={showMyMarkets} className= {styles.Button}>My markets</button>
-      <button onClick={showGoing} className ={styles.Button}>Going</button>
+      <button onClick={showMyMarkets} className= {activePage === "showGoing" ? styles.Button : styles.SecondButton}>My markets</button>
+      <button onClick={showGoing} className ={activePage === "showMyMarkets" ? styles.Button : styles.SecondButton}>Going</button>
     </Nav>
    <div>
 {activePage === "showMyMarkets" && (<MyOrganizedMarkets/>)}

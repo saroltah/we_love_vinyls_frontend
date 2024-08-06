@@ -59,7 +59,7 @@ function Navigation() {
         expand="lg"
         className={styles.Navbar}
         >
-        <NavLink to="/" className={styles.NavLink}>We ❤️ Vinyls</NavLink>
+        <NavLink to="/" className={`${styles.NavLink} ${styles.Logo}`}>We ❤️ Vinyls</NavLink>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => setFullMenu(!fullMenu)}

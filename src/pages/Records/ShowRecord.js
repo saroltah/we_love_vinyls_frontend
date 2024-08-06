@@ -14,13 +14,17 @@ const ShowRecord = (props) => {
     id, advertiser, artist, title, track_list,
     created, condition, image, released, genre,
     members_liking_count, comment_count,
-    price, location, contact, advertiser_image, like_id, setRecords, liked_record, advertiser_id
+    price, location, contact, advertiser_image, like_id, setRecords, liked_record, advertiser_id, showLink=true,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_advertiser = currentUser?.username === advertiser;
 
   const history = useHistory();
+
+const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.SecondTitle}`}>
+{artist}: {title}
+</div>);
 
   const editRecord = () => {
     history.push(`/records/${id}/edit`);
@@ -93,8 +97,9 @@ const ShowRecord = (props) => {
             )}</span>
     </span>
     </div>
-    <Link to={`/records/${id}`}>
-      <div className={styles.Title}>{artist}: {title} </div> </Link>
+
+    {showLink ? ( <Link to={`/records/${id}`}>
+      {RecordTitle}</Link> ) : ( RecordTitle )}
 
     <Link to={`/records/${id}`}>
     <img src={image} alt={title} width={140}/>

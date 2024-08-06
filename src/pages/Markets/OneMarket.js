@@ -31,7 +31,7 @@ function OneMarket() {
    
     <div>
         <button onClick={() => history.goBack()} className={styles.BackButton}>Back to markets</button>
-        <ShowMarket {...market.results[0]} setMarkets={setMarket} oneMarket/>
+        <ShowMarket {...market.results[0]} setMarkets={setMarket} oneMarket showLink={false}/>
     </div>
   );
 }

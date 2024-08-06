@@ -12,13 +12,15 @@ const ShowMarket = (props) => {
   const {
     id, organizer, country, city, address, date,
             start, end, description,
-            members_attending_count, created, organizer_id, organizer_image, attendance_id, setMarkets, attended_market
+            members_attending_count, created, organizer_id, organizer_image, attendance_id, setMarkets, attended_market, showLink=true
   } = props;
 
   const currentUser = useCurrentUser();
   const is_organizer = currentUser?.username === organizer;
 
   const history = useHistory();
+
+  const MarketTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.SecondTitle}`}>Vinyl market in {city}, {country}</div>);
 
   const editPost = () => {
     history.push(`/markets/${id}/edit`);
@@ -86,9 +88,8 @@ const ShowMarket = (props) => {
           </span>
           </span>
 </div>
-      <Link to={`/markets/${id}`}>
-        <div className={styles.Title}>Vinyl market in {city}, {country}</div>
-      </Link>
+{showLink ? ( <Link to={`/markets/${id}`}>
+  {MarketTitle}</Link> ) : ( MarketTitle )}
 <div className={styles.Details}>
 <p>{description}</p>
 <p><span className={styles.DetailsTitle}>Where?</span> <span> {address}, {city}, {country}</span></p>

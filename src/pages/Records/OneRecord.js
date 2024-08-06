@@ -45,7 +45,7 @@ function OneRecord() {
   return (
     <div>
         <button onClick={() => history.goBack()} className={styles.BackButton}>Back to records</button>
-        <ShowRecord {...record.results[0]} setRecords={setRecord}/>
+        <ShowRecord {...record.results[0]} setRecords={setRecord} showLink={false}/>
         <div>
         <h3>Comments</h3>
   {currentUser ? (
@@ -63,7 +63,7 @@ function OneRecord() {
     <div>
       {comments.results.map((comment) => (
         <ShowComments key={comment.id} {...comment} setRecord={setRecord}
-        setComments={setComments}/>
+        setComments={setComments} showLink={false}/>
       ))}
     </div>
   ) : currentUser ? (

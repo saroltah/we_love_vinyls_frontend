@@ -21,7 +21,9 @@
     color: black;
 }
 .NavLink:hover {
-    box-shadow: 0px 0px 20px 25px rgba(227,206, 46, 0.8);
+    box-shadow: 0px 0px 10px 10px rgba(227,206, 46, 0.8);
     text-decoration: none;
-
+    cursor:pointer;
+    color: black
 }
+.Logo{color:#f8312f};

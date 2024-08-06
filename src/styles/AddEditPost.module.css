@@ -15,7 +15,8 @@
 }
 .Button:hover{
     text-shadow: 0px 0px 13px rgba(227, 206, 46, 1);
-    color: #e3ce2e;
+    color: #f8312f;
+    cursor:pointer
 }
 
 
