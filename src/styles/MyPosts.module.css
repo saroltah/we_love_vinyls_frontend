@@ -13,7 +13,7 @@
         background-color:transparent;
         color:black;
         font-size: 20px;
-        font-family: 'Edu Australia VIC WA NT Hand', cursive;
+        font-family: 'Edu VIC WA NT Beginner', cursive;
         
 }
 .Button:hover {
@@ -28,4 +28,4 @@
     padding:10px;
     background-color: transparent;
     font-size: 20px;
-    font-family: 'Edu Australia VIC WA NT Hand', cursive;}
+    font-family: 'Edu VIC WA NT Beginner', cursive;}

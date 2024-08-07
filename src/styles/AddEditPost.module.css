@@ -10,7 +10,8 @@
     padding:10px;
     background-color:transparent;
     color:black;
-    font-family: 'Edu Australia VIC WA NT Hand', cursive;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-weight: bold;
     
 }
 .Button:hover{
