@@ -24,17 +24,16 @@ function GetRecordList(filter="") {
       
         const response = await axiosReq.get(conditionalUrl(filter, query));
         const { data } = response;
-        console.log("Api response:", data);
         if (Array.isArray(data)) {
           setRecords({ results: data });
         } else if (Array.isArray(data.results)) {
           setRecords({ results: data.results });
         } else {
-          console.error("no result problem:", data);
+          //console.log(err);
         }
         setLoaded(true);
       } catch (err) {
-        console.log("Error problem:", err);
+        //console.log(err);
         setRecords({ results: [] });
         setLoaded(true);
       }

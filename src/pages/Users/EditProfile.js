@@ -48,7 +48,7 @@ function EditProfile() {
             image, liked_record_count,
             attended_market_count,   });
       } catch (err) {
-        console.log(err);
+        //console.log(err);
         history.push("/");
       }
     }else {
@@ -89,7 +89,7 @@ function EditProfile() {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       setErrors(err.response?.data);
       }
   };

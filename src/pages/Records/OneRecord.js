@@ -30,12 +30,11 @@ function OneRecord() {
         ]);
         setRecord({ results: [record] });
         setComments(prevState => ({...prevState, results: [...comments] }))
-        console.log(`comments:${comments}`)
         
 
  
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 

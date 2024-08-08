@@ -25,7 +25,6 @@ function AddComment(props) {
         content,
         commented_record,
       });
-      console.log('Received data:', data);
 
       setComments((prevComments) => ({
         ...prevComments,
@@ -42,7 +41,7 @@ function AddComment(props) {
       }));
       setContent("");
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 

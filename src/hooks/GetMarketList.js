@@ -23,17 +23,16 @@ function GetMarketList(filter="") {
         }
         const response = await axiosReq.get(conditionalUrl(filter, query));
         const { data } = response;
-        console.log("Api response:", data);
         if (Array.isArray(data)) {
           setMarkets({ results: data });
         } else if (Array.isArray(data.results)) {
           setMarkets({ results: data.results });
         } else {
-          console.error("no result problem:", data);
+          //console.error("no result problem:", data);
         }
         setLoaded(true);
       } catch (err) {
-        console.log("Error problem:", err);
+        //console.log("Error problem:", err);
         setMarkets({ results: [] });
         setLoaded(true);
       }

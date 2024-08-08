@@ -36,11 +36,9 @@ const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.Sec
       await axiosRes.delete(`/records/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
-
-  //innen 
 
   const submitLike = async () => {
     try {
@@ -54,7 +52,7 @@ const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.Sec
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -70,11 +68,9 @@ const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.Sec
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
-
-  //idáig
 
   return (
     <div>

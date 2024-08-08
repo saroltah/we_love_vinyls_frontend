@@ -69,7 +69,7 @@ function EditRecord() {
           price,
           contact }) : history.push("/");
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 
@@ -114,7 +114,7 @@ function EditRecord() {
       await axiosReq.put(`/records/${id}/`, formData);
       history.push(`/records/${id}`);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

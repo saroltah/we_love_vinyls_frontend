@@ -25,9 +25,8 @@ const showMyMarkets = () => {setActivePage ("showMyMarkets")}
           axiosReq.get(`/users/${id}`),
         ]);
         setProfile(profile);
-        console.log(profile);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 

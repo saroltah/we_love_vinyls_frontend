@@ -35,7 +35,7 @@ function EditMarket() {
 
         is_organizer ? setMarketDetails({ country, city, address, date, start, end, description  }) : history.push("/");
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 
@@ -65,7 +65,7 @@ function EditMarket() {
       await axiosReq.put(`/markets/${id}/`, formData);
       history.push(`/markets/${id}`);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

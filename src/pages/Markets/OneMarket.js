@@ -17,9 +17,8 @@ function OneMarket() {
           axiosReq.get(`/markets/${id}`),
         ]);
         setMarket({ results: [market] });
-        console.log(market);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 

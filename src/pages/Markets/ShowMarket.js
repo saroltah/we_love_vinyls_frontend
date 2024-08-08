@@ -32,7 +32,7 @@ const ShowMarket = (props) => {
       await axiosRes.delete(`/markets/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -48,7 +48,7 @@ const ShowMarket = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -64,7 +64,7 @@ const ShowMarket = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 

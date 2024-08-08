@@ -43,7 +43,7 @@ const EditPassword = () => {
       await axiosRes.post("/dj-rest-auth/password/change/", userDetails);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       setErrors(err.response?.data);
     }
   };

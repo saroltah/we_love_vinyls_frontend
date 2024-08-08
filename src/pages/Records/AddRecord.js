@@ -88,7 +88,7 @@ function AddRecord() {
       const { data } = await axiosReq.post("/records/", formData);
       history.push(`/records/${data.id}`);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
