@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
+import { useCurrentUser } from "../context/CurrentUserContext";
 
 function GetMarketList(filter="") {
   const [markets, setMarkets] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
+  const currentUser = useCurrentUser()
 
   const [query, setQuery] = useState("");
 
@@ -43,7 +45,7 @@ function GetMarketList(filter="") {
   }, [filter, query, pathname]);
 
   return {
-    filter, markets, loaded, setMarkets, setLoaded, query, setQuery
+    filter, markets, loaded, setMarkets, setLoaded, query, setQuery, currentUser,
   };}
 
   

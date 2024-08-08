@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
+import { useCurrentUser } from "../context/CurrentUserContext";
 
 function GetRecordList(filter="") {
   const [records, setRecords] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
+  const currentUser = useCurrentUser()
 
   const [query, setQuery] = useState("");
 
@@ -41,7 +43,7 @@ function GetRecordList(filter="") {
   
     setLoaded(false);
     fetchRecords();
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return {
     filter, records, loaded, setRecords, setLoaded, query, setQuery
