@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AttendedMarkets from "./AttendedMarkets";
 import MyOrganizedMarkets from "./MyOrganizedMarkets";
-import { Nav } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
 import styles from "../../styles/MyPosts.module.css"
 
 function MyMarkets() {

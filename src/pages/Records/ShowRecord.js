@@ -2,7 +2,8 @@ import React from "react";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
 import ProfilePic from "../../elements/ProfilePic";
-import {OverlayTrigger, Tooltip, Card} from "react-bootstrap";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import  Tooltip from "react-bootstrap/Tooltip";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import styles from "../../styles/OnePost.module.css"

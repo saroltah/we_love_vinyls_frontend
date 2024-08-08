@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import {Form, Alert} from "react-bootstrap";
+import Alert from "react-bootstrap/Alert";
+import Form from "react-bootstrap/Form";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults"

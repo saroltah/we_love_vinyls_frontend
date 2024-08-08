@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse } from 'react-bootstrap';
+import Collapse from 'react-bootstrap/Collapse';
 import AddMarket from '../pages/Markets/AddMarket';
 import styles from "../styles/AddPostDropdown.module.css"
 

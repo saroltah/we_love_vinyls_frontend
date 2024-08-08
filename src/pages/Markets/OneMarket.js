@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import ShowMarket from "./ShowMarket";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { useHistory } from "react-router-dom";
 import styles from "../../styles/OnePost.module.css"
 

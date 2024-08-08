@@ -9,7 +9,7 @@ import { axiosRes } from "../../api/AxiosDefaults"
 import { useCurrentUser } from "../../context/CurrentUserContext"
 
 import styles from "../../styles/AddEditPost.module.css"
-import RecordDropdown from "../../elements/RecordDropdown";
+
 
 const EditPassword = () => {
   const history = useHistory();

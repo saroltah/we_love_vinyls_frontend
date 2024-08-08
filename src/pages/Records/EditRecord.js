@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import {Form, Alert} from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import upload from "../../assets/upload.png";
 

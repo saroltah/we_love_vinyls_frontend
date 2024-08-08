@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 import styles from "../styles/SearchField.module.css"
 
 function MarketSearchField({ query, setQuery })  {

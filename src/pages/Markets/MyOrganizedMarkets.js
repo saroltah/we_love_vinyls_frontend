@@ -1,7 +1,6 @@
 import React from "react";
 import AllMarkets from "./AllMarkets";
 import { useCurrentUser } from "../../context/CurrentUserContext"
-import styles from "../../styles/Lists.module.css"
 
 function MyOrganizedMarkets() {
 

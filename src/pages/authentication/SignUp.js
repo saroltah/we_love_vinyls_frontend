@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Form, Alert } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styles from "../../styles/AddEditPost.module.css"

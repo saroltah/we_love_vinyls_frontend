@@ -7,7 +7,7 @@ import OrganizedMarkets from "../Markets/OrganizedMarkets";
 import styles from "../../styles/Profile.module.css"
 import { EditProfileDropdown } from "../../elements/EditProfileDropdown";
 import myPostStyles from "../../styles/MyPosts.module.css"
-import { Nav } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
 
 function OneProfile() {
   const { id } = useParams();
