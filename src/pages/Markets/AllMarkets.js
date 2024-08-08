@@ -6,6 +6,8 @@ import MarketSearchField from "../../elements/MarketSearchField";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 import MarketDropdown from "../../elements/MarketDropdown";
 import styles from "../../styles/Lists.module.css"
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 function AllMarkets({ message, filter, showDropdown = true }) {
@@ -22,12 +24,18 @@ function AllMarkets({ message, filter, showDropdown = true }) {
         )}
         {loaded ? (
           <>
+          
             {markets.results.length > 0 ? (
-              markets.results.map((market) => (
-                <div key={market.id}>
-                  <ShowMarket {...market} setMarkets={setMarkets} />
-                </div>
-              ))
+
+              <InfiniteScroll
+                children={markets.results.map((market) => (
+                  <ShowMarket key={market.id} {...market} setMarkets={setMarkets} />
+                ))}
+                dataLength={markets.results.length}
+                loader={<Loading />}
+                hasMore={!!markets.next}
+                next={() => fetchMoreData(markets, setMarkets)}
+              />
             ) : (
               <div>
                 <p>{message || "No markets"}</p>

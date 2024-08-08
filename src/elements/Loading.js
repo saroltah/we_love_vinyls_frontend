@@ -7,7 +7,7 @@ function Loading() {
       visible={true}
       height="100"
       width="100"
-      color="#FFFFFF"
+      color="#000000"
       ariaLabel="three-circles-loading"
       wrapperStyle={{}}
       wrapperClass=""

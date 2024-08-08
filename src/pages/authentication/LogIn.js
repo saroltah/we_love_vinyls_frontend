@@ -5,9 +5,12 @@ import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
 import styles from "../../styles/AddEditPost.module.css"
+import { Redirect } from "../../hooks/Redirect";
 
 function LogIn() {
   const setCurrentUser = useSetCurrentUser();
+  Redirect("loggedIn");
+
   const [logInDetails, setLogInDetails] = useState({
     username: "",
     password: "",
@@ -24,7 +27,7 @@ function LogIn() {
       const { data } = await axios.post("/dj-rest-auth/login/", logInDetails);
       setCurrentUser(data.user);
       setTokenTimestamp(data);
-      history.push("/");
+      history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
     }

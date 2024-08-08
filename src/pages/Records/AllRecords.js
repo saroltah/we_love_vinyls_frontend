@@ -5,6 +5,8 @@ import ShowRecord from "./ShowRecord";
 import RecordSearchField from "../../elements/RecordSearchField";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 import RecordDropdown from "../../elements/RecordDropdown";
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function AllRecords({ message, filter, showDropdown=true }) {
 
@@ -21,11 +23,15 @@ const currentUser = useCurrentUser();
         {loaded ? (
           <>
             {records.results.length > 0 ? (
-              records.results.map((record) => (
-                <div key={record.id}>
-                  <ShowRecord {...record} setRecords={setRecords} advertiser_id={record.advertiser_id}/>
-                </div>
-              ))
+              <InfiniteScroll
+              children={records.results.map((record) => (
+                <ShowRecord key={record.id} {...record} setRecords={setRecords} />
+              ))}
+              dataLength={records.results.length}
+              loader={<Loading />}
+              hasMore={!!records.next}
+              next={() => fetchMoreData(records, setRecords)}
+            />
             ) : (
               <div>
                 <p>{message || "No records"}</p>
