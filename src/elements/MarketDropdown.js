@@ -6,7 +6,7 @@ import styles from "../styles/AddPostDropdown.module.css"
 
 function MarketDropdown() {
     const [open, setOpen] = useState(false);
-  
+    
     return (
       <>
         <button

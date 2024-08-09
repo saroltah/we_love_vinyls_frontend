@@ -145,6 +145,7 @@ function EditRecord() {
           <img
             src={upload}
             alt="Upload"
+            width={80}
           />
         </Form.Label>
       )}

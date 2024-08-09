@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import styles from "../styles/SearchField.module.css"
 
 function MarketSearchField({ query, setQuery })  {
-
+  
 return (
     <Form
     onSubmit={(event) => event.preventDefault()}
@@ -18,5 +18,4 @@ return (
     />
   </Form> );}
 
-  
 export default MarketSearchField;

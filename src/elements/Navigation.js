@@ -15,7 +15,6 @@ import styles from "../styles/Navigation.module.css";
 function Navigation() {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
-
   const { fullMenu, setFullMenu, ref } = ClickOutsideToggle();
 
   const handleLogOut = async () => {
@@ -45,6 +44,7 @@ function Navigation() {
       </NavLink>
     </>
   );
+  
   const loggedOutMenu = (
     <>
       <NavLink to="/login" className={styles.NavLink}>Log in</NavLink>

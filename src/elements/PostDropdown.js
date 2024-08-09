@@ -13,10 +13,10 @@ const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
 ));
 
 export const PostDropdown = ({ editPost, deletePost }) => {
+  
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={DropdownIcon} />
-
       <Dropdown.Menu
         popperConfig={{ strategy: "fixed" }}
       >

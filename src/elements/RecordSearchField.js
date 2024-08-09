@@ -17,5 +17,4 @@ return (
     />
   </Form> );}
 
-  
 export default RecordSearchField;

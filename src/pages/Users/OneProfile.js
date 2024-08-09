@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
-import { useCurrentUser } from "../../context/CurrentUserContext";
 import AdvertisedRecords from "../Records/AdvertisedRecords"
 import OrganizedMarkets from "../Markets/OrganizedMarkets";
 import styles from "../../styles/Profile.module.css"
@@ -33,9 +32,6 @@ const showMyMarkets = () => {setActivePage ("showMyMarkets")}
     handleMount();
   }, [id]);
 
-  const currentUser = useCurrentUser();
-  const is_member = currentUser?.username === profile?.member;
- 
 
   if (!profile) {
     return <div>Loading</div>

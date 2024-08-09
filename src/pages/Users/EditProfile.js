@@ -42,7 +42,7 @@ function EditProfile() {
         const { data } = await axiosReq.get(`/users/${id}/`);
         const { preferred_music, about_me,
             image, liked_record_count,
-            attended_market_count, is_member } = data;
+            attended_market_count} = data;
 
      setProfileDetails({ preferred_music, about_me,
             image, liked_record_count,

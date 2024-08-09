@@ -5,7 +5,7 @@ import styles from "../styles/AddPostDropdown.module.css"
 
 function RecordDropdown() {
     const [open, setOpen] = useState(false);
-  
+    
     return (
       <>
         <button

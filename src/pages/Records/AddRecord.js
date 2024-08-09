@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
@@ -18,9 +18,6 @@ function AddRecord() {
 
   const nodeRef = useRef(null);
  
-  useEffect(() => {
-    const node = nodeRef.current;})
-
   const [recordDetails, setRecordDetails] = useState({
     image: "",
     artist: "",
@@ -118,6 +115,7 @@ function AddRecord() {
                 src={upload}
                 alt="Upload"
                 className={PicStyles.UploadPic}
+              
               />
             </Form.Label>
           )}

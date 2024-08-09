@@ -18,7 +18,6 @@ export const EditProfileDropdown = ({id}) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={DropdownIcon} />
-
       <Dropdown.Menu
         popperConfig={{ strategy: "fixed" }}
         >
@@ -35,7 +34,6 @@ export const EditProfileDropdown = ({id}) => {
           <i className={`fa-solid fa-lock ${emoji.Emoji}`}></i>
         </Dropdown.Item>
       </Dropdown.Menu>
-
     </Dropdown>
   );
 };

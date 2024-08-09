@@ -13,7 +13,7 @@ const ShowMarket = (props) => {
   const {
     id, organizer, country, city, address, date,
             start, end, description,
-            members_attending_count, created, organizer_id, organizer_image, attendance_id, setMarkets, attended_market, showLink=true
+            members_attending_count, created, organizer_id, organizer_image, attendance_id, setMarkets, showLink=true
   } = props;
 
   const currentUser = useCurrentUser();
@@ -30,7 +30,7 @@ const ShowMarket = (props) => {
   const deletePost = async () => {
     try {
       await axiosRes.delete(`/markets/${id}/`);
-      history.goBack();
+      history.push(`/markets/`);
     } catch (err) {
       //console.log(err);
     }

@@ -12,7 +12,6 @@ function OneRecord() {
 
   const { id } = useParams();
   const [record, setRecord] = useState({ results: [] });
-  const [commented_record, setCommented_record] = useState({ results: [] });
   const history = useHistory();
  
   const currentUser = useCurrentUser();
@@ -52,7 +51,6 @@ function OneRecord() {
       member_id={profile_id}
       member_image={profile_image}
       commented_record={id}
-      setCommented_record={setCommented_record}
       setComments={setComments}
       setRecord={setRecord}
     />

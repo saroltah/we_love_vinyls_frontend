@@ -15,7 +15,7 @@ const ShowRecord = (props) => {
     id, advertiser, artist, title, track_list,
     created, condition, image, released, genre,
     members_liking_count, comment_count,
-    price, location, contact, advertiser_image, like_id, setRecords, liked_record, advertiser_id, showLink=true,
+    price, location, contact, advertiser_image, like_id, setRecords,  advertiser_id, showLink=true,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -34,7 +34,7 @@ const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.Sec
   const deleteRecord = async () => {
     try {
       await axiosRes.delete(`/records/${id}/`);
-      history.goBack();
+      history.push(`/records/`);
     } catch (err) {
       //console.log(err);
     }
