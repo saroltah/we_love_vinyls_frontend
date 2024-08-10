@@ -7,7 +7,7 @@ function GetMarketList(filter="") {
   const [markets, setMarkets] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
-  const currentUser = useCurrentUser()
+  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
 

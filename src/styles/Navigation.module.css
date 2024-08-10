@@ -26,4 +26,9 @@
     cursor:pointer;
     color: black
 }
+.Active {
+    text-shadow: 0px 0px 13px rgba(227, 206, 46, 1);
+    color:#f8312f;
+    text-decoration: none; 
+}
 .Logo{color:#f8312f};

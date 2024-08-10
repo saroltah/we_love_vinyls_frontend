@@ -1,14 +1,14 @@
-import Navigation from "./elements/Navigation";
-import SignUp from "./pages/authentication/SignUp";
-import LogIn from "./pages/authentication/LogIn";
+import Navigation from './elements/Navigation';
+import SignUp from './pages/authentication/SignUp';
+import LogIn from './pages/authentication/LogIn';
 
-import Markets from "./pages/Markets/Markets";
-import AddMarket from "./pages/Markets/AddMarket";
-import OneMarket from "./pages/Markets/OneMarket";
-import MyMarkets from "./pages/Markets/MyMarkets";
-import EditMarket from "./pages/Markets/EditMarket";
+import Markets from './pages/Markets/Markets';
+import AddMarket from './pages/Markets/AddMarket';
+import OneMarket from './pages/Markets/OneMarket';
+import MyMarkets from './pages/Markets/MyMarkets';
+import EditMarket from './pages/Markets/EditMarket';
 
-import OneRecord from "./pages/Records/OneRecord";
+import OneRecord from './pages/Records/OneRecord';
 import AddRecord from "./pages/Records/AddRecord";
 import Records from "./pages/Records/Records";
 import MyRecords from "./pages/Records/MyRecords";

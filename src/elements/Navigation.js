@@ -29,9 +29,9 @@ function Navigation() {
 
   const loggedInMenu = (
     <>
-      <NavLink to="/mymarkets" className={styles.NavLink}> My markets</NavLink>
-      <NavLink to="/myrecords" className={styles.NavLink}> My records </NavLink>
-      <NavLink to={`/users/${currentUser?.profile_id}`} className={styles.NavLink}>
+      <NavLink to="/mymarkets" className={styles.NavLink} activeClassName={styles.Active}> My markets</NavLink>
+      <NavLink to="/myrecords" className={styles.NavLink} activeClassName={styles.Active}> My records </NavLink>
+      <NavLink to={`/users/${currentUser?.profile_id}`} activeClassName={styles.Active} className={styles.NavLink}>
         <ProfilePic
           src={currentUser?.profile_image}
           text={currentUser?.username}
@@ -47,8 +47,8 @@ function Navigation() {
   
   const loggedOutMenu = (
     <>
-      <NavLink to="/login" className={styles.NavLink}>Log in</NavLink>
-      <NavLink to="/signup" className={styles.NavLink}> Sign up</NavLink>
+      <NavLink to="/login" className={styles.NavLink} activeClassName={styles.Active}>Log in</NavLink>
+      <NavLink to="/signup" className={styles.NavLink} activeClassName={styles.Active}> Sign up</NavLink>
     </>
   );
 
@@ -68,8 +68,8 @@ function Navigation() {
         />
         <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className={`${styles.Nav} mr-auto`}>
-            <NavLink className={styles.NavLink} to="/records">Records</NavLink>
-            <NavLink className={styles.NavLink} to="/markets">Markets</NavLink>
+            <NavLink className={styles.NavLink} to="/records" activeClassName={styles.Active}>Records</NavLink>
+            <NavLink className={styles.NavLink} to="/markets" activeClassName={styles.Active}>Markets</NavLink>
           </Nav>
           <Nav className={styles.Nav}>{currentUser ? loggedInMenu : loggedOutMenu}</Nav>
         </Navbar.Collapse>
