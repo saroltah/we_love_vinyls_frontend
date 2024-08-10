@@ -29,7 +29,7 @@ const ShowMarket = (props) => {
 
   const history = useHistory();
 
-  const MarketTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.SecondTitle}`}>Vinyl market in {city}, {country}</div>);
+  const MarketTitle = (<div className={showLink ? styles.Title : styles.SecondTitle}>Vinyl market in {city}, {country}</div>);
 
   const editPost = () => {
     history.push(`/markets/${id}/edit`);
@@ -110,7 +110,7 @@ const ShowMarket = (props) => {
           </span>
           </span>
 </div>
-{showLink ? ( <Link to={`/markets/${id}`}>
+{showLink ? ( <Link to={`/markets/${id}`} className={styles.Link}>
   {MarketTitle}</Link> ) : ( MarketTitle )}
 <div className={styles.Details}>
 <p>{description}</p>

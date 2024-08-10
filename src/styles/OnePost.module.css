@@ -33,14 +33,21 @@
     color: black;
     text-decoration: none;
     font-family: 'Edu VIC WA NT Beginner', cursive;
-    
 }
+
 .Title:hover{
     text-shadow: 0px 0px 13px rgba(227, 206, 46, 1);
     color:#f8312f;
     text-decoration: none;
 }
-
+.SecondTitle {
+    font-size:20px;
+    margin: 30px 20px;
+    color: black;
+    text-decoration: none;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    
+}
 .SecondTitle:hover {
     font-size:20px;
     margin: 30px 20px;
@@ -49,6 +56,10 @@
     font-family: 'Edu VIC WA NT Beginner', cursive;
     text-shadow: none;
 }
+.Link {
+    text-decoration:none !important;
+}
+
 .Details {
     margin: 30px 20px;
 }
@@ -74,7 +85,8 @@
     color: #f8312f;
     cursor:pointer
 }
-@media screen and (min-width: 768px){
-.OnePost {
-    margin:20px
-}}
+@media screen and (min-width: 768px) {
+    .OnePost {
+      margin: 20px;
+    }
+  }

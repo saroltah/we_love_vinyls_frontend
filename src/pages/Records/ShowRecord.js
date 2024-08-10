@@ -32,7 +32,7 @@ const ShowRecord = (props) => {
   const [notificationMessage, setNotificationMesssage] = useState('')
   const history = useHistory();
 
-const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.SecondTitle}`}>
+const RecordTitle = (<div className={showLink ? styles.Title : styles.SecondTitle}>
 {artist}: {title}
 </div>);
 
@@ -116,7 +116,7 @@ const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.Sec
     </span>
     </div>
 
-    {showLink ? ( <Link to={`/records/${id}`}>
+    {showLink ? ( <Link to={`/records/${id}` } className={styles.Link}>
       {RecordTitle}</Link> ) : ( RecordTitle )}
 
     <Link to={`/records/${id}`}>
