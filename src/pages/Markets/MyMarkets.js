@@ -4,6 +4,13 @@ import MyOrganizedMarkets from "./MyOrganizedMarkets";
 import Nav from "react-bootstrap/Nav";
 import styles from "../../styles/MyPosts.module.css"
 
+/*
+  Opened from menu.
+  Collects data of the current user.
+  Selects uploaded markets
+  Selects markets marked "Going"
+*/
+
 function MyMarkets() {
 
 const [activePage, setActivePage] = useState("showMyMarkets")

@@ -2,6 +2,7 @@ import React from "react";
 import AllMarkets from "./AllMarkets";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 
+//Select markets the current user uploaded
 function MyOrganizedMarkets() {
 
   const currentUser = useCurrentUser();

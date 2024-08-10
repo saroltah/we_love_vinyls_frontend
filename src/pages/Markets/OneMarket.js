@@ -5,6 +5,7 @@ import ShowMarket from "./ShowMarket";
 import { useHistory } from "react-router-dom";
 import styles from "../../styles/OnePost.module.css"
 
+//Get details of one selected market
 function OneMarket() {
   const { id } = useParams();
   const [market, setMarket] = useState({ results: [] });

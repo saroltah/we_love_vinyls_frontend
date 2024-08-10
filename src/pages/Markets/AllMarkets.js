@@ -8,7 +8,12 @@ import MarketDropdown from "../../elements/MarketDropdown";
 import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-
+/*
+Make the list of markets 
+Infinitive scroll
+Logic on display of search field
+Logic on display of +Add market dropdown
+*/
 function AllMarkets({ message, filter, showDropdown = true }) {
 
   const {markets, setMarkets, loaded, query, setQuery} = GetMarketList(filter)

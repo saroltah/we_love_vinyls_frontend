@@ -9,6 +9,11 @@ import { PostDropdown } from "../../elements/PostDropdown";
 import styles from "../../styles/OnePost.module.css"
 import emoji from "../../styles/Emoji.module.css"
 
+/*
+  Display of a market
+  Attendance logic and button
+  Delete market logic
+*/
 const ShowMarket = (props) => {
   const {
     id, organizer, country, city, address, date,

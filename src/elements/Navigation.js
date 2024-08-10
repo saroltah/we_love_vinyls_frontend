@@ -13,6 +13,7 @@ import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/Navigation.module.css";
 
 function Navigation() {
+  
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { fullMenu, setFullMenu, ref } = ClickOutsideToggle();

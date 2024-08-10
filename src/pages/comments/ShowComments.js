@@ -7,6 +7,10 @@ import { PostDropdown } from "../../elements/PostDropdown";
 import EditComment from "./EditComment";
 import { axiosRes } from "../../api/AxiosDefaults"
 
+/*
+  Display comments
+  Delete comment logic
+*/
 const ShowComment = (props) => {
   const { id, member_id, member_image, member, created, content, setComments, setRecord } = props;
   const currentUser = useCurrentUser();

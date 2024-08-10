@@ -9,6 +9,13 @@ import { PostDropdown } from "../../elements/PostDropdown";
 import styles from "../../styles/OnePost.module.css"
 import emoji from "../../styles/Emoji.module.css"
 
+
+/*
+  Display of a record
+  Like logic and button
+  Dislike logic and button
+  Delete record logic
+*/
 const ShowRecord = (props) => {
   
   const {

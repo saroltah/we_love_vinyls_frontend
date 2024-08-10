@@ -2,6 +2,7 @@ import React from "react";
 import AllRecords from "./AllRecords";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 
+//Selects all the records, the current user marked "Going"
 function LikedRecords() {
 
   const currentUser = useCurrentUser();

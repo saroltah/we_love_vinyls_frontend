@@ -15,6 +15,8 @@ function GetRecordList(filter="") {
     const fetchRecords = async () => {
       try {
         const conditionalUrl = (filter, query) => {
+          //If there is filter, no search is shown
+          
           let url = '/records/';
           if (filter) {
             url += `?${filter}`;

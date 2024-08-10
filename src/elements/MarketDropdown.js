@@ -3,8 +3,12 @@ import Collapse from 'react-bootstrap/Collapse';
 import AddMarket from '../pages/Markets/AddMarket';
 import styles from "../styles/AddPostDropdown.module.css"
 
-
+/*
+  Click on +AddMarket button
+  Form drops down
+*/
 function MarketDropdown() {
+
     const [open, setOpen] = useState(false);
     
     return (

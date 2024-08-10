@@ -8,6 +8,12 @@ import RecordDropdown from "../../elements/RecordDropdown";
 import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+/*
+Make the list of records
+Infinitive scroll
+Logic on display of search field
+Logic on display of +Add record dropdown
+*/
 function AllRecords({ message, filter, showDropdown=true }) {
 
 const {records, setRecords, loaded, query, setQuery} = GetRecordList(filter)

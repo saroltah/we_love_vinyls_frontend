@@ -8,12 +8,15 @@ import ShowComments from "../comments/ShowComments";
 import { useHistory } from "react-router-dom";
 import styles from "../../styles/OnePost.module.css"
 
+/* 
+Get details of one selected record 
+Comment section logic
+*/
 function OneRecord() {
 
   const { id } = useParams();
   const [record, setRecord] = useState({ results: [] });
   const history = useHistory();
- 
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id;
   const profile_image = currentUser?.profile_image;
@@ -25,13 +28,10 @@ function OneRecord() {
         const [{ data: record }, { data: comments }] = await Promise.all([
           axiosReq.get(`/records/${id}`),
           axiosReq.get(`/comments/?commented_record__id=${id}`),
-          
         ]);
         setRecord({ results: [record] });
         setComments(prevState => ({...prevState, results: [...comments] }))
-        
 
- 
       } catch (err) {
         //console.log(err);
       }

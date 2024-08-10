@@ -2,6 +2,10 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import emoji from "../styles/Emoji.module.css"
 
+/*
+  Click on gear emoji
+  Shows edit and delete option
+*/
 const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   <span
     ref={ref}

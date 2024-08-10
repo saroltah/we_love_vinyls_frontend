@@ -3,6 +3,10 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router-dom";
 import emoji from "../styles/Emoji.module.css"
 
+/*
+  Click on gear emoji
+  Shows edit and change password option
+*/
 const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   <span
     ref={ref}

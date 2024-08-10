@@ -2,6 +2,7 @@ import React from "react";
 import AllMarkets from "./AllMarkets";
 import { useCurrentUser } from "../../context/CurrentUserContext"
 
+//Selects all the markets, the current user marked "Going"
 function AttendedMarkets() {
 
   const currentUser = useCurrentUser();

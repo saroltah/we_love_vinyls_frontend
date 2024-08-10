@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-
 import ProfilePic from "../../elements/ProfilePic";
 import { axiosRes } from "../../api/AxiosDefaults"
 import styles from "../../styles/Comment.module.css"
-
-
 
 function AddComment(props) {
   const { commented_record, setComments, member_image, member_id, setRecord } = props;

@@ -8,6 +8,7 @@ import { EditProfileDropdown } from "../../elements/EditProfileDropdown";
 import myPostStyles from "../../styles/MyPosts.module.css"
 import Nav from "react-bootstrap/Nav";
 
+// Displays Profile 
 function OneProfile() {
   const { id } = useParams();
   const [profile, setProfile] = useState(null);

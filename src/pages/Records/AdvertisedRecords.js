@@ -1,6 +1,7 @@
 import React from "react";
 import AllRecords from "./AllRecords";
 
+//Select records, that a user (not current user) uploaded.
 function AdvertisedRecords(props) {
 
   const profile_id = props.profile_id || "";

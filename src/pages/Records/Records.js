@@ -3,7 +3,10 @@ import AllRecords from "./AllRecords";
 import styles from "../../styles/Lists.module.css"
 
 
-
+/*
+  Opened from menu.
+  Selects All records
+*/
 function Records() {
   return (
     <div>

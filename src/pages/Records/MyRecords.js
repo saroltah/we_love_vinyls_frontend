@@ -4,6 +4,12 @@ import styles from "../../styles/MyPosts.module.css"
 import LikedRecords from "../Records/LikedRecords"
 import MyAdvertisedRecords from "./MyAdvertisedRecords";
 
+/*
+  Opened from menu.
+  Collects data of the current user.
+  Selects uploaded records
+  Selects liked records
+*/
 function MyRecords() {
 
 const [activePage, setActivePage] = useState("showMyRecords")
