@@ -4,10 +4,10 @@ import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styles from "../../styles/AddEditPost.module.css"
-import { Redirect } from "../../hooks/Redirect";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function SignUp() {
-  Redirect("loggedIn");
+  useRedirect("loggedIn");
   const [signUpDetails, setSignUpDetails] = useState({
     username: "",
     password1: "",

@@ -1,6 +1,6 @@
 import React from "react";
 import Loading from "../../elements/Loading";
-import GetMarketList from "../../hooks/GetMarketList";
+import useGetMarketList from "../../hooks/useGetMarketList";
 import ShowMarket from "./ShowMarket";
 import MarketSearchField from "../../elements/MarketSearchField";
 import { useCurrentUser } from "../../context/CurrentUserContext";
@@ -16,7 +16,7 @@ Logic on display of +Add market dropdown
 */
 function AllMarkets({ message, filter, showDropdown = true }) {
 
-  const {markets, setMarkets, loaded, query, setQuery} = GetMarketList(filter)
+  const {markets, setMarkets, loaded, query, setQuery} = useGetMarketList(filter)
   const hasFilter = filter && filter.trim() !== "";
   const currentUser = useCurrentUser();
   

@@ -8,7 +8,7 @@ import {
 } from "../context/CurrentUserContext";
 import axios from "axios";
 import ProfilePic from "./ProfilePic";
-import ClickOutsideToggle from "../hooks/ClickOutsideToggle";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import styles from "../styles/Navigation.module.css";
 
@@ -16,7 +16,7 @@ function Navigation() {
   
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
-  const { fullMenu, setFullMenu, ref } = ClickOutsideToggle();
+  const { fullMenu, setFullMenu, ref } = useClickOutsideToggle();
 
   const handleLogOut = async () => {
     try {

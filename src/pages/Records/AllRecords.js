@@ -1,6 +1,6 @@
 import React from "react";
 import Loading from "../../elements/Loading";
-import GetRecordList from "../../hooks/GetRecordList";
+import useGetRecordList from "../../hooks/useGetRecordList";
 import ShowRecord from "./ShowRecord";
 import RecordSearchField from "../../elements/RecordSearchField";
 import { useCurrentUser } from "../../context/CurrentUserContext";
@@ -16,7 +16,7 @@ Logic on display of +Add record dropdown
 */
 function AllRecords({ message, filter, showDropdown=true }) {
 
-const {records, setRecords, loaded, query, setQuery} = GetRecordList(filter)
+const {records, setRecords, loaded, query, setQuery} = useGetRecordList(filter)
 const hasFilter = filter && filter.trim() !== "";
 const currentUser = useCurrentUser();
 

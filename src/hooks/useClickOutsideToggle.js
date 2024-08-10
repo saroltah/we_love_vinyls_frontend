@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
   Click outside of the menu toggle
   Menu closes
 */
-function ClickOutsideToggle() {
+function useClickOutsideToggle() {
   const [fullMenu, setFullMenu] = useState(false);
   const ref = useRef(null);
 
@@ -27,4 +27,4 @@ function ClickOutsideToggle() {
   };
 }
 
-export default ClickOutsideToggle;
+export default useClickOutsideToggle;

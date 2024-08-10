@@ -3,21 +3,21 @@ import { useLocation } from "react-router-dom";
 import { axiosReq } from "../api/AxiosDefaults";
 import { useCurrentUser } from "../context/CurrentUserContext";
 
-function GetRecordList(filter="") {
-  const [records, setRecords] = useState({ results: [] });
+function useGetMarketList(filter="") {
+  const [markets, setMarkets] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
-  const currentUser = useCurrentUser()
+  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    const fetchRecords = async () => {
+    const fetchMarkets = async () => {
       try {
         const conditionalUrl = (filter, query) => {
           //If there is filter, no search is shown
           
-          let url = '/records/';
+          let url = '/markets/';
           if (filter) {
             url += `?${filter}`;
           } else if (query) {
@@ -25,31 +25,30 @@ function GetRecordList(filter="") {
           }
           return url;
         }
-      
         const response = await axiosReq.get(conditionalUrl(filter, query));
         const { data } = response;
         if (Array.isArray(data)) {
-          setRecords({ results: data });
+          setMarkets({ results: data });
         } else if (Array.isArray(data.results)) {
-          setRecords({ results: data.results });
+          setMarkets({ results: data.results });
         } else {
-          //console.log(err);
+          //console.error("no result problem:", data);
         }
         setLoaded(true);
       } catch (err) {
-        //console.log(err);
-        setRecords({ results: [] });
+        //console.log("Error problem:", err);
+        setMarkets({ results: [] });
         setLoaded(true);
       }
     };
   
     setLoaded(false);
-    fetchRecords();
-  }, [filter, query, pathname, currentUser]);
+    fetchMarkets();
+  }, [filter, query, pathname]);
 
   return {
-    filter, records, loaded, setRecords, setLoaded, query, setQuery
+    filter, markets, loaded, setMarkets, setLoaded, query, setQuery, currentUser,
   };}
 
   
-export default GetRecordList;
+export default useGetMarketList;

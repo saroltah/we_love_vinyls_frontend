@@ -6,11 +6,11 @@ import axios from "axios";
 import { useSetCurrentUser } from "../../context/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
 import styles from "../../styles/AddEditPost.module.css"
-import { Redirect } from "../../hooks/Redirect";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function LogIn() {
   const setCurrentUser = useSetCurrentUser();
-  Redirect("loggedIn");
+  useRedirect("loggedIn");
 
   const [logInDetails, setLogInDetails] = useState({
     username: "",
