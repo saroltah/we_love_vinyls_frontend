@@ -49,14 +49,14 @@ function AddRecord() {
   const history = useHistory();
   const [showNotification, setShowNotification] = useState(false)
 
-  function changeRecordDetails(event) {
+  function handleChange(event) {
     setRecordDetails({
       ...recordDetails,
       [event.target.name]: event.target.value,
     });
   }
 
-  function changeRecordImage(event) {
+  function handleRecordImageChange(event) {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
       setRecordDetails({
@@ -128,7 +128,7 @@ function AddRecord() {
           <Form.File
             id="image-upload"
             accept="image/*"
-            onChange={changeRecordImage}
+            onChange={handleRecordImageChange}
             ref={imageInput}
           />
         </Form.Group>
@@ -146,7 +146,7 @@ function AddRecord() {
             placeholder="Artist"
             name="artist"
             value={artist}
-            onChange={changeRecordDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.artist?.map((message, idx) => (
@@ -162,7 +162,7 @@ function AddRecord() {
             placeholder="Title"
             name="title"
             value={title}
-            onChange={changeRecordDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.title?.map((message, idx) => (
@@ -177,7 +177,7 @@ function AddRecord() {
             as="select"
             name="genre"
             value={genre}
-            onChange={changeRecordDetails}>
+            onChange={handleChange}>
             <option value="pop">Pop</option>
             <option value="rock">Rock</option>
             <option value="blues">Blues</option>
@@ -228,7 +228,7 @@ function AddRecord() {
             rows={3}
             name="tracklist"
             value={tracklist}
-            onChange={changeRecordDetails}
+            onChange={handleChange}
             placeholder="e.g. 1. Song1 2. Song2"
           />
         </Form.Group>
@@ -244,7 +244,7 @@ function AddRecord() {
             as="select"
             name="condition"
             value={condition}
-            onChange={changeRecordDetails}>
+            onChange={handleChange}>
             <option value="new">New</option>
             <option value="good">Good</option>
             <option value="used">Used</option>
@@ -265,7 +265,7 @@ function AddRecord() {
             name="released"
             value={released}
             placeholder="e.g. 1989"
-            onChange={changeRecordDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.released?.map((message, idx) => (
@@ -281,7 +281,7 @@ function AddRecord() {
             placeholder="e.g. London, U.K."
             name="location"
             value={location}
-            onChange={changeRecordDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.location?.map((message, idx) => (
@@ -297,7 +297,7 @@ function AddRecord() {
             placeholder="e.g. 40 €"
             name="price"
             value={price}
-            onChange={changeRecordDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.price?.map((message, idx) => (
@@ -313,7 +313,7 @@ function AddRecord() {
             name="contact"
             value={contact}
             placeholder="e.g. example@example.com"
-            onChange={changeRecordDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.cobtact?.map((message, idx) => (

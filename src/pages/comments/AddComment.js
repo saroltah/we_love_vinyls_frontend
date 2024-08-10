@@ -12,7 +12,7 @@ function AddComment(props) {
   const [content, setContent] = useState("");
   const [showNotification, setShowNotification] = useState(false)
 
- const changeContent = (event) => {
+ const handleChange = (event) => {
     setContent(event.target.value);
   };
 
@@ -56,7 +56,7 @@ function AddComment(props) {
                 placeholder="Write your comment here."
                 as="textarea"
                 value={content}
-                onChange={changeContent}
+                onChange={handleChange}
                 rows={3}
               className={styles.Textarea}
               />

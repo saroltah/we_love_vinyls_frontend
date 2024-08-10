@@ -9,7 +9,7 @@ function EditComment(props) {
 
   const [editContent, setEditContent] = useState(content);
 
-  const changeComment = (event) => {
+  const handleChange = (event) => {
     setEditContent(event.target.value);
   };
 
@@ -43,7 +43,7 @@ function EditComment(props) {
         <Form.Control
           as="textarea"
           value={editContent}
-          onChange={changeComment}
+          onChange={handleChange}
           rows={2}
         />
       </Form.Group>

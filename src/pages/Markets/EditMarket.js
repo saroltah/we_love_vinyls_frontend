@@ -42,7 +42,7 @@ function EditMarket() {
     handleMount();
   }, [history, id]);
 
-  const changeMarketDetails = (event) => {
+  const handleChange = (event) => {
     setMarketDetails({
       ...marketDetails,
       [event.target.name]: event.target.value,
@@ -84,7 +84,7 @@ function EditMarket() {
             placeholder="Country"
             name="country"
             value={country}
-            onChange={changeMarketDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.country?.map((message, idx) => (
@@ -101,7 +101,7 @@ function EditMarket() {
             placeholder="City"
             name="city"
             value={city}
-            onChange={changeMarketDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.city?.map((message, idx) => (
@@ -116,7 +116,7 @@ function EditMarket() {
             type="text"
             name="address"
             value={address}
-            onChange={changeMarketDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.address?.map((message, idx) => (
@@ -131,7 +131,7 @@ function EditMarket() {
             type="date"
             name="date"
             value={date}
-            onChange={changeMarketDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.date?.map((message, idx) => (
@@ -146,7 +146,7 @@ function EditMarket() {
             type="time"
             name="start"
             value={start}
-            onChange={changeMarketDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.start?.map((message, idx) => (
@@ -161,7 +161,7 @@ function EditMarket() {
             type="time"
             name="end"
             value={end}
-            onChange={changeMarketDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.end?.map((message, idx) => (
@@ -177,7 +177,7 @@ function EditMarket() {
             rows={6}
             name="description"
             value={description}
-            onChange={changeMarketDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors?.description?.map((message, idx) => (

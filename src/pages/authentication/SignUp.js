@@ -20,7 +20,7 @@ function SignUp() {
 
   const history = useHistory();
 
-  const ChangeSignUpDetails = (event) => {
+  const handleChange = (event) => {
     setSignUpDetails({
       ...signUpDetails,
       [event.target.name]: event.target.value,
@@ -49,7 +49,7 @@ function SignUp() {
             name="username"
             placeholder="Username"
             value={username}
-            onChange={ChangeSignUpDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors.username?.map((message, i) => (
@@ -65,7 +65,7 @@ function SignUp() {
             name="password1"
             placeholder="Password"
             value={password1}
-            onChange={ChangeSignUpDetails}
+            onChange={handleChange}
           />
         </Form.Group>
         {errors.password1?.map((message, i) => (
@@ -80,7 +80,7 @@ function SignUp() {
             name="password2"
             placeholder="Confirm password"
             value={password2}
-            onChange={ChangeSignUpDetails}
+            onChange={handleChange}
             autoComplete="username"
           />
           <Form.Text className="text-muted">
