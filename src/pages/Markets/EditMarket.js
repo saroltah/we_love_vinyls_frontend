@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import styles from "../../styles/AddEditPost.module.css";
+import Notification from "../../elements/Notification";
 
 function EditMarket() {
   const [errors, setErrors] = useState({});
@@ -23,6 +24,8 @@ function EditMarket() {
 
   const history = useHistory();
   const { id } = useParams();
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   useEffect(() => {
     const handleMount = async () => {
@@ -60,8 +63,14 @@ function EditMarket() {
 
     try {
       await axiosReq.put(`/markets/${id}/`, formData);
+      setTimeout(() => {
       history.push(`/markets/${id}`);
+    }, 2000);
+    setShowNotification(true)
+      setNotificationMesssage("Profile updated successfully!")
     } catch (err) {
+      showNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
@@ -73,6 +82,12 @@ function EditMarket() {
 
   return (
     <div>
+       {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
     <Form onSubmit={handleSubmitMarket} className={styles.AddEditPost}>
         <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>

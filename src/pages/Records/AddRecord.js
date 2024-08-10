@@ -44,6 +44,7 @@ function AddRecord() {
   const imageInput = useRef(null);
   const history = useHistory();
   const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   function handleRecordDetailsChange(event) {
     setRecordDetails({
@@ -85,8 +86,11 @@ function AddRecord() {
       history.push(`/records/${data.id}`)
     }, 2000);
       setShowNotification(true)
+      setNotificationMesssage("Record added successfully!")
     } catch (err) {
       //console.log(err);
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -95,6 +99,12 @@ function AddRecord() {
 
   return (
     <div ref={nodeRef}>
+      {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
       <Form onSubmit={handleSubmitRecord} className={styles.AddEditPost}> 
         <Form.Group>
           {image ? (
@@ -321,12 +331,6 @@ function AddRecord() {
         <button onClick={() => history.goBack()} className={styles.Button}> Back </button>
         <button type="submit" className={styles.Button}>Add Record</button>
       </Form>
-      {showNotification && (
-            <Notification
-              message="Record succesfully added"
-              onClose={() => setShowNotification(false)}
-            />
-          )}
     </div>
   );
 }

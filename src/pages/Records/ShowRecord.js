@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
 import ProfilePic from "../../elements/ProfilePic";
@@ -8,6 +8,7 @@ import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import styles from "../../styles/OnePost.module.css";
 import emoji from "../../styles/Emoji.module.css";
+import Notification from "../../elements/Notification";
 
 
 /*
@@ -27,7 +28,8 @@ const ShowRecord = (props) => {
 
   const currentUser = useCurrentUser();
   const is_advertiser = currentUser?.username === advertiser;
-
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
   const history = useHistory();
 
 const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.SecondTitle}`}>
@@ -41,8 +43,14 @@ const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.Sec
   const deleteRecord = async () => {
     try {
       await axiosRes.delete(`/records/${id}/`);
+      setTimeout(() => {
       history.push(`/records/`);
+    }, 2000);
+    setShowNotification(true)
+      setNotificationMesssage("Record deleted successfully!")
     } catch (err) {
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       //console.log(err);
     }
   };
@@ -81,6 +89,12 @@ const RecordTitle = (<div className={ `showLink ? ${styles.Title} : ${styles.Sec
 
   return (
     <div>
+      {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
       <div className={styles.OnePost}>
       <div className={styles.Container}>
       <Link to={`/users/${advertiser_id}`} className={styles.LeftSide}>

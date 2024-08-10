@@ -10,6 +10,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../context/CurrentUserContext";
+import Notification from "../../elements/Notification";
 
 function EditProfile() {
   const [errors, setErrors] = useState({});
@@ -28,6 +29,8 @@ function EditProfile() {
   const { id } = useParams();
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   useEffect(() => {
     const handleMount = async () => {
@@ -81,8 +84,14 @@ function EditProfile() {
         ...currentUser,
         profile_image: data.image,
       }));
-      history.goBack();
+      setTimeout(() => {
+      history.goBack()
+    }, 2000);
+    setShowNotification(true)
+      setNotificationMesssage("Profile updated successfully!")
     } catch (err) {
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       //console.log(err);
       setErrors(err.response?.data);
       }
@@ -91,6 +100,12 @@ function EditProfile() {
   
   return (
   <div>
+    {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
     <Form onSubmit={handleSubmitProfile} className={styles.AddEditPost}>
         <Form.Group>
       {image && (

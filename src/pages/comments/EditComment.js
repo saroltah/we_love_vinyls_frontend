@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/AxiosDefaults";
 import styles from "../../styles/Comment.module.css";
+import Notification from "../../elements/Notification";
 
 function EditComment(props) {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [editContent, setEditContent] = useState(content);
+
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   const handleCommentChange = (event) => {
     setEditContent(event.target.value);
@@ -19,6 +23,8 @@ function EditComment(props) {
       await axiosRes.put(`/comments/${id}/`, {
         content: editContent.trim(),
       });
+      setShowNotification(true)
+      setNotificationMesssage("Profile updated successfully!")
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.map((comment) => {
@@ -32,12 +38,22 @@ function EditComment(props) {
         }),
       }));
       setShowEditForm(false);
+
     } catch (err) {
+      setShowNotification(true);
+      setNotificationMesssage("ERROR! Try again!");
       //console.log(err);
     }
   };
 
   return (
+    <>
+     {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
     <Form onSubmit={handleSubmitEditedComment}>
       <Form.Group className="pr-1">
         <Form.Control
@@ -64,6 +80,7 @@ function EditComment(props) {
         </button>
       </div>
     </Form>
+    </>
   );
 }
 

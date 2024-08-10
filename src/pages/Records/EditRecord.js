@@ -6,9 +6,12 @@ import upload from "../../assets/upload.png";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import styles from "../../styles/AddEditPost.module.css";
+import Notification from "../../elements/Notification";
 
 function EditRecord() {
   const [errors, setErrors] = useState({});
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   const [recordDetails, setRecordDetails] = useState({
     image: "",
@@ -109,8 +112,14 @@ function EditRecord() {
 
     try {
       await axiosReq.put(`/records/${id}/`, formData);
-      history.push(`/records/${id}`);
+      setTimeout(() => {
+      history.push(`/records/${id}`)
+    }, 2000);
+    setShowNotification(true)
+      setNotificationMesssage("Record edited successfully!")
     } catch (err) {
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
@@ -122,6 +131,12 @@ function EditRecord() {
 
   return (
     <div>
+      {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
     <Form onSubmit={handleSubmitRecord} className={styles.AddEditPost}>
     <Form.Group>
       {image ? (

@@ -1,9 +1,10 @@
 .Container{
-    background:rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     padding: 20px;
-    margin: 0 auto;
     position: fixed;
-  top: 10%;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   z-index: 1000;
   width: 100%
 }
@@ -13,5 +14,6 @@
     font-family:'Edu VIC WA NT Beginner', cursive;
     border:2px solid black;
     font-size: 18px;
+    margin: 0 auto
     
 }

@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import styles from "../../styles/AddEditPost.module.css";
+import Notification from "../../elements/Notification";
 
 function AddMarket() {
   const [errors, setErrors] = useState({});
@@ -22,6 +23,8 @@ function AddMarket() {
     marketDetails;
 
   const history = useHistory();
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   function handleMarketDetailsChange (event) {
     setMarketDetails({
@@ -43,8 +46,14 @@ function AddMarket() {
 
     try {
       const { data } = await axiosReq.post("/markets/", formData);
-      history.push(`/markets/${data.id}`);
+      setTimeout(() => {
+      history.push(`/markets/${data.id}`)
+    }, 2000);
+    setShowNotification(true)
+    setNotificationMesssage("Market added successfully!")
     } catch (err) {
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
@@ -54,6 +63,12 @@ function AddMarket() {
 
   return (
     <div>
+       {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
       <Form onSubmit={handleSubmitMarket} className={styles.AddEditPost}>
         <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>

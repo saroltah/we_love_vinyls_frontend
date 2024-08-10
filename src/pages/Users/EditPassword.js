@@ -6,12 +6,14 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import styles from "../../styles/AddEditPost.module.css";
-
+import Notification from "../../elements/Notification";
 
 const EditPassword = () => {
   const history = useHistory();
   const { id } = useParams();
   const currentUser = useCurrentUser();
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   const [userDetails, setUserDetails] = useState({
     new_password1: "",
@@ -38,15 +40,27 @@ const EditPassword = () => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userDetails);
-      history.goBack();
+      setTimeout(() => {
+      history.goBack()
+    }, 2000);
+    setShowNotification(true)
+      setNotificationMesssage("Password updated successfully!")
     } catch (err) {
       //console.log(err);
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       setErrors(err.response?.data);
     }
   };
 
   return (
         <Container>
+          {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
           <Form onSubmit={handleSubmitPassword} className={styles.AddEditPost}>
             <Form.Group>
               <Form.Label>New password</Form.Label>

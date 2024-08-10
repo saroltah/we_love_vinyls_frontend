@@ -11,6 +11,7 @@ function AddComment(props) {
   const { commented_record, setComments, member_image, member_id, setRecord } = props;
   const [content, setContent] = useState("");
   const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
  const handleContentChange = (event) => {
     setContent(event.target.value);
@@ -39,13 +40,22 @@ function AddComment(props) {
       }));
       setContent("");
       setShowNotification(true)
+      setNotificationMesssage("Comment added successfully!")
     } catch (err) {
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       //console.log(err);
     }
   };
 
   return (
     <>
+    {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
         <Form onSubmit={handleSubmitComment} className={styles.AddComment}>
           <Form.Group>
             <InputGroup>
@@ -70,12 +80,6 @@ function AddComment(props) {
             Send comment
           </button>
         </Form>
-           {showNotification && (
-            <Notification
-              message="Upload successful"
-              onClose={() => setShowNotification(false)}
-            />
-          )}
           </>
   );
 }

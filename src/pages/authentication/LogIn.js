@@ -10,7 +10,7 @@ import { useRedirect } from "../../hooks/useRedirect";
 
 function LogIn() {
   const setCurrentUser = useSetCurrentUser();
-  useRedirect("loggedIn");
+  //useRedirect("loggedIn");
 
   const [logInDetails, setLogInDetails] = useState({
     username: "",

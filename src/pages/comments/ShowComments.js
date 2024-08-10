@@ -6,6 +6,7 @@ import { useCurrentUser } from "../../context/CurrentUserContext";
 import { PostDropdown } from "../../elements/PostDropdown";
 import EditComment from "./EditComment";
 import { axiosRes } from "../../api/AxiosDefaults";
+import Notification from "../../elements/Notification";
 
 /*
   Display comments
@@ -16,10 +17,14 @@ const ShowComment = (props) => {
   const currentUser = useCurrentUser();
   const is_member = currentUser?.username === member;  
   const [showEditForm, setShowEditForm] = useState(false);
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   const deleteComment = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
+      setShowNotification(true)
+      setNotificationMesssage("Comment deleted successfully!")
       setRecord((prevRecord) => ({
         results: [
           {
@@ -32,11 +37,20 @@ const ShowComment = (props) => {
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
-    } catch (err) {}
+    } catch (err) {
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
+    }
   };
 
   return (
     <div className={styles.Comment}>
+      {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
     <div className={styles.Container}>
            <Link to={`/users/${member}`} className={styles.LeftSide}>
       <ProfilePic

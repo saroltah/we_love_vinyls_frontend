@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
 import ProfilePic from "../../elements/ProfilePic";
@@ -8,6 +8,7 @@ import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
 import styles from "../../styles/OnePost.module.css";
 import emoji from "../../styles/Emoji.module.css";
+import Notification from "../../elements/Notification";
 
 /*
   Display of a market
@@ -23,6 +24,8 @@ const ShowMarket = (props) => {
 
   const currentUser = useCurrentUser();
   const is_organizer = currentUser?.username === organizer;
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMesssage] = useState('')
 
   const history = useHistory();
 
@@ -35,8 +38,14 @@ const ShowMarket = (props) => {
   const deletePost = async () => {
     try {
       await axiosRes.delete(`/markets/${id}/`);
+      setTimeout(() => {
       history.push(`/markets/`);
+    }, 2000);
+    setShowNotification(true)
+    setNotificationMesssage("Market deleted successfully!")
     } catch (err) {
+      setShowNotification(true)
+      setNotificationMesssage("ERROR! Try again!")
       //console.log(err);
     }
   };
@@ -74,7 +83,14 @@ const ShowMarket = (props) => {
   };
 
   return (
-    <div><div className={styles.OnePost}>
+    <div>
+        {showNotification && (
+            <Notification
+              message={notificationMessage}
+              onClose={() => setShowNotification(false)}
+            />
+          )}
+      <div className={styles.OnePost}>
       <div className={styles.Container}>
            <Link to={`/users/${organizer_id}`} className={styles.LeftSide}>
       <ProfilePic
