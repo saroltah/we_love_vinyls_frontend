@@ -76,7 +76,7 @@ function EditRecord() {
     handleMount();
   }, [history, id]);
 
-  const handleChange = (event) => {
+  const handleRecordDetailsChange = (event) => {
     setRecordDetails({
       ...recordDetails,
       [event.target.name]: event.target.value,
@@ -171,7 +171,7 @@ function EditRecord() {
         placeholder="Artist"
         name="artist"
         value={artist}
-        onChange={handleChange}
+        onChange={handleRecordDetailsChange}
       />
     </Form.Group>
     {errors?.artist?.map((message, idx) => (
@@ -187,7 +187,7 @@ function EditRecord() {
         placeholder="Title"
         name="title"
         value={title}
-        onChange={handleChange}
+        onChange={handleRecordDetailsChange}
       />
     </Form.Group>
     {errors?.title?.map((message, idx) => (
@@ -202,7 +202,7 @@ function EditRecord() {
         as="select"
         name="genre"
         value={genre}
-        onChange={handleChange}>
+        onChange={handleRecordDetailsChange}>
         <option value="pop">Pop</option>
         <option value="rock">Rock</option>
         <option value="blues">Blues</option>
@@ -253,7 +253,7 @@ function EditRecord() {
         rows={3}
         name="tracklist"
         value={tracklist}
-        onChange={handleChange}
+        onChange={handleRecordDetailsChange}
         placeholder="e.g. 1. Song1 2. Song2"
       />
     </Form.Group>
@@ -269,7 +269,7 @@ function EditRecord() {
         as="select"
         name="condition"
         value={condition}
-        onChange={handleChange}>
+        onChange={handleRecordDetailsChange}>
         <option value="new">New</option>
         <option value="good">Good</option>
         <option value="used">Used</option>
@@ -290,7 +290,7 @@ function EditRecord() {
         name="released"
         value={released}
         placeholder="e.g. 1989"
-        onChange={handleChange}
+        onChange={handleRecordDetailsChange}
       />
     </Form.Group>
     {errors?.released?.map((message, idx) => (
@@ -306,7 +306,7 @@ function EditRecord() {
         placeholder="e.g. London, U.K."
         name="location"
         value={location}
-        onChange={handleChange}
+        onChange={handleRecordDetailsChange}
       />
     </Form.Group>
     {errors?.location?.map((message, idx) => (
@@ -322,7 +322,7 @@ function EditRecord() {
         placeholder="e.g. 40 €"
         name="price"
         value={price}
-        onChange={handleChange}
+        onChange={handleRecordDetailsChange}
       />
     </Form.Group>
     {errors?.price?.map((message, idx) => (
@@ -338,7 +338,7 @@ function EditRecord() {
         name="contact"
         value={contact}
         placeholder="e.g. example@example.com"
-        onChange={handleChange}
+        onChange={handleRecordDetailsChange}
       />
     </Form.Group>
     {errors?.cobtact?.map((message, idx) => (

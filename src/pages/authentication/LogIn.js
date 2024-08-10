@@ -34,7 +34,7 @@ function LogIn() {
     }
   };
 
-  const handleChange = (event) => {
+  const handleLogInDetailsChange = (event) => {
     setLogInDetails({
       ...logInDetails,
       [event.target.name]: event.target.value,
@@ -51,7 +51,7 @@ function LogIn() {
             name="username"
             placeholder="Username"
             value={username}
-            onChange={handleChange}
+            onChange={handleLogInDetailsChange}
           />
         </Form.Group>
         {errors.username?.map((message, i) => (
@@ -66,7 +66,7 @@ function LogIn() {
             name="password"
             placeholder="Password"
             value={password}
-            onChange={handleChange}
+            onChange={handleLogInDetailsChange}
           />
         </Form.Group>
         {errors.password?.map((message, i) => (

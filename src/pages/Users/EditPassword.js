@@ -24,7 +24,7 @@ const EditPassword = () => {
 
   const [errors, setErrors] = useState({});
 
-  const handleChange = (event) => {
+  const handlePasswordChange = (event) => {
     setUserDetails({
       ...userDetails,
       [event.target.name]: event.target.value,
@@ -57,7 +57,7 @@ const EditPassword = () => {
                 placeholder="New password"
                 type="password"
                 value={new_password1}
-                onChange={handleChange}
+                onChange={handlePasswordChange}
                 name="new_password1"
               />
             </Form.Group>
@@ -72,7 +72,7 @@ const EditPassword = () => {
                 placeholder="Confirm new password"
                 type="password"
                 value={new_password2}
-                onChange={handleChange}
+                onChange={handlePasswordChange}
                 name="new_password2"
               />
             </Form.Group>

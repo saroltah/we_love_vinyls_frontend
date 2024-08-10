@@ -42,7 +42,7 @@ function EditMarket() {
     handleMount();
   }, [history, id]);
 
-  const handleChange = (event) => {
+  const handleMarketDetailsChange = (event) => {
     setMarketDetails({
       ...marketDetails,
       [event.target.name]: event.target.value,
@@ -84,7 +84,7 @@ function EditMarket() {
             placeholder="Country"
             name="country"
             value={country}
-            onChange={handleChange}
+            onChange={handleMarketDetailsChange}
           />
         </Form.Group>
         {errors?.country?.map((message, idx) => (
@@ -101,7 +101,7 @@ function EditMarket() {
             placeholder="City"
             name="city"
             value={city}
-            onChange={handleChange}
+            onChange={handleMarketDetailsChange}
           />
         </Form.Group>
         {errors?.city?.map((message, idx) => (
@@ -116,7 +116,7 @@ function EditMarket() {
             type="text"
             name="address"
             value={address}
-            onChange={handleChange}
+            onChange={handleMarketDetailsChange}
           />
         </Form.Group>
         {errors?.address?.map((message, idx) => (
@@ -131,7 +131,7 @@ function EditMarket() {
             type="date"
             name="date"
             value={date}
-            onChange={handleChange}
+            onChange={handleMarketDetailsChange}
           />
         </Form.Group>
         {errors?.date?.map((message, idx) => (
@@ -146,7 +146,7 @@ function EditMarket() {
             type="time"
             name="start"
             value={start}
-            onChange={handleChange}
+            onChange={handleMarketDetailsChange}
           />
         </Form.Group>
         {errors?.start?.map((message, idx) => (
@@ -161,7 +161,7 @@ function EditMarket() {
             type="time"
             name="end"
             value={end}
-            onChange={handleChange}
+            onChange={handleMarketDetailsChange}
           />
         </Form.Group>
         {errors?.end?.map((message, idx) => (
@@ -177,7 +177,7 @@ function EditMarket() {
             rows={6}
             name="description"
             value={description}
-            onChange={handleChange}
+            onChange={handleMarketDetailsChange}
           />
         </Form.Group>
         {errors?.description?.map((message, idx) => (
