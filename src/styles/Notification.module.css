@@ -1,19 +1,18 @@
-.Container{
+.Container {
     background: rgba(255, 255, 255, 0.6);
     padding: 20px;
     position: fixed;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-  z-index: 1000;
-  width: 100%
+    z-index: 1000;
+    width: 100%
 }
-.Notification{
+.Notification {
     background-color: rgb(227,206, 46);
     color:black;
     font-family:'Edu VIC WA NT Beginner', cursive;
     border:2px solid black;
     font-size: 18px;
     margin: 0 auto
-    
 }

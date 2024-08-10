@@ -7,25 +7,26 @@
     margin-bottom: 20px
 }
 .Button {
-        border:none;
-        margin:15px;
-        padding:10px;
-        background-color:transparent;
-        color:black;
-        font-size: 20px;
-        font-family: 'Edu VIC WA NT Beginner', cursive;
-        
+    border:none;
+    margin:15px;
+    padding:10px;
+    background-color:transparent;
+    color:black;
+    font-size: 20px;
+    font-family: 'Edu VIC WA NT Beginner', cursive;       
 }
 .Button:hover {
     text-shadow: 0px 0px 13px rgba(227, 206, 46, 1);
     color:#f8312f;
     text-decoration: none;
 }
-.SecondButton{text-shadow: 0px 0px 13px rgba(227, 206, 46, 1);
+.SecondButton {
+    text-shadow: 0px 0px 13px rgba(227, 206, 46, 1);
     color: #f8312f;
     border:none;
     margin:15px;
     padding:10px;
     background-color: transparent;
     font-size: 20px;
-    font-family: 'Edu VIC WA NT Beginner', cursive;}
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+}

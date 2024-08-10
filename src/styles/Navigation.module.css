@@ -1,8 +1,7 @@
 .Navigation {
     font-weight:bold;
     border:2px solid black;
-    font-family: 'Edu VIC WA NT Beginner', cursive;
-    
+    font-family: 'Edu VIC WA NT Beginner', cursive; 
 }
 .NavBar {
     display:flex;
@@ -31,4 +30,6 @@
     color:#f8312f;
     text-decoration: none; 
 }
-.Logo{color:#f8312f};
+.Logo {
+    color:#f8312f;
+}

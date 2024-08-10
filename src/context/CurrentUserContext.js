@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, useContext, useMemo } from "react";
+import { React, createContext, useEffect, useState, useContext, useMemo } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { axiosRes, axiosReq } from "../api/AxiosDefaults";
@@ -38,9 +38,12 @@ export const CurrentUserProvider = ({ children }) => {
               if (prevCurrentUser) {
                 history.push("/login");
               }
+
               return null;
             });
+
             removeTokenTimestamp();
+
             return config;
           }
         }
@@ -59,10 +62,13 @@ export const CurrentUserProvider = ({ children }) => {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
+
               if (prevCurrentUser) {
                 history.push("/login");
               }
+
               return null;
+
             });
             removeTokenTimestamp();
           }
