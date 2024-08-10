@@ -49,7 +49,7 @@ function EditMarket() {
     });
   };
 
-  const submitMarket = async (event) => {
+  const handleSubmitMarket = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
@@ -76,7 +76,7 @@ function EditMarket() {
 
   return (
     <div>
-    <Form onSubmit={submitMarket} className={styles.AddEditPost}>
+    <Form onSubmit={handleSubmitMarket} className={styles.AddEditPost}>
         <Form.Group controlId="CountryID">
           <Form.Label>Country</Form.Label>
           <Form.Control

@@ -66,7 +66,7 @@ function EditProfile() {
     });
   };
 
-  const submitProfile = async (event) => {
+  const handleSubmitProfile = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     if (profileDetails.preferred_music) {
@@ -97,7 +97,7 @@ function EditProfile() {
   
   return (
   <div>
-    <Form onSubmit={submitProfile} className={styles.AddEditPost}>
+    <Form onSubmit={handleSubmitProfile} className={styles.AddEditPost}>
         <Form.Group>
       {image && (
           <figure>

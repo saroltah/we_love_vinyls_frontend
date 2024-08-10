@@ -66,7 +66,7 @@ function AddRecord() {
     }
   }
 
-  const submitRecord = async (event) => {
+  const handleSubmitRecord = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
@@ -99,7 +99,7 @@ function AddRecord() {
 
   return (
     <div ref={nodeRef}>
-      <Form onSubmit={submitRecord} className={styles.AddEditPost}> 
+      <Form onSubmit={handleSubmitRecord} className={styles.AddEditPost}> 
         <Form.Group>
           {image ? (
             <>

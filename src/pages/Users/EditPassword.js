@@ -37,7 +37,7 @@ const EditPassword = () => {
     }
   }, [currentUser, history, id]);
 
-  const submitPassword = async (event) => {
+  const handleSubmitPassword = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userDetails);
@@ -50,7 +50,7 @@ const EditPassword = () => {
 
   return (
         <Container>
-          <Form onSubmit={submitPassword} className={styles.AddEditPost}>
+          <Form onSubmit={handleSubmitPassword} className={styles.AddEditPost}>
             <Form.Group>
               <Form.Label>New password</Form.Label>
               <Form.Control

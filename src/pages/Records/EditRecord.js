@@ -93,7 +93,7 @@ function EditRecord() {
     }
   }
 
-  const submitRecord = async (event) => {
+  const handleSubmitRecord = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
@@ -125,7 +125,7 @@ function EditRecord() {
 
   return (
     <div>
-    <Form onSubmit={submitRecord} className={styles.AddEditPost}>
+    <Form onSubmit={handleSubmitRecord} className={styles.AddEditPost}>
     <Form.Group>
       {image ? (
         <>

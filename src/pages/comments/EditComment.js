@@ -13,7 +13,7 @@ function EditComment(props) {
     setEditContent(event.target.value);
   };
 
-  const submitEditedComment = async (event) => {
+  const handleSubmitEditedComment = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.put(`/comments/${id}/`, {
@@ -38,7 +38,7 @@ function EditComment(props) {
   };
 
   return (
-    <Form onSubmit={submitEditedComment}>
+    <Form onSubmit={handleSubmitEditedComment}>
       <Form.Group className="pr-1">
         <Form.Control
           as="textarea"

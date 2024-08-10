@@ -16,7 +16,7 @@ function AddComment(props) {
     setContent(event.target.value);
   };
 
-  const submitComment = async (event) => {
+  const handleSubmitComment = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
@@ -46,7 +46,7 @@ function AddComment(props) {
 
   return (
     <>
-        <Form onSubmit={submitComment} className={styles.AddComment}>
+        <Form onSubmit={handleSubmitComment} className={styles.AddComment}>
           <Form.Group>
             <InputGroup>
               <Link to={`/users/${member_id}`}>
