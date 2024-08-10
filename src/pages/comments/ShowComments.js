@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ProfilePic from "../../elements/ProfilePic";
-import styles from "../../styles/Comment.module.css"
+import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import { PostDropdown } from "../../elements/PostDropdown";
 import EditComment from "./EditComment";
-import { axiosRes } from "../../api/AxiosDefaults"
+import { axiosRes } from "../../api/AxiosDefaults";
 
 /*
   Display comments

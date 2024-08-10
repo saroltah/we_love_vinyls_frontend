@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
 import ShowMarket from "./ShowMarket";
 import { useHistory } from "react-router-dom";
-import styles from "../../styles/OnePost.module.css"
+import styles from "../../styles/OnePost.module.css";
 
 //Get details of one selected market
 function OneMarket() {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
-import AdvertisedRecords from "../Records/AdvertisedRecords"
+import AdvertisedRecords from "../Records/AdvertisedRecords";
 import OrganizedMarkets from "../Markets/OrganizedMarkets";
-import styles from "../../styles/Profile.module.css"
+import styles from "../../styles/Profile.module.css";
 import { EditProfileDropdown } from "../../elements/EditProfileDropdown";
-import myPostStyles from "../../styles/MyPosts.module.css"
+import myPostStyles from "../../styles/MyPosts.module.css";
 import Nav from "react-bootstrap/Nav";
 
 // Displays Profile 

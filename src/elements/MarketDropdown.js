@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Collapse from 'react-bootstrap/Collapse';
 import AddMarket from '../pages/Markets/AddMarket';
-import styles from "../styles/AddPostDropdown.module.css"
+import styles from "../styles/AddPostDropdown.module.css";
 
 /*
   Click on +AddMarket button

@@ -1,7 +1,7 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router-dom";
-import emoji from "../styles/Emoji.module.css"
+import emoji from "../styles/Emoji.module.css";
 
 /*
   Click on gear emoji

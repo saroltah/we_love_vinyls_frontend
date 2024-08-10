@@ -3,7 +3,7 @@ import Loading from "../../elements/Loading";
 import GetMarketList from "../../hooks/GetMarketList";
 import ShowMarket from "./ShowMarket";
 import MarketSearchField from "../../elements/MarketSearchField";
-import { useCurrentUser } from "../../context/CurrentUserContext"
+import { useCurrentUser } from "../../context/CurrentUserContext";
 import MarketDropdown from "../../elements/MarketDropdown";
 import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
-import styles from "../styles/Notification.module.css"
+import styles from "../styles/Notification.module.css";
 
 //Notification shown for succesful or failed functions
 function Notification({message, onClose}) {

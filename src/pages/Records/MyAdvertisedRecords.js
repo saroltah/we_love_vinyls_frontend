@@ -1,6 +1,6 @@
 import React from "react";
 import AllRecords from "./AllRecords";
-import { useCurrentUser } from "../../context/CurrentUserContext"
+import { useCurrentUser } from "../../context/CurrentUserContext";
 
 //Select records the current user uploaded
 function MyAdvertisedRecords() {

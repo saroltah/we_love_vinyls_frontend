@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import styles from "../../styles/MyPosts.module.css"
-import LikedRecords from "../Records/LikedRecords"
+import LikedRecords from "../Records/LikedRecords";
 import MyAdvertisedRecords from "./MyAdvertisedRecords";
 
 /*

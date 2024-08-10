@@ -6,8 +6,8 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { axiosRes } from "../../api/AxiosDefaults";
 import { PostDropdown } from "../../elements/PostDropdown";
-import styles from "../../styles/OnePost.module.css"
-import emoji from "../../styles/Emoji.module.css"
+import styles from "../../styles/OnePost.module.css";
+import emoji from "../../styles/Emoji.module.css";
 
 /*
   Display of a market

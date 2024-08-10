@@ -1,6 +1,6 @@
 import React from "react";
 import AllMarkets from "./AllMarkets";
-import styles from "../../styles/Lists.module.css"
+import styles from "../../styles/Lists.module.css";
 
 /*
 The page opened from the menu

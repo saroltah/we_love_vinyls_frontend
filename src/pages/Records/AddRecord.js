@@ -1,17 +1,13 @@
 import React, { useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
-
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
-
 import PicStyles from "../../styles/UploadPic.module.css";
 import upload from "../../assets/upload.png";
 import Notification from "../../elements/Notification";
-
-import styles from "../../styles/AddEditPost.module.css"
+import styles from "../../styles/AddEditPost.module.css";
 
 function AddRecord() {
 

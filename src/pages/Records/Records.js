@@ -1,6 +1,6 @@
 import React from "react";
 import AllRecords from "./AllRecords";
-import styles from "../../styles/Lists.module.css"
+import styles from "../../styles/Lists.module.css";
 
 
 /*

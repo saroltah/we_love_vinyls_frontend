@@ -3,7 +3,7 @@ import Loading from "../../elements/Loading";
 import GetRecordList from "../../hooks/GetRecordList";
 import ShowRecord from "./ShowRecord";
 import RecordSearchField from "../../elements/RecordSearchField";
-import { useCurrentUser } from "../../context/CurrentUserContext"
+import { useCurrentUser } from "../../context/CurrentUserContext";
 import RecordDropdown from "../../elements/RecordDropdown";
 import { fetchMoreData } from "../../utils/utils";
 import InfiniteScroll from "react-infinite-scroll-component";

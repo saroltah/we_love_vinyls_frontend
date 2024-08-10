@@ -1,24 +1,18 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
-
 import { useHistory, useParams } from "react-router-dom";
-import { axiosReq } from "../../api/AxiosDefaults"
-
+import { axiosReq } from "../../api/AxiosDefaults";
 import Image from "react-bootstrap/Image";
 import upload from "../../assets/upload.png";
-
-import styles from "../../styles/AddEditPost.module.css"
-
+import styles from "../../styles/AddEditPost.module.css";
 import {
   useCurrentUser,
   useSetCurrentUser,
-} from "../../context/CurrentUserContext"
+} from "../../context/CurrentUserContext";
 
 function EditProfile() {
   const [errors, setErrors] = useState({});
-
   const [profileDetails, setProfileDetails] = useState({
     preferred_music: "",
     about_me: "",

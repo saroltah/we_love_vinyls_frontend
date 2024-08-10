@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import AddRecord from '../pages/Records/AddRecord';
-import styles from "../styles/AddPostDropdown.module.css"
+import styles from "../styles/AddPostDropdown.module.css";
 
 /*
   Click on +AddRecord button

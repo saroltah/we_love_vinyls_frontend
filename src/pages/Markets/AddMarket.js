@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
-
 import { useHistory } from "react-router-dom";
 import { axiosReq } from "../../api/AxiosDefaults";
-
-import styles from "../../styles/AddEditPost.module.css"
+import styles from "../../styles/AddEditPost.module.css";
 
 function AddMarket() {
   const [errors, setErrors] = useState({});

@@ -6,7 +6,7 @@ import AddComment from "../comments/AddComment";
 import { useCurrentUser } from "../../context/CurrentUserContext";
 import ShowComments from "../comments/ShowComments";
 import { useHistory } from "react-router-dom";
-import styles from "../../styles/OnePost.module.css"
+import styles from "../../styles/OnePost.module.css";
 
 /* 
 Get details of one selected record 

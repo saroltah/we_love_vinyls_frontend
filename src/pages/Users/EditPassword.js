@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-
 import { useHistory, useParams } from "react-router-dom";
-import { axiosRes } from "../../api/AxiosDefaults"
-import { useCurrentUser } from "../../context/CurrentUserContext"
-
-import styles from "../../styles/AddEditPost.module.css"
+import { axiosRes } from "../../api/AxiosDefaults";
+import { useCurrentUser } from "../../context/CurrentUserContext";
+import styles from "../../styles/AddEditPost.module.css";
 
 
 const EditPassword = () => {

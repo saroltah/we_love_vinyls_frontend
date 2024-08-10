@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 import upload from "../../assets/upload.png";
-
 import { useHistory, useParams } from "react-router-dom";
-import { axiosReq } from "../../api/AxiosDefaults"
-
-import styles from "../../styles/AddEditPost.module.css"
+import { axiosReq } from "../../api/AxiosDefaults";
+import styles from "../../styles/AddEditPost.module.css";
 
 function EditRecord() {
   const [errors, setErrors] = useState({});
