@@ -9,6 +9,7 @@ import { axiosReq } from "../../api/AxiosDefaults";
 
 import PicStyles from "../../styles/UploadPic.module.css";
 import upload from "../../assets/upload.png";
+import Notification from "../../elements/Notification";
 
 import styles from "../../styles/AddEditPost.module.css"
 
@@ -46,6 +47,7 @@ function AddRecord() {
 
   const imageInput = useRef(null);
   const history = useHistory();
+  const [showNotification, setShowNotification] = useState(false)
 
   function changeRecordDetails(event) {
     setRecordDetails({
@@ -83,7 +85,10 @@ function AddRecord() {
 
     try {
       const { data } = await axiosReq.post("/records/", formData);
-      history.push(`/records/${data.id}`);
+      setTimeout(() => {
+      history.push(`/records/${data.id}`)
+    }, 2000);
+      setShowNotification(true)
     } catch (err) {
       //console.log(err);
       if (err.response?.status !== 401) {
@@ -320,6 +325,12 @@ function AddRecord() {
         <button onClick={() => history.goBack()} className={styles.Button}> Back </button>
         <button type="submit" className={styles.Button}>Add Record</button>
       </Form>
+      {showNotification && (
+            <Notification
+              message="Record succesfully added"
+              onClose={() => setShowNotification(false)}
+            />
+          )}
     </div>
   );
 }

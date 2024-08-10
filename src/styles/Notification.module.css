@@ -1,0 +1,17 @@
+.Container{
+    background:rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    margin: 0 auto;
+    position: fixed;
+  top: 20%;
+  z-index: 1000;
+  width: 100%
+}
+.Notification{
+    background-color: rgb(227,206, 46);
+    color:black;
+    font-family:'Edu VIC WA NT Beginner', cursive;
+    border:2px solid black;
+    font-size: 18px;
+    
+}

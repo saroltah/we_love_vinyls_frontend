@@ -5,10 +5,12 @@ import InputGroup from "react-bootstrap/InputGroup";
 import ProfilePic from "../../elements/ProfilePic";
 import { axiosRes } from "../../api/AxiosDefaults"
 import styles from "../../styles/Comment.module.css"
+import Notification from "../../elements/Notification";
 
 function AddComment(props) {
   const { commented_record, setComments, member_image, member_id, setRecord } = props;
   const [content, setContent] = useState("");
+  const [showNotification, setShowNotification] = useState(false)
 
  const changeContent = (event) => {
     setContent(event.target.value);
@@ -36,12 +38,14 @@ function AddComment(props) {
         ],
       }));
       setContent("");
+      setShowNotification(true)
     } catch (err) {
       //console.log(err);
     }
   };
 
   return (
+    <>
         <Form onSubmit={submitComment} className={styles.AddComment}>
           <Form.Group>
             <InputGroup>
@@ -66,6 +70,13 @@ function AddComment(props) {
             Send comment
           </button>
         </Form>
+           {showNotification && (
+            <Notification
+              message="Upload successful"
+              onClose={() => setShowNotification(false)}
+            />
+          )}
+          </>
   );
 }
 
