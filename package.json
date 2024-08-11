@@ -23,8 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "npx eslint '**/*.js'"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -39,11 +38,6 @@
     ]
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.1",
-    "@typescript-eslint/parser": "^8.0.1",
-    "eslint": "^9.9.0",
-    "eslint-plugin-react": "^7.35.0",
     "globals": "^15.9.0"
   },
   "engines": {

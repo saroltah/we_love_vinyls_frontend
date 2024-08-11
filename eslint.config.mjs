@@ -1,8 +1,5 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import tsEslintPlugin from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
-import pluginReact from "eslint-plugin-react";
+
 
 export default [
   {
@@ -17,7 +14,6 @@ export default [
     },
     plugins: {
       react: pluginReact,
-      "@typescript-eslint": tsEslintPlugin,
     },
     rules: {
       ...pluginJs.configs.recommended.rules,
