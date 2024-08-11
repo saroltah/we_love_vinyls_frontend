@@ -19,7 +19,7 @@ function OneMarket() {
         ]);
         setMarket({ results: [market] });
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 

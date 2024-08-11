@@ -23,7 +23,7 @@ function Navigation() {
       setCurrentUser(null);
       removeTokenTimestamp();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 

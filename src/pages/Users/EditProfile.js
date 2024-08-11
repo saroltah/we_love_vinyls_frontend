@@ -50,7 +50,7 @@ function EditProfile() {
             attended_market_count,
           });
         } catch (err) {
-          console.log(err);
+          //console.log(err);
           history.push('/');
         }
       } else {
@@ -97,7 +97,7 @@ function EditProfile() {
     } catch (err) {
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
-      console.log(err);
+      //console.log(err);
       setErrors(err.response?.data);
     }
   };

@@ -56,7 +56,7 @@ function AddMarket() {
     } catch (err) {
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
-      console.log(err);
+      //console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

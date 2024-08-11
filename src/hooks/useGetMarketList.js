@@ -36,7 +36,7 @@ function useGetMarketList(filter = '') {
         }
         setLoaded(true);
       } catch (err) {
-        console.log("Error problem:", err);
+        //console.log("Error problem:", err);
         setMarkets({ results: [] });
         setLoaded(true);
       }

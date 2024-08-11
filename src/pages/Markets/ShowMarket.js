@@ -63,7 +63,7 @@ const ShowMarket = (props) => {
     } catch (err) {
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -85,7 +85,7 @@ const ShowMarket = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -105,7 +105,7 @@ const ShowMarket = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
   };
 

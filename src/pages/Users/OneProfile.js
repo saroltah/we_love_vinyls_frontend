@@ -29,7 +29,7 @@ function OneProfile() {
         ]);
         setProfile(profile);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 
