@@ -19,6 +19,8 @@ const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   </span>
 ));
 
+DropdownIcon.displayName = 'DropdownIcon';
+
 export const EditProfileDropdown = ({ id }) => {
   const history = useHistory();
   return (

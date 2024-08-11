@@ -83,7 +83,6 @@ function LogIn() {
           </Alert>
         ))}
         <button
-          variant='primary'
           type='submit'
           className={styles.Button}
         >

@@ -33,7 +33,7 @@ function useGetRecordList(filter = '') {
         } else if (Array.isArray(data.results)) {
           setRecords({ results: data.results });
         } else {
-          //console.log(err);
+          //console.error('Error:', data);
         }
         setLoaded(true);
       } catch (err) {

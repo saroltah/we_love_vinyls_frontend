@@ -49,6 +49,7 @@ const ShowComment = (props) => {
     } catch (err) {
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
+      console.log(err)    
     }
   };
 

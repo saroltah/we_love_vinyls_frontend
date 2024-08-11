@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Navigation from './elements/Navigation';
 import SignUp from './pages/authentication/SignUp';
 import LogIn from './pages/authentication/LogIn';

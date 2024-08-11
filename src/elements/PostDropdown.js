@@ -18,6 +18,8 @@ const DropdownIcon = React.forwardRef(({ onClick }, ref) => (
   </span>
 ));
 
+DropdownIcon.displayName = 'DropdownIcon';
+
 export const PostDropdown = ({ editPost, deletePost }) => {
   return (
     <Dropdown
