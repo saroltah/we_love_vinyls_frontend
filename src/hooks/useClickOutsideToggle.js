@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 /*
   Click outside of the menu toggle
@@ -15,9 +15,9 @@ function useClickOutsideToggle() {
       }
     };
 
-    document.addEventListener("mouseup", handleClickOutside);
+    document.addEventListener('mouseup', handleClickOutside);
     return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
+      document.removeEventListener('mouseup', handleClickOutside);
     };
   }, [ref]);
   return {

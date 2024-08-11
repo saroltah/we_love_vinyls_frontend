@@ -1,9 +1,8 @@
-import React from "react";
-import styles from "../styles/ProfilePic.module.css";
+import React from 'react';
+import styles from '../styles/ProfilePic.module.css';
 
 //Avatar set up
 function ProfilePic({ src, height = 45, text }) {
-  
   return (
     <>
       <img
@@ -11,10 +10,10 @@ function ProfilePic({ src, height = 45, text }) {
         src={src}
         height={height}
         width={height}
-        alt="profilepic"
+        alt='profilepic'
       />
       {text}
-      </>
+    </>
   );
 }
 

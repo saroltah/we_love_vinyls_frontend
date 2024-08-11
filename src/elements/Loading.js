@@ -1,18 +1,18 @@
 import React from 'react';
-import { ThreeCircles } from "react-loader-spinner";
+import { ThreeCircles } from 'react-loader-spinner';
 
 // Spinner is shown for loading data
 function Loading() {
   return (
-    (<ThreeCircles
+    <ThreeCircles
       visible={true}
-      height="100"
-      width="100"
-      color="#000000"
-      ariaLabel="three-circles-loading"
+      height='100'
+      width='100'
+      color='#000000'
+      ariaLabel='three-circles-loading'
       wrapperStyle={{}}
-      wrapperClass=""
-      />)
+      wrapperClass=''
+    />
   );
 }
 

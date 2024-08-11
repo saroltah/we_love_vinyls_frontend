@@ -1,22 +1,22 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { axiosReq } from "../api/AxiosDefaults";
-import { useCurrentUser } from "../context/CurrentUserContext";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { axiosReq } from '../api/AxiosDefaults';
+import { useCurrentUser } from '../context/CurrentUserContext';
 
-function useGetMarketList(filter="") {
+function useGetMarketList(filter = '') {
   const [markets, setMarkets] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
   const currentUser = useCurrentUser();
 
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     const fetchMarkets = async () => {
       try {
         const conditionalUrl = (filter, query) => {
           //If there is filter, no search is shown
-          
+
           let url = '/markets/';
           if (filter) {
             url += `?${filter}`;
@@ -24,7 +24,7 @@ function useGetMarketList(filter="") {
             url += `?search=${query}`;
           }
           return url;
-        }
+        };
         const response = await axiosReq.get(conditionalUrl(filter, query));
         const { data } = response;
         if (Array.isArray(data)) {
@@ -41,14 +41,21 @@ function useGetMarketList(filter="") {
         setLoaded(true);
       }
     };
-  
+
     setLoaded(false);
     fetchMarkets();
   }, [filter, query, pathname]);
 
   return {
-    filter, markets, loaded, setMarkets, setLoaded, query, setQuery, currentUser,
-  };}
+    filter,
+    markets,
+    loaded,
+    setMarkets,
+    setLoaded,
+    query,
+    setQuery,
+    currentUser,
+  };
+}
 
-  
 export default useGetMarketList;

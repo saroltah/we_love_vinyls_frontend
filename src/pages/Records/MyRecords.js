@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Nav from "react-bootstrap/Nav";
-import styles from "../../styles/MyPosts.module.css"
-import LikedRecords from "../Records/LikedRecords";
-import MyAdvertisedRecords from "./MyAdvertisedRecords";
+import React, { useState } from 'react';
+import Nav from 'react-bootstrap/Nav';
+import styles from '../../styles/MyPosts.module.css';
+import LikedRecords from '../Records/LikedRecords';
+import MyAdvertisedRecords from './MyAdvertisedRecords';
 
 /*
   Opened from menu.
@@ -11,21 +11,39 @@ import MyAdvertisedRecords from "./MyAdvertisedRecords";
   Selects liked records
 */
 function MyRecords() {
-
-const [activePage, setActivePage] = useState("showMyRecords")
-const showMyRecords = () => {setActivePage("showMyRecords")}
-const showLiking = () => {setActivePage ("showLiking")}
+  const [activePage, setActivePage] = useState('showMyRecords');
+  const showMyRecords = () => {
+    setActivePage('showMyRecords');
+  };
+  const showLiking = () => {
+    setActivePage('showLiking');
+  };
 
   return (
     <div className={styles.MyPost}>
-    <Nav className = {styles.Container}>
-      <button onClick={showMyRecords} className= {activePage === "showLiking" ? styles.Button : styles.SecondButton}>My records</button>
-      <button onClick={showLiking} className ={activePage === "showMyRecords" ? styles.Button : styles.SecondButton}>Liked</button>
-    </Nav>
-   <div>
-{activePage === "showMyRecords" && (<MyAdvertisedRecords/>)}
-{activePage === "showLiking" && (<LikedRecords/>)}
-</div>
-</div>
-  )}
+      <Nav className={styles.Container}>
+        <button
+          onClick={showMyRecords}
+          className={
+            activePage === 'showLiking' ? styles.Button : styles.SecondButton
+          }
+        >
+          My records
+        </button>
+        <button
+          onClick={showLiking}
+          className={
+            activePage === 'showMyRecords' ? styles.Button : styles.SecondButton
+          }
+        >
+          Liked
+        </button>
+      </Nav>
+      <div>
+        {activePage === 'showMyRecords' && <MyAdvertisedRecords />}
+        {activePage === 'showLiking' && <LikedRecords />}
+      </div>
+    </div>
+  );
+}
 export default MyRecords;

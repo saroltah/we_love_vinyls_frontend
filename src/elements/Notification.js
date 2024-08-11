@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import Toast from 'react-bootstrap/Toast';
-import styles from "../styles/Notification.module.css";
+import styles from '../styles/Notification.module.css';
 
 //Notification shown for succesful or failed functions
-function Notification({message, onClose}) {
-const [show, setShow] = useState(true)
+function Notification({ message, onClose }) {
+  const [show, setShow] = useState(true);
 
-useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
-    setShow(false);
-    if (onClose) onClose();
-}, 3000);
-return () => clearTimeout(timer);
-}, []);
+      setShow(false);
+      if (onClose) onClose();
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className = {styles.Container}>
-    <Toast
-    show={show}
-    onClose={()=> setShow(false)}
-    delay = {3000}
-    autohide
-    className = {styles.Notification}>
-      <Toast.Body>{message}</Toast.Body>
-    </Toast>
+    <div className={styles.Container}>
+      <Toast
+        show={show}
+        onClose={() => setShow(false)}
+        delay={3000}
+        autohide
+        className={styles.Notification}
+      >
+        <Toast.Body>{message}</Toast.Body>
+      </Toast>
     </div>
   );
 }
