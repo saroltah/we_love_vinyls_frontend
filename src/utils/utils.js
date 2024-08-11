@@ -13,7 +13,9 @@ export const fetchMoreData = async (resource, setResource) => {
           : [...acc, cur];
       }, prevResource.results),
     }));
-  } catch (err) {}
+  } catch (err) {
+    console.error('Error:', err);
+  }
 };
 
 export const setTokenTimestamp = (data) => {

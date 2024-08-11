@@ -46,7 +46,7 @@ const EditPassword = () => {
       setShowNotification(true);
       setNotificationMesssage('Password updated successfully!');
     } catch (err) {
-      //console.log(err);
+      console.log(err);
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
       setErrors(err.response?.data);

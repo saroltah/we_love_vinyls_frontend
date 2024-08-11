@@ -53,7 +53,7 @@ function EditMarket() {
             })
           : history.push('/');
       } catch (err) {
-        //console.log(err);
+        console.log(err);
       }
     };
 
@@ -89,7 +89,7 @@ function EditMarket() {
     } catch (err) {
       showNotification(true);
       setNotificationMesssage('ERROR! Try again!');
-      //console.log(err);
+      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

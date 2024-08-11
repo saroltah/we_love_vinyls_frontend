@@ -45,7 +45,7 @@ function AddComment(props) {
     } catch (err) {
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
-      //console.log(err);
+      console.log(err);
     }
   };
 

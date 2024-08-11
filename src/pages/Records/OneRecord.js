@@ -31,7 +31,7 @@ function OneRecord() {
         setRecord({ results: [record] });
         setComments((prevState) => ({ ...prevState, results: [...comments] }));
       } catch (err) {
-        //console.log(err);
+        console.log(err);
       }
     };
 

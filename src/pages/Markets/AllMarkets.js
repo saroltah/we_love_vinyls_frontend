@@ -34,18 +34,19 @@ function AllMarkets({ message, filter, showDropdown = true }) {
         <>
           {markets.results.length > 0 ? (
             <InfiniteScroll
-              children={markets.results.map((market) => (
-                <ShowMarket
-                  key={market.id}
-                  {...market}
-                  setMarkets={setMarkets}
-                />
-              ))}
-              dataLength={markets.results.length}
-              loader={<Loading />}
-              hasMore={!!markets.next}
-              next={() => fetchMoreData(markets, setMarkets)}
-            />
+            dataLength={markets.results.length}
+            loader={<Loading />}
+            hasMore={!!markets.next}
+            next={() => fetchMoreData(markets, setMarkets)}
+          >
+            {markets.results.map((market) => (
+              <ShowMarket
+                key={market.id}
+                {...market}
+                setMarkets={setMarkets}
+              />
+            ))}
+          </InfiniteScroll>
           ) : (
             <div>
               <p className={styles.Message}>{message || 'No markets found'}</p>

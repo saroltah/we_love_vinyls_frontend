@@ -58,8 +58,8 @@ function LogIn() {
         </Form.Group>
         {errors.username?.map((message, i) => (
           <Alert
-            key={i}
-            variant='danger'
+          variant='danger'
+          key={i}
           >
             {message}
           </Alert>
@@ -76,14 +76,13 @@ function LogIn() {
         </Form.Group>
         {errors.password?.map((message, i) => (
           <Alert
-            key={i}
-            variant='danger'
-          >
+          variant='danger'
+          key={i}
+        >
             {message}
           </Alert>
         ))}
         <button
-          variant='primary'
           type='submit'
           className={styles.Button}
         >
@@ -91,8 +90,8 @@ function LogIn() {
         </button>
         {errors.non_field_errors?.map((message, i) => (
           <Alert
-            key={i}
             variant='danger'
+            key={i}
           >
             {message}
           </Alert>

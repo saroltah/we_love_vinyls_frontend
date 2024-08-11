@@ -89,7 +89,7 @@ function AddRecord() {
       setShowNotification(true);
       setNotificationMesssage('Record added successfully!');
     } catch (err) {
-      //console.log(err);
+      console.log(err);
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
       if (err.response?.status !== 401) {

@@ -67,7 +67,7 @@ const ShowRecord = (props) => {
     } catch (err) {
       setShowNotification(true);
       setNotificationMesssage('ERROR! Try again!');
-      //console.log(err);
+      console.log(err);
     }
   };
 
@@ -87,7 +87,7 @@ const ShowRecord = (props) => {
         }),
       }));
     } catch (err) {
-      //console.log(err);
+      console.log(err);
     }
   };
 
@@ -107,7 +107,7 @@ const ShowRecord = (props) => {
         }),
       }));
     } catch (err) {
-      //console.log(err);
+      console.log(err);
     }
   };
 

@@ -34,18 +34,19 @@ function AllRecords({ message, filter, showDropdown = true }) {
         <>
           {records.results.length > 0 ? (
             <InfiniteScroll
-              children={records.results.map((record) => (
-                <ShowRecord
-                  key={record.id}
-                  {...record}
-                  setRecords={setRecords}
-                />
-              ))}
-              dataLength={records.results.length}
-              loader={<Loading />}
-              hasMore={!!records.next}
-              next={() => fetchMoreData(records, setRecords)}
-            />
+            dataLength={records.results.length}
+            loader={<Loading />}
+            hasMore={!!records.next}
+            next={() => fetchMoreData(records, setRecords)}
+          >
+            {records.results.map((record) => (
+              <ShowRecord
+                key={record.id}
+                {...record}
+                setRecords={setRecords}
+              />
+            ))}
+          </InfiniteScroll>
           ) : (
             <div>
               <p className={styles.Message}>{message || 'No records found'}</p>
