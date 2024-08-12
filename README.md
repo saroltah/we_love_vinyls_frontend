@@ -387,17 +387,28 @@ Log in error test:
 
 <br>
 9. Add current user context
+
 10. Set up interceptors
+
 11. Add more links to the menu
+
 12. Add log-out option
+
 13. Add a profile photo to the menu
+
 14. Fix the hamburger menu
+
 15. Create Add_records and Add_markets form and set up axios
-17. Create One_market and One_record page.
-19. Set up utils.
-20. Create Show_market and Show_record page.
-22. Add like and attendance.
-23. Add filters - My_markets and My_records pages.
+
+16. Create One_market and One_record page.
+
+17. Set up utils.
+
+18. Create Show_market and Show_record page.
+
+19. Add like and attendance.
+
+20. Add filters - My_markets and My_records pages.
 
 I created files (GetMarketList and GetRecordList) to get all the API details. I put them in the hooks folder, which made the most sense by usage.
 
@@ -405,25 +416,25 @@ I created the All_records and All_markets files, which lists all the data accord
 
 First, I wanted to call my Like model as a filter, but that would have required a different API call. So, instead, I added the liking_members detail to the records filter in the back-end so I could reuse my API call and All_records file.   
 
-24. Create separate Liked_record and Attended_markets pages .
-25. Set up Search function
-26. Create the dropdown for deleting and editing options
-27. Add edit Record and edit Market page.
-28.  Add Comment section
-29. Set up user profile
-30. Add Advertised_records section
-31. Add Organized_markets section
-30. I started styling at this point.. starting with the structure and layout of the elements
-31. Create a toggle for Adding a record  or a market
-32. Add edit and delete comment options
+21. Create separate Liked_record and Attended_markets pages .
+22. Set up Search function
+23. Create the dropdown for deleting and editing options
+24. Add edit Record and edit Market page.
+25.  Add Comment section
+26. Set up user profile
+27. Add Advertised_records section
+28. Add Organized_markets section
+29. I started styling at this point.. starting with the structure and layout of the elements
+30. Create a toggle for Adding a record  or a market
+31. Add edit and delete comment options
 
 
  ### Add details, functions, and optimization:
 
-33. Add icons
-34. Add showDropdown functionality so I can only see the Add-toggle on the relevant pages
-35. Add back buttons, to go back to the previous page
-36. Set up “active page”
+32. Add icons
+33. Add showDropdown functionality so I can only see the Add-toggle on the relevant pages
+34. Add back buttons, to go back to the previous page
+35. Set up “active page”
 <br>
 When the active page is “My markets”:
 <br>
@@ -436,7 +447,7 @@ When the active page is “Going”:
 ![active page 2](</readme/assets/active-page-going.png>)
 <br>
 
-37. Set up a condition for record and market titles that they only should be clickable in a list, but when we open them, they shouldn’t
+36. Set up a condition for record and market titles that they only should be clickable in a list, but when we open them, they shouldn’t
 <br>
 Before link conditional:
 <br>
@@ -451,20 +462,20 @@ After link conditional:
 ![after link conditional ](</readme/assets/after-link-conditional.png>)
 <br>
 
-38. Add Infinite Scroll
+37. Add Infinite Scroll
 
 There is no pagination yet, so it does not make much sense, but when I add pagination, it will work fine!
 
-39. Add title and favicon
-40. Separate bootstrap import by their own folder
-41.Delete unnecessary files and imports
-42. Add active class to the main menu 
-43. Add comments to some functions, where the naming might not be clear, to describe what they are for.
-44.  Change namings.
+38. Add title and favicon
+39. Separate bootstrap import by their own folder
+40.Delete unnecessary files and imports
+41. Add active class to the main menu 
+42. Add comments to some functions, where the naming might not be clear, to describe what they are for.
+43.  Change namings.
 I’ve read, that ”Every event uses a camelCase naming convention, and the handler function they run is prefixed with "handle", followed by the event name.” [freeCodeCamp](https://www.freecodecamp.org/news/how-to-handle-events-in-react-19/)
-45. Add notifications for successful and failed actions.
-46. Correct format, validate
-47. Final deploy
+44. Add notifications for successful and failed actions.
+45. Correct format, validate
+46. Final deploy
 
 <br>
 Success notification:
@@ -876,15 +887,15 @@ Set up a condition for the url:
 9. Comment doesn’t show. Needed to add this: setComments(prevState => ({...prevState, results: [...comments] })). 
 Plus, sort out record and commented_record names.
 
-13. I couldn’t call the profile from the records or market page because the backend serializers only set up the username, not the ID. Solution: I also added the ID.
+10. I couldn’t call the profile from the records or market page because the backend serializers only set up the username, not the ID. Solution: I also added the ID.
 
-14. I wanted to add the My Records page to the Profile page, to show the records the person advertised, but that showed the current user’s records. So I created a new advertised records page, where I forwarded the user’s ID as a prop.
+11. I wanted to add the My Records page to the Profile page, to show the records the person advertised, but that showed the current user’s records. So I created a new advertised records page, where I forwarded the user’s ID as a prop.
 
-15. The image didn’t show... I needed to add the image to the serializers, too. 
+12. The image didn’t show... I needed to add the image to the serializers, too. 
 
-17. Dislike is not working… Needed to add like_id to serializers
+13. Dislike is not working… Needed to add like_id to serializers
 
-18. I logged out, but keeps me from logging in.. so temporarily deleted the redirection… in my back-end views, I didn’t import the refresh token.
+14. I logged out, but keeps me from logging in.. so temporarily deleted the redirection… in my back-end views, I didn’t import the refresh token.
 
 
 
