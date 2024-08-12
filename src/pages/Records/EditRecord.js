@@ -18,7 +18,7 @@ function EditRecord() {
     artist: '',
     title: '',
     genre: '',
-    tracklist: '',
+    track_list: '',
     condition: '',
     released: '',
     location: '',
@@ -30,7 +30,7 @@ function EditRecord() {
     artist,
     title,
     genre,
-    tracklist,
+    track_list,
     condition,
     released,
     location,
@@ -51,7 +51,7 @@ function EditRecord() {
           artist,
           title,
           genre,
-          tracklist,
+          track_list,
           condition,
           released,
           location,
@@ -66,7 +66,7 @@ function EditRecord() {
               artist,
               title,
               genre,
-              tracklist,
+              track_list,
               condition,
               released,
               location,
@@ -109,7 +109,7 @@ function EditRecord() {
     formData.append('artist', artist);
     formData.append('title', title);
     formData.append('genre', genre);
-    formData.append('tracklist', tracklist);
+    formData.append('track_list', track_list);
     formData.append('condition', condition);
     formData.append('released', released);
     formData.append('location', location);
@@ -286,18 +286,18 @@ function EditRecord() {
           </Alert>
         ))}
 
-        <Form.Group controlId='TrackListID'>
+        <Form.Group controlId='Track_ListID'>
           <Form.Label>Track List</Form.Label>
           <Form.Control
             as='textarea'
             rows={3}
-            name='tracklist'
-            value={tracklist}
+            name='track_list'
+            value={track_list}
             onChange={handleRecordDetailsChange}
             placeholder='e.g. 1. Song1 2. Song2'
           />
         </Form.Group>
-        {errors?.tracklist?.map((message, idx) => (
+        {errors?.track_list?.map((message, idx) => (
           <Alert
             variant='danger'
             key={idx}
