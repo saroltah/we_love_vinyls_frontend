@@ -41,7 +41,7 @@ function OneRecord() {
   return (
     <div>
       <button
-        onClick={() => history.goBack()}
+        onClick={() => history.push("/records")}
         className={styles.BackButton}
       >
         Back to records

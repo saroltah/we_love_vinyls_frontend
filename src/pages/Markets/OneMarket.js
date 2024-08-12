@@ -29,7 +29,7 @@ function OneMarket() {
   return (
     <div>
       <button
-        onClick={() => history.goBack()}
+        onClick={() => history.push("/markets")}
         className={styles.BackButton}
       >
         Back to markets
