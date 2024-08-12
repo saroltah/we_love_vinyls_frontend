@@ -47,7 +47,7 @@ Choosing yellow color:
 - I used a mobile-first design, then made it responsive.
 - I used Bootstrap and CSS design too.
 - I tried to be as consistent as possible, so I attached more elements to the same file with the same ClassName so I don’t have to repeat myself.
-I designed in the following order: After my code was mostly ready, I set up the structure for mobiles and made it responsive. Then, I added colors and fonts. I left design at last because, without all the ClassNames and styling elements, the code was cleaner and easier to read. Also, I prioritized working features over style.
+I designed in the following order: After my code was mostly ready, I set up the structure for mobiles and made it responsive. Then, I added colors and fonts. I left design at last because, without all the ClassNames and styling elements, the code was cleaner and easier to read. Also, I prioritized working on features over style.
 
 <br>
 Styling the structure first: 
@@ -105,9 +105,9 @@ I provided acceptance criteria also for my user stories.
 As my project involved, I changed some prioritization, but this is the original version of my plans and user stories:
 
 
-**User stories:**
+### User stories:
 
-**Must have**:
+#### Must have:
 
 **Authentication: Sign up:** As a user, I can sign up to use all the website's features.
 
@@ -130,7 +130,7 @@ As my project involved, I changed some prioritization, but this is the original 
  **Admin: Supervision:** As an admin, I want to supervise the profile and content from the admin panel, so I can remove inappropriate content.
 
 
-**Should have** 
+#### Should have 
 
 **Authentication: Forgotten password:** As a user, I can reset my password if I forget it.
 
@@ -154,7 +154,7 @@ As my project involved, I changed some prioritization, but this is the original 
 
 **Miscellaneous: Error messages:** As a user, I want to receive error messages if something goes wrong so I know what went wrong.
 
- **Could have**
+#### Could have
 
 **Authentication: Sign up with social media:** As a user I want to sign up with my social media account, so it is so much quicker.
 
@@ -169,7 +169,7 @@ As my project involved, I changed some prioritization, but this is the original 
 **Profile: Messages:** As a user, I want to send private messages about the record I want to buy.
 
 
-**won’t have**
+#### won't have
  
 Initially, I didn’t put anything here, just as the project involved. In the end, I put here the following, because I had no time to implement them:
 
@@ -199,6 +199,10 @@ First, I wanted to separate them, but they connected so much that it made more s
 - Edit own profile details
 - Upload profile photo (change the default)
 - Change password
+- See how many records the user liked
+- See how many markets the user go to
+- See the list of markets the user uploaded
+- See the list of records the user uploaded
 
 **Records**
 
@@ -210,9 +214,10 @@ First, I wanted to separate them, but they connected so much that it made more s
 - Dislike a record
 - Comment on a record - edit and delete the comment.
 - Search for a record by artist or title
-- See the records the user liked
 - See the number of likes of a record
 - See the number of comments on a record
+- There is separate myRecords page for the user to see the records they liked, and records they uploaded (without changing URL).
+- The +Add Record form can be opened from several pages (where it is relevant).
 
 **Markets**
 
@@ -223,8 +228,9 @@ First, I wanted to separate them, but they connected so much that it made more s
 - Mark your attendance on the market
 - Delete your attendance on that market
 - See the number of people attending on that market
-- Filter a market by country and city
-- See the markets the user attends on
+- Filter a market by country and 
+- There is separate myMarkets page for the user to see the records they liked, and records they uploaded (without changing URL)
+- The +Add Market form can be opened from several pages (where it is relevant).
 
 **Admin functions**
 
@@ -241,7 +247,18 @@ First, I wanted to separate them, but they connected so much that it made more s
 - Error message sent when a field can not be left empty
 - Error message when the data format is not correct
 
--Success or error messages for: Adding/editing/Deleting records, Adding/Editing/Deleting market, Adding a comment
+**Other**:
+
+- The color changing design help the user to navigate on the page, and have a smooth user experience.
+
+- The spinner helps the user to see, that the page is loading 
+
+- The emojis make it fun and friendly. 
+
+- Success or error messages for: Adding/editing/Deleting records, Adding/Editing/Deleting market, Adding a comment
+
+- There are back buttons to bring you back to the previous page
+
 
 #### In progress (I had no time for it)
 
@@ -251,8 +268,8 @@ First, I wanted to separate them, but they connected so much that it made more s
 - Add pagination
 - Optimize Performance 
 - Add more success and error messages
-- The one market page is shown if the ID is not seen; also, it is just an empty form. I want to build logic to check if ID exists, otherwise, send it to the page-not-found page.
-- If the ID is not seen, the one record page is shown; it is just an empty form. I want to build logic to check if the ID exists; otherwise, it should be sent to the page-not-found page.
+- The One market page is shown if the ID is not seen, it is just an empty form. I want to build logic to check if ID exists, otherwise, send it to the page-not-found page.
+- The One Record page is shown if the ID is not seen, it is just an empty form. I want to build logic to check if the ID exists; otherwise, it should be sent to the page-not-found page.
 
 ### Future features
 
@@ -308,18 +325,16 @@ First, I wanted to separate them, but they connected so much that it made more s
 
 5. On the resources tab choose your plan (eco dinos). Verify that there is no existing Postgres database add-on, if so, click on Delete Add-on.
 
-6. After having static files, always run the collectstatic command before deployment.
-
-7. If any error occurs, can see the deployment log - on the top right side click on more, and choose view vlogs. Otherwise, view app.
+6. If any error occurs, can see the deployment log - on the top right side click on more, and choose view vlogs. Otherwise, view app.
 
 
 ## Work progress
 
 I followed the agile methods and MoSCoW labeling - must have, should have, could have, and won't have. I prioritized and did first what was most important, then left the less important things to the end, setting up the won't have features as future features.
 
-I started with the backend, since that is the base of the app, moved to the front end, and left styling for the end since I prioritized working features over style.
+I started with the backend, since that is the base of the app, moved to the front end, and left styling for the end since I prioritized working on features over style.
 
-I was continuously making notes, so I wrote down new ideas, what was working, what was not, and where I needed to return. Where I met with an error I couldn't handle, rather moved on due to the time frame I had and decided to return later.
+I was continuously making notes, so I wrote down new ideas, what was working, what was not, and where I needed to return.
 
 I always opened dev tools and source code to check how the data returned, look for different details, or try out different styles. 
 The “Network” feature helped me the most with debugging, as I could follow requested and received data. I also tested lots of data with console.log.
@@ -468,7 +483,7 @@ There is no pagination yet, so it does not make much sense, but when I add pagin
 
 38. Add title and favicon
 39. Separate bootstrap import by their own folder
-40.Delete unnecessary files and imports
+40. Delete unnecessary files and imports
 41. Add active class to the main menu 
 42. Add comments to some functions, where the naming might not be clear, to describe what they are for.
 43.  Change namings.
@@ -544,16 +559,19 @@ imports:
 
 - Corrected format with [Prettier](https://prettier.io/playground/)
 
-Corrected React errors with  [Eslint](https://eslint.org/)
-I tried first eslint, but it didn’t let to deploy my code, so I deleted it and asked for tutor help to set it up. 
+- Corrected React errors with  [Eslint](https://eslint.org/)
+
+When I first tried eslint, it didn’t let my code deploy, so I deleted it and asked for tutor help to set it up. 
 Just to be sure, I made a new branch - eslint, so it doesn’t mess up my code, I installed it there.
-It shows errors for the console.log(err)-s, because I commented them out. So they are not used but defined.
+It showed errors for the console.log(err)-s, because I commented them out. So they are not used but defined.
 I deleted the comment-outs, and it showed no error. 
 I want to leave the commented-out console.log-s for easier error handling in case it is needed, so that is the “error” in my code.
 
 Eslint was not compatible with my node, so I upgraded the node for the time the validation was going on, and then I deleted eslint; otherwise, it caused an error in my deployment. 
 
-There were only a few errors, so I compared my eslint branch and main branch and corrected the main code by hand according to the eslint branch. 
+Also It said I need to change ReactDOM rended in my index.js to createRoot, - i did, but when I changed back older version node, it was not compatible anymore.
+
+Since there were only a few relevant errors, I compared my eslint branch and main branch and corrected the main code by hand according to the eslint branch. 
 
 You can see both branches in my GitHub, but since eslint caused many problems in my branch code, I didn’t want to pull it into my main code, so I chose to correct it by hand.
 
@@ -586,7 +604,7 @@ Authentication:
 What to do | How to do | Expected outcome | Actual outcome
 | :--- | :--: | :--: | :--:
 | Open the page | Click on the URL | It shows the homepage |  It shows the homepage
-| Log in | Click on log in page, fill out login details, click on log in |  It brings you to the homepage |  It shows the login page | It brings you to the homepage
+| Log in | Click on log in page, fill out login details, click on log in |  It brings you to the homepage | It brings you to the homepage
 | Log in with wrong details | Fill in the wrong username & password, click on Login |  It shows me an error message | It shows me an error message, it says: "Unable to log in with provided credentials."
 | Log in with missing details | leave username empty, click on Log in |  It shows me an error message |  It shows me an error message "Must include \"username\" and \"password\"."
 | Log in without password | Fill in the username, click on Log in |  It shows me an error message | Error message: "This field may not be blank."
@@ -614,13 +632,13 @@ What to do | How to do | Expected outcome | Actual outcome
 | Edit market if I am the organizer| I click on gear emoji, then click on edit emoji,  fill in the details, and save |  It shows me a success message and shows the edited market |   It shows me a success message and shows the edited market
 | Delete market if I am the organizer | I click on gear emoji, then click on delete emoji |  It shows a success message and redirects to the market list page  |  It shows a success message and redirects to the market list page 
  | Edit market if I am not the organizer| No gear emoji is shown |  No gear or edit emoji |  No gear or edit emoji
-| Delete market if I am not the organizer | No gear or edit emoji | No gear or edit emoji  |  No gear or edit emoji 
+| Delete market if I am not the organizer | No gear or delete emoji | No gear or delete emoji  |  No gear or delete emoji 
 | Search market | I go to the market list page, type city or country in the search field | It shows match or No markets found message |  It shows match or No markets found message
 | Case insensitive search | I fill out country and city name with small letters only | I see the same results |  I see the same results
 | See my uploaded markets | I go to My Markets, and click on My markets | I see the markets I uploaded or message, no markets to show |  I see the markets I uploaded, or message, no markets to show 
 | See the markets I attend at | I go to My Markets, and click on Going | I see the markets I marked to attend, or it says no markets to show| I see the markets I marked to attend or it says no markets show
 | See how many people going to a market | I look at the market’s details | I see an emoji with a number | I see an emoji with a number
-| Attend on the market | I click on the emoji | The emoji lifts its hand, and the number grows with one. I can also find this market on my markets page | The emoji lifts its hand, and the number grows with one. I can find this market on my markets page, too
+| Attend on the market | I click on the emoji | The emoji lifts its hands, and the number grows with one. I can also find this market on my markets page | The emoji lifts its hands, and the number grows with one. I can find this market on my markets page, too
 | Unattend on a market | I click on the emoji | The emoji puts down its hands, and the number decreases with one. I can not find this market on my market page anymore | The emoji puts down its hands, and the number decreases with one. I can not find this market on my market page anymore
 | Attend on a market without logging in | I click on the emoji | The emoji says I need to log in to attend | The emoji says I need to log in to attend
 | Attend on my own market | I click on the emoji | The emoji says I can’t change the attendance on my market | The emoji says I can’t change the attendance on my market
@@ -682,12 +700,12 @@ What to do | How to do | Expected outcome | Actual outcome
 | Edit record if I am the organizer| I click on gear emoji, then click on edit emoji,  fill in the details and save |  It shows me a success message and shows the edited record |   It shows me a success message and shows the edited record
 | Delete record if I am the organizer | I click on gear emoji, then click on delete emoji |  It shows a success message and redirects to the record list page  |  It shows a success message and redirects to the record list page 
  | Edit record if I am not the organizer| No gear emoji is shown |  No gear or edit emoji |  No gear or edit emoji
-| Delete record if I am not the organizer | No gear or edit emoji | No gear or edit emoji  |  No gear or edit emoji 
+| Delete record if I am not the organizer | No gear or delete emoji | No gear or delete emoji  |  No gear or delete emoji 
 | Search record | I go to the record list page, type city or country in the search field | It shows match or No records found message |  It shows match or No records found message
 | Case insensitive search | I fill out artist or title with small letters only | I see the same results |  I see the same results
-| See my uploaded records s | I go to My records, and click on My records | I see the records I uploaded or message, no records to show |  I see the records I uploaded, or message, no records to show 
+| See my uploaded records | I go to My records, and click on My records | I see the records I uploaded or message, no records to show |  I see the records I uploaded, or message, no records to show 
 | See the records I like | I go to My records, and click on Liked | I see the records I liked, or it says no records to show | I see the records I liked or it says no records to show
-| See how many people like to a record | I look at the record’s details | I see a heart  emoji with a number | I see a heart emoji with a number
+| See how many people liked a record | I look at the record’s details | I see a heart  emoji with a number | I see a heart emoji with a number
 | See how many people commented on the  record | I look at the record’s details | I see a bubble  emoji with a number | I see a bubble emoji with a number
 | Like a record | I click on the heart emoji | The emoji turns red, and the number grows with one. I can find this record on my records page, too | The emoji turns to red, and the number grows with one. I can find this record on my records page, too
 | Dislike a record | I click on the emoji | The emoji turns white, and the number decreases with one. I can no longer find this record on my record page | The emoji turns white, and the number decreases with one. I can not find this record on my record page anymore.
@@ -752,7 +770,7 @@ Users:
 What to do | How to do | Expected outcome | Actual outcome
 | :--- | :--: | :--: | :--:
 | See my profile | Click on my photo and name in the menu |  I see my profile |  I see my profile
-| See others’ profile | Click on my photo and name next to market title/record title or comment |  I see their profile |  I see their profile
+| See others’ profile | Click on the photo and name next to market title/record title or comment |  I see their profile |  I see their profile
 | Edit my profile | Click on the gear emoji and edit emoji, fill out the form, and click on edit profile |  I get a success message, and I see my edited profile |  I get a success message, and I see my edited profile
 | I don’t want to continue editing my profile | Click on the back button |  It brings me back to my profile view |  I brings me back to my profile view
 | Change password | Click on gear emoji and locket emoji, fill out the form, and click on save password |  I get a success message, and go back to my profile |  I get a success message, and go back to my profile
@@ -802,7 +820,7 @@ What to do | How to do | Expected outcome | Actual outcome
 | :--- | :--: | :--: | :--:
 | Go to a page that does not exist | I type random letters to the URL |  It shows page not found | It shows page not found
 | There is a spinner shown when the page is loading | I open the records or markets page |  It shows the spinner | It shows the spinner
-| When I am logged in, I can’t access them in or sign up page | I log in and add signup/login to the URL |  It redirects to the homepage | It redirects to the homepage
+| When I am logged in, I can’t access log in or sign up page | I log in and add signup/login to the URL |  It redirects to the homepage | It redirects to the homepage
 
 <br>
 Page does not exist:
@@ -895,8 +913,7 @@ Plus, sort out record and commented_record names.
 
 13. Dislike is not working… Needed to add like_id to serializers
 
-14. I logged out, but keeps me from logging in.. so temporarily deleted the redirection… in my back-end views, I didn’t import the refresh token.
-
+14. I logged out, but keeps me logged in.. I didn’t import the refresh token.
 
 
 **Known bugs:**
@@ -911,7 +928,7 @@ The readme setup can have similarities with my [Ghost Stories](https://github.co
 
 I also share ReadMe content with the [back-end](https://saroltah-welovevinyls-5bfk7p5h7j9.ws.codeinstitute-ide.net/) side of my project.
 
-These code snippets are written by [chatGPT](https://openai.com/chatgpt/): 
+[chatGPT](https://openai.com/chatgpt/) helped me to write these code snippets: 
 
 1. if (Array.isArray(data)) {
           setRecords({ results: data });
@@ -955,9 +972,9 @@ All market details are just made up and not valid! No real markets are organized
 
 - man in sunglasses: Photo by [Andrea Dibitonto](https://unsplash.com/@andrea_dibi?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/man-wearing-blue-denim-top-and-black-sunglasses-PsJhobbfqkA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
-- woman in sunglasses: [Tamara Bellis] (https://unsplash.com/@tamarabellis?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [unsplash](https://unsplash.com/photos/selective-focus-photography-of-woman-d7CK4t8Lz6s?utm_content=creditCopyText&utm_medium=referral&utm_source)
+- woman in sunglasses: [Tamara Bellis](https://unsplash.com/@tamarabellis?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [unsplash](https://unsplash.com/photos/selective-focus-photography-of-woman-d7CK4t8Lz6s?utm_content=creditCopyText&utm_medium=referral&utm_source)
 
-- dog photo: [Caleb Fishera ](href="https://unsplash.com/@calebjamesfisher?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/selective-focus-photography-of-golden-labrador-retriever-pgUbpDLJh3E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+- dog photo: [Caleb Fishera](href="https://unsplash.com/@calebjamesfisher?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/selective-focus-photography-of-golden-labrador-retriever-pgUbpDLJh3E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
 Icons:
 [Font awesome](https://fontawesome.com/)
@@ -969,6 +986,8 @@ Loading circles:
 
 **fonts**:
 
+[Google fonts](https://fonts.google.com/)
+
 -font families: 
 
 [Edu Australia VIC WA NT Hand](https://fonts.google.com/specimen/Edu+VIC+WA+NT+Beginner?preview.text=welcome%20to%20vinyl%20heaven%20Going%20Add%20record&classification=Handwriting)
@@ -976,4 +995,4 @@ Loading circles:
 [Roboto](https://fonts.google.com/specimen/Roboto)
 
 
-Special thanks to Code Institute tutor support for helping out with troubleshooting.
+Special thanks to Code Institute for the tutor support that helped me out with troubleshooting (shoutout for Sarah), and for the walktrough projects, that set examples and guidelines. 
