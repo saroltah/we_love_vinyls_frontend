@@ -22,7 +22,7 @@ const ShowRecord = (props) => {
     advertiser,
     artist,
     title,
-    track_list,
+    tracklist,
     created,
     condition,
     image,
@@ -171,8 +171,8 @@ const ShowRecord = (props) => {
             <span className={styles.DetailsTitle}>Title:</span> {title}
           </p>
           <p>
-            <span className={styles.DetailsTitle}>Track list:</span>{' '}
-            {track_list}
+            <span className={styles.DetailsTitle}>Track list:</span>
+            {trackslist}
           </p>
           <p>
             <span className={styles.DetailsTitle}>Year:</span> {released}
