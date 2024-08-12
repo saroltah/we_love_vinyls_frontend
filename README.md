@@ -14,7 +14,7 @@ We love vinlys is an online platform dedicated to the buying, selling, and tradi
 - Convenient Trading and Selling: Users can easily sell or trade their vinyl records, helping them to refresh their collection .
 - Event Information: The site offers information about local and international vinyl markets and events, giving users opportunities to engage in person, expand their network, and enjoy the vinyl community experience.
 - Diverse Collection: With a wide range of genres and eras represented, users can explore and expand their musical horizons.
-- Trust and Security: The platform ensures secure transactions and trusted interactions, providing peace of mind for buyers and sellers.
+
 
 #### Design
 
@@ -906,6 +906,10 @@ none
 ## Credits and sources
 
 ### Content:
+
+The readme setup can have similarities with my [Ghost Stories](https://github.com/saroltah/ghost_stories) project. I used my previous project as inspiration.
+
+I also share ReadMe content with the [back-end](https://saroltah-welovevinyls-5bfk7p5h7j9.ws.codeinstitute-ide.net/) side of my project.
 
 These code snippets are written by [chatGPT](https://openai.com/chatgpt/): 
 
