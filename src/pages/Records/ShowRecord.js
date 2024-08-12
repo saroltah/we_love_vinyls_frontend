@@ -172,7 +172,7 @@ const ShowRecord = (props) => {
           </p>
           <p>
             <span className={styles.DetailsTitle}>Track list:</span>
-            {trackslist}
+            {tracklist}
           </p>
           <p>
             <span className={styles.DetailsTitle}>Year:</span> {released}
