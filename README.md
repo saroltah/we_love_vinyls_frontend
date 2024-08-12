@@ -26,7 +26,7 @@ Wireframe:
 
 ![wireframe](</readme/assets/wireframe.png>)
 <br>
-- **Colors:** I chose the colors with colorpicker form the photo and emoji.
+- **Colors:** I chose the colors with colorpicker form the photo and emoji. For me yellow color has a retro vibe, altough it is neutral towards genders or styles. And red complements it pretty nice.
 <br>
 Choosing red color: 
 <br>
@@ -345,11 +345,11 @@ Debugging with console.log:
 Debugging with dev tools Network:
 <br>
 
-![Debug on network](</readme/assets/debug-on-network-1>)
+![Debug on network](</readme/assets/debug-on-network-1.png>)
 
 <br>
 
-![Debug on network](</readme/assets/debug-on-network-2>)
+![Debug on network](</readme/assets/debug-on-network-2.png>)
 
 <br>
 
@@ -461,7 +461,7 @@ There is no pagination yet, so it does not make much sense, but when I add pagin
 42. Add active class to the main menu 
 43. Add comments to some functions, where the naming might not be clear, to describe what they are for.
 44.  Change namings.
-I’ve read, that ”Every event uses a camelCase naming convention, and the handler function they run is prefixed with "handle", followed by the event name.” (freeCodeCamp)[https://www.freecodecamp.org/news/how-to-handle-events-in-react-19/]
+I’ve read, that ”Every event uses a camelCase naming convention, and the handler function they run is prefixed with "handle", followed by the event name.” [freeCodeCamp](https://www.freecodecamp.org/news/how-to-handle-events-in-react-19/)
 45. Add notifications for successful and failed actions.
 46. Correct format, validate
 47. Final deploy
@@ -808,6 +808,7 @@ Loading spinner:
 <br>
 
 <br>
+
 **Lighthouse checks for desktop devices:**
 
 **Desktop:**
@@ -818,8 +819,11 @@ Loading spinner:
 <br>
 
 Performance: 72%
+
 Accessibility:96%
+
 Best practices:93%
+
 SEO:100%
 
 **Mobile:**
@@ -830,8 +834,11 @@ SEO:100%
 <br>
 
 Performance: 53%
+
 Accessibility:96%
+
 Best practices:93%
+
 SEO:100%
 
 <br>
@@ -889,7 +896,7 @@ none
 
 ### Content:
 
-These code snippets are written by (chatGPT)[https://openai.com/chatgpt/]: 
+These code snippets are written by [chatGPT](https://openai.com/chatgpt/): 
 
 1. if (Array.isArray(data)) {
           setRecords({ results: data });
@@ -919,20 +926,37 @@ All market details are just made up and not valid! No real markets are organized
 - default profile picture: [undraw](https://undraw.co/)
 - default record: Photo by [Brett Jordan](https://unsplash.com/@brett_jordan?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/black-and-white-vinyl-record-hrUhyFq6u-A?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
+- Backgorund photo 1: [pixabay, Wikimediaimages](https://pixabay.com/photos/vinyl-lp-record-angle-2202325/)
+
+- Backgorund photo 2: [Unsplash, Eric Krull](https://unsplash.com/photos/black-vinyl-record-on-black-vinyl-record-fi3_lDi3qPE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash])
+
+- Skid Row album cover: [wikimedia](https://upload.wikimedia.org/wikipedia/en/e/ec/Skidrow-slavecover.jpg)
+- Bryan Adams album cover: [wikimedia](https://en.wikipedia.org/wiki/You_Want_It_You_Got_It#/media/File:Bryan_Adams_YWIYGI.jpg)
+- Mötley Crüe album cover: [wikimedia](https://upload.wikimedia.org/wikipedia/en/3/38/Motley_Crue_-_Dr_Feelgood-front.jpg)
+- Fiona album cover: [wikimedia](https://upload.wikimedia.org/wikipedia/en/e/ec/Fiona-beyondthepale1.jpg)
+- Cyindi Lauper album cover: [wikimedia](https://upload.wikimedia.org/wikipedia/en/0/09/ShesSoUnusual1984.PNG)
+- Depeche Mode album cover: [wikimedia](https://upload.wikimedia.org/wikipedia/en/4/43/Depeche_Mode_-_Construction_Time_Again.png)
+
+
+- man in sunglasses: Photo by [Andrea Dibitonto](https://unsplash.com/@andrea_dibi?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/man-wearing-blue-denim-top-and-black-sunglasses-PsJhobbfqkA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+
+- woman in sunglasses: [Tamara Bellis] (https://unsplash.com/@tamarabellis?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [unsplash](https://unsplash.com/photos/selective-focus-photography-of-woman-d7CK4t8Lz6s?utm_content=creditCopyText&utm_medium=referral&utm_source)
+
+- dog photo: [Caleb Fishera ](href="https://unsplash.com/@calebjamesfisher?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/selective-focus-photography-of-golden-labrador-retriever-pgUbpDLJh3E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+
+Icons:
+[Font awesome](https://fontawesome.com/)
+
 Upload PNG: [PNGTree](https://pngtree.com/freepng/image-upload-icon-photo-upload-icon_5279795.html)
 
 Loading circles: 
 [react-loader-spinner](https://mhnpd.github.io/react-loader-spinner/docs/components/three-circles/)
 
-Backgorund photo 1: [pixabay, Wikimediaimages](https://pixabay.com/photos/vinyl-lp-record-angle-2202325/)
-
-Backgorund photo 2: [Unsplash, Eric Krull](https://unsplash.com/photos/black-vinyl-record-on-black-vinyl-record-fi3_lDi3qPE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash])
-
-Icons:
-[Font awesome](https://fontawesome.com/)
-
 **fonts**:
--font families: [Edu Australia VIC WA NT Hand](https://fonts.google.com/specimen/Edu+VIC+WA+NT+Beginner?preview.text=welcome%20to%20vinyl%20heaven%20Going%20Add%20record&classification=Handwriting)
+
+-font families: 
+
+[Edu Australia VIC WA NT Hand](https://fonts.google.com/specimen/Edu+VIC+WA+NT+Beginner?preview.text=welcome%20to%20vinyl%20heaven%20Going%20Add%20record&classification=Handwriting)
 
 [Roboto](https://fonts.google.com/specimen/Roboto)
 
