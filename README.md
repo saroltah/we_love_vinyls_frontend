@@ -1,5 +1,5 @@
 
-Live website: [We love vinyls frontend](https://we-love-vinyls-b-74b4f31a8a78.herokuapp.com/)
+Live website: [We love vinyls frontend](https://we-love-vinyls-frontend-66f4e7fed390.herokuapp.com/)
 
 ![wireframe](</readme/assets/homepage.png>)
 
